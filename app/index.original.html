@@ -1,0 +1,1679 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover"/><script src="https://cdn.tailwindcss.com"></script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" data-precedence="default"/><title>TikTok Shop</title><meta name="format-detection" content="telephone=no"/><meta property="og:title" content="TikTok Shop"/><meta property="og:description" content="Compre com segurança e praticidade no TikTok Shop."/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="TikTok Shop"/><meta name="description" content="Compre com segurança e praticidade no TikTok Shop."/><meta name="twitter:description" content="Compre com segurança e praticidade no TikTok Shop."/><link rel="icon" href="/favicon.ico" type="image/x-icon"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2442971489550167');fbq('track','PageView');</script><style>
+                    :root {
+                        --pann-primary: hsl(347, 100%, 62%);
+                        --pann-secondary: hsl(4, 100%, 63%);
+                        --pann-warning: #f59e0b;
+                        --pann-success: #10b981;
+                        --pann-fg: #111827;
+                        --pann-border: #e5e7eb;
+                        --pann-muted: #f3f4f6;
+                        --pann-muted-fg: #6b7280;
+                        --pann-success-light: #ecfdf5;
+                    }
+                    * { box-sizing: border-box; }
+                    body {
+                        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+                        background-color: #f8f8f8;
+                        margin: 0;
+                        padding: 0;
+                        color: #111827;
+                        -webkit-tap-highlight-color: transparent;
+                    }
+                    .max-w-\\[480px\\] {
+                        max-width: 480px !important;
+                    }
+                    .mx-auto {
+                        margin-left: auto !important;
+                        margin-right: auto !important;
+                    }
+                    .aspect-square {
+                        aspect-ratio: 1 / 1 !important;
+                    }
+                    #product-carousel-slider {
+                        display: flex !important;
+                        flex-direction: row !important;
+                        flex-wrap: nowrap !important;
+                        width: 100% !important;
+                        overflow-x: auto !important;
+                        overflow-y: hidden !important;
+                        scroll-snap-type: x mandatory !important;
+                        scrollbar-width: none;
+                        -ms-overflow-style: none;
+                        -webkit-overflow-scrolling: touch;
+                    }
+                    #product-carousel-slider::-webkit-scrollbar {
+                        display: none !important;
+                    }
+                    #product-carousel-slider > div {
+                        flex: 0 0 100% !important;
+                        width: 100% !important;
+                        min-width: 100% !important;
+                        scroll-snap-align: center !important;
+                        box-sizing: border-box;
+                    }
+                    img { max-width: 100%; }
+                </style>
+                <script>
+                // === HEADER FIX: aplica estilos após hidratação do React ===
+                var _fixing = false;
+                function fixHeader() {
+                    if (_fixing) return;
+                    _fixing = true;
+                    try {
+                        var header = document.querySelector('header');
+                        if (!header) return;
+                        header.setAttribute('style', 'position:sticky;top:0;z-index:50;background:#fff;');
+                        var row = header.firstElementChild;
+                        if (!row) return;
+                        row.setAttribute('style', 'height:44px;padding:0 12px;display:flex;align-items:center;justify-content:space-between;gap:10px;box-sizing:border-box;');
+                        var children = row.children;
+                        if (children[0]) {
+                            children[0].setAttribute('style', 'padding:4px;background:none;border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;');
+                            children[0].onclick = function(e){ e.preventDefault(); e.stopPropagation(); window.location.href='/loja.html'; };
+                        }
+                        var pill = children[1];
+                        if (pill) {
+                            pill.setAttribute('style', 'flex:1;min-width:0;height:34px;background:#f2f3f5;border-radius:9999px;padding:0 12px;display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none;overflow:hidden;box-sizing:border-box;');
+                            var pillSpan = pill.querySelector('span');
+                            if (pillSpan) pillSpan.setAttribute('style', 'font-size:13.5px;color:#8a8b8e;font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1;');
+                        }
+                        var actions = children[2];
+                        if (actions) {
+                            actions.setAttribute('style', 'display:flex;align-items:center;gap:14px;flex-shrink:0;');
+                            var btns = actions.querySelectorAll('button');
+                            btns.forEach(function(b) { b.setAttribute('style', 'padding:4px;background:none;border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;'); });
+                        }
+                    } finally {
+                        _fixing = false;
+                    }
+                }
+                // Roda nos delays após hidratação (sem MutationObserver para evitar loop)
+                if (document.readyState !== 'loading') { fixHeader(); } else { document.addEventListener('DOMContentLoaded', fixHeader); }
+                document.addEventListener('DOMContentLoaded', function() {
+                    setTimeout(fixHeader, 200);
+                    setTimeout(fixHeader, 800);
+                    setTimeout(fixHeader, 2000);
+                });
+                </script><style>/* placeholder */
+                </style><script>window.ShopConfig = {"store_name":"Lu Variedades","hero_title":"TESTE MGGGGGG","store_logo":"\/uploads\/store_logo_6a612408b7f0a.jpg","store_profile":"\/assets\/bighome-logo-BXgKvfO0.png","store_cover":"","store_banner":"","store_phone":"","store_whatsapp":"","store_email":"","store_address":"","store_instagram":"","store_facebook":"","store_tiktok":"","primary_color":"hsl(347, 100%, 62%)","secondary_color":"hsl(4, 100%, 63%)","button_color":"hsl(211, 90%, 56%)","highlight_color":"#10b981","pix_discount_text":"100000%","id":166,"title":"teste","price":"1147","discount_price":"500","image":"\/uploads\/6a6254b536105_0.jpg","badge":null,"flash_sale":"","rating":"4.7","sold":"2000000","reviews_json":[],"description":"","features":[],"packing_list":[],"offer_badge":null,"stock_text":null,"promo_badge":null,"images":["\/uploads\/6a6254b536105_0.jpg"],"discount":"500","flash_sale_text":"","reviews":[],"product_name":"teste","product_image":"\/uploads\/6a6254b536105_0.jpg","carousel_images":["\/uploads\/6a6254b536105_0.jpg"],"original_price":"500","discounted_price":"1147","discount_percent":0,"savings_formatted":"R$ 0,00","checkout_url":"","store_products":[{"id":166,"title":"teste","price":"1147","discount_price":"500","image":"\/uploads\/6a6254b536105_0.jpg","badge":null,"flash_sale":"","rating":"4.7","sold":"2000000","reviews_json":[],"description":"","features":[],"packing_list":[],"offer_badge":null,"stock_text":null,"promo_badge":null,"images":["\/uploads\/6a6254b536105_0.jpg"],"discount":"500","flash_sale_text":"","reviews":[]},{"id":165,"title":"teste","price":"1147","discount_price":"500","image":"\/uploads\/6a6254b30bace_0.jpg","badge":null,"flash_sale":"","rating":"4.7","sold":"2000000","reviews_json":[],"description":"","features":[],"packing_list":[],"offer_badge":null,"stock_text":null,"promo_badge":null,"images":["\/uploads\/6a6254b30bace_0.jpg"],"discount":"500","flash_sale_text":"","reviews":[]},{"id":164,"title":"teste","price":"1147","discount_price":"500","image":"\/uploads\/6a625492dd3aa_0.jpg","badge":null,"flash_sale":"","rating":"4.7","sold":"2000000","reviews_json":[],"description":"","features":[],"packing_list":[],"offer_badge":null,"stock_text":null,"promo_badge":null,"images":["\/uploads\/6a625492dd3aa_0.jpg"],"discount":"500","flash_sale_text":"","reviews":[]},{"id":163,"title":"teste","price":"44","discount_price":"44587","image":"","badge":null,"flash_sale":"","rating":"4","sold":"4","reviews_json":[],"description":"","features":[],"packing_list":[],"offer_badge":null,"stock_text":null,"promo_badge":null,"images":[],"discount":"44587","flash_sale_text":"","reviews":[]},{"id":162,"title":"teste","price":"44","discount_price":"44587","image":"","badge":null,"flash_sale":"","rating":"4","sold":"4","reviews_json":[],"description":"","features":[],"packing_list":[],"offer_badge":null,"stock_text":null,"promo_badge":null,"images":[],"discount":"44587","flash_sale_text":"","reviews":[]},{"id":161,"title":"teste","price":"44","discount_price":"44587","image":"","badge":null,"flash_sale":"","rating":"4","sold":"4","reviews_json":[],"description":"","features":[],"packing_list":[],"offer_badge":null,"stock_text":null,"promo_badge":null,"images":[],"discount":"44587","flash_sale_text":"","reviews":[]},{"id":160,"title":"teste","price":"44","discount_price":"44587","image":"","badge":null,"flash_sale":"","rating":"4","sold":"4","reviews_json":[],"description":"","features":[],"packing_list":[],"offer_badge":null,"stock_text":null,"promo_badge":null,"images":[],"discount":"44587","flash_sale_text":"","reviews":[]},{"id":159,"title":"4","price":"4","discount_price":"4","image":"\/uploads\/6a6252a81c750_0.jpg","badge":null,"flash_sale":"","rating":"4.9","sold":"12.4K","reviews_json":[],"description":"","features":[],"packing_list":[],"offer_badge":null,"stock_text":null,"promo_badge":null,"images":["\/uploads\/6a6252a81c750_0.jpg"],"discount":"4","flash_sale_text":"","reviews":[]},{"id":158,"title":"4","price":"4","discount_price":"4","image":"\/uploads\/6a6252a7739e9_0.jpg","badge":null,"flash_sale":"","rating":"4.9","sold":"12.4K","reviews_json":[],"description":"","features":[],"packing_list":[],"offer_badge":null,"stock_text":null,"promo_badge":null,"images":["\/uploads\/6a6252a7739e9_0.jpg"],"discount":"4","flash_sale_text":"","reviews":[]},{"id":157,"title":"4","price":"4","discount_price":"4","image":"\/uploads\/6a6252a6ac858_0.jpg","badge":null,"flash_sale":"","rating":"4.9","sold":"12.4K","reviews_json":[],"description":"","features":[],"packing_list":[],"offer_badge":null,"stock_text":null,"promo_badge":null,"images":["\/uploads\/6a6252a6ac858_0.jpg"],"discount":"4","flash_sale_text":"","reviews":[]},{"id":156,"title":"4","price":"4","discount_price":"4","image":"\/uploads\/6a62528a9026d_0.jpg","badge":null,"flash_sale":"","rating":"4.9","sold":"12.4K","reviews_json":[],"description":"","features":[],"packing_list":[],"offer_badge":null,"stock_text":null,"promo_badge":null,"images":["\/uploads\/6a62528a9026d_0.jpg"],"discount":"4","flash_sale_text":"","reviews":[]},{"id":155,"title":"te","price":"66","discount_price":"89","image":"\/uploads\/6a62501ad4e96_0.jpg","badge":null,"flash_sale":"","rating":"8","sold":"8","reviews_json":[],"description":"","features":[],"packing_list":[],"offer_badge":null,"stock_text":null,"promo_badge":null,"images":["\/uploads\/6a62501ad4e96_0.jpg"],"discount":"89","flash_sale_text":"","reviews":[]}]};</script><!-- TikTok Pixel Code -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndVerify=function(t,e){for(var n=0;n<ttq.methods.length;n++)ttq[t][e[n]]=ttq[t][e[n]]||function(t){return function(){t.push([e[n]].concat(Array.prototype.slice.call(arguments,0)))}}(t)};for(var e=0;e<ttq.methods.length;e++)ttq.setAndVerify(ttq,ttq.methods[e]);ttq.instance=function(t){for(var e=ttq.methods,n=0;n<e.length;n++)ttq.setAndVerify(t,e[n]);return t},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._t[e]._p=n||{},ttq._t[e]._i=ttq._i[e];var o=d.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=d.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+  ttq.load('D9QVVQ3C77U97D5QE3LG');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<script>
+(function() {
+    window.goToCheckout = function() {
+        var sc = window.ShopConfig || {};
+        var pid = sc.id || sc.product_id || '';
+        if (!pid) {
+            var match = window.location.pathname.match(/produto-(\d+)/) || window.location.search.match(/id=(\d+)/);
+            if (match && match[1]) pid = match[1];
+        }
+
+        var h1El = document.querySelector('h1');
+        var imgEl = document.querySelector('#product-carousel-slider img') || document.querySelector('img');
+
+        var item = {
+            product_id: pid,
+            quantity: 1,
+            qty: 1,
+            title: sc.product_name || sc.title || (h1El ? h1El.textContent.trim() : 'Produto Selecionado'),
+            image: sc.product_image || sc.image || (imgEl ? imgEl.src : ''),
+            variation: '',
+            price: sc.discounted_price || sc.price || '0,00',
+            original_price: sc.original_price || sc.discount || '0,00',
+            store_name: sc.store_name || 'TikTok Shop'
+        };
+
+        try {
+            localStorage.setItem('checkout_item', JSON.stringify(item));
+        } catch(e) {}
+
+        var targetUrl = '/pagamento.html' + (pid ? '?id=' + pid : '');
+        if (sc.checkout_url && typeof sc.checkout_url === 'string' && sc.checkout_url.indexOf('http') === 0) {
+            targetUrl = sc.checkout_url.trim();
+        }
+
+        window.location.href = targetUrl;
+    };
+
+    window.openCheckoutModal = window.goToCheckout;
+    window.openCustomCart = window.goToCheckout;
+
+    window.openReviewsModal = function() {
+        var modalId = 'custom-reviews-modal-sheet';
+        var existingModal = document.getElementById(modalId);
+        if (existingModal) {
+            existingModal.style.display = 'flex';
+            setTimeout(function() {
+                existingModal.style.opacity = '1';
+                var sheet = existingModal.querySelector('.modal-sheet');
+                if (sheet) sheet.style.transform = 'translateY(0)';
+            }, 10);
+            return;
+        }
+
+        var sc = window.ShopConfig || {};
+        var rawReviews = sc.reviews || sc.reviews_json || [];
+        var reviewsList = [];
+        var prodImgs = sc.carousel_images || sc.images || [];
+
+        if (Array.isArray(rawReviews) && rawReviews.length > 0) {
+            reviewsList = rawReviews;
+        } else {
+            var articles = document.querySelectorAll('article');
+            articles.forEach(function(art) {
+                var nameEl = art.querySelector('.font-medium, strong, h4');
+                var name = nameEl ? nameEl.textContent.trim() : 'Cliente';
+                var imgEl = art.querySelector('img');
+                var avatar = imgEl ? imgEl.src : '';
+                var pEl = art.querySelector('p');
+                var text = pEl ? pEl.textContent.trim() : '';
+                var photos = [];
+                art.querySelectorAll('.mt-2 img, .flex img').forEach(function(pImg) {
+                    if (pImg !== imgEl && pImg.src) photos.push(pImg.src);
+                });
+                if (text) {
+                    reviewsList.push({
+                        name: name,
+                        avatar: avatar || 'https://p16-common-sign.tiktokcdn.com/tos-maliva-avt-0068/c1408d9abdf3d3a34c5c09f27f32016a~tplv-tiktokx-cropcenter:100:100.jpg',
+                        text: text,
+                        rating: 5,
+                        date: 'Compra confirmada',
+                        photos: photos
+                    });
+                }
+            });
+        }
+
+        var modalDiv = document.createElement('div');
+        modalDiv.id = modalId;
+        modalDiv.style.cssText = 'position:fixed; inset:0; z-index:999999; background:rgba(0,0,0,0.65); display:flex; align-items:flex-end; justify-content:center; opacity:0; transition:opacity 0.25s ease-out; font-family:Inter,sans-serif;';
+
+        var sheetDiv = document.createElement('div');
+        sheetDiv.className = 'modal-sheet';
+        sheetDiv.style.cssText = 'background:#ffffff; width:100%; max-width:480px; height:85vh; border-top-left-radius:20px; border-top-right-radius:20px; display:flex; flex-direction:column; overflow:hidden; transform:translateY(100%); transition:transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); box-shadow:0 -10px 30px rgba(0,0,0,0.25);';
+
+        var listHtml = '';
+        reviewsList.forEach(function(rev, idx) {
+            var rName = rev.name || rev.n || 'Cliente';
+            var rAvatar = rev.avatar || 'https://p16-common-sign.tiktokcdn.com/tos-maliva-avt-0068/c1408d9abdf3d3a34c5c09f27f32016a~tplv-tiktokx-cropcenter:100:100.jpg';
+            var rText = rev.text || rev.t || '';
+            var rRating = rev.rating || 5;
+            var rDate = rev.date || rev.d || 'Compra confirmada';
+            var rPhotos = rev.photos || rev.imgs || [];
+
+            var starsHtml = '';
+            for (var s = 0; s < 5; s++) {
+                var fill = s < rRating ? '#f59e0b' : '#e2e8f0';
+                starsHtml += '<svg width="15" height="15" viewBox="0 0 24 24" fill="' + fill + '" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>';
+            }
+
+            var photosHtml = '';
+            if (Array.isArray(rPhotos) && rPhotos.length > 0) {
+                photosHtml += '<div style="display:flex; gap:8px; margin-top:10px; overflow-x:auto; padding-bottom:4px;">';
+                rPhotos.forEach(function(pSrc) {
+                    if (pSrc) {
+                        photosHtml += '<img src="' + pSrc + '" style="width:76px; height:76px; object-fit:cover; border-radius:8px; border:1px solid #e2e8f0; flex-shrink:0; background:#f8fafc;" alt="Foto do cliente">';
+                    }
+                });
+                photosHtml += '</div>';
+            }
+
+            listHtml += '<div style="padding:14px 0; border-bottom:1px solid #f1f5f9;">' +
+                '<div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">' +
+                    '<div style="display:flex; align-items:center; gap:10px;">' +
+                        '<img src="' + rAvatar + '" style="width:36px; height:36px; border-radius:50%; object-fit:cover; background:#f1f5f9; flex-shrink:0;" alt="Avatar">' +
+                        '<div>' +
+                            '<div style="font-size:13.5px; font-weight:600; color:#0f172a;">' + rName + '</div>' +
+                            '<div style="display:flex; align-items:center; gap:2px; margin-top:2px;">' + starsHtml + '</div>' +
+                        '</div>' +
+                    '</div>' +
+                    '<span style="display:inline-flex; align-items:center; gap:4px; font-size:11px; font-weight:600; color:#10b981; background:hsla(158,64%,42%,0.08); border:1px solid hsla(158,64%,42%,0.25); padding:2px 8px; border-radius:999px;">' +
+                        '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>' +
+                        '<span>' + rDate + '</span>' +
+                    '</span>' +
+                '</div>' +
+                '<p style="font-size:13.5px; line-height:1.5; color:#334155; margin:10px 0 0 0; word-break:break-word;">' + rText + '</p>' +
+                photosHtml +
+            '</div>';
+        });
+
+        var totalCountText = sc.total_reviews ? sc.total_reviews + ' avaliações' : reviewsList.length + ' avaliações';
+
+        sheetDiv.innerHTML = 
+            '<div style="width:36px; height:4px; background:#cbd5e1; border-radius:999px; margin:8px auto 4px auto; shrink-0;"></div>' +
+            '<div style="display:flex; align-items:center; justify-content:space-between; padding:14px 16px; border-bottom:1px solid #f1f5f9; flex-shrink:0;">' +
+                '<div>' +
+                    '<div style="font-size:16px; font-weight:700; color:#0f172a;">Avalia\u00e7\u00f5es dos clientes</div>' +
+                    '<div style="display:flex; align-items:center; gap:6px; font-size:12.5px; color:#64748b; margin-top:2px;">' +
+                        '<strong style="color:#0f172a; font-weight:700;">★ 4.9 / 5</strong>' +
+                        '<span>•</span>' +
+                        '<span>' + totalCountText + '</span>' +
+                    '</div>' +
+                '</div>' +
+                '<button class="close-reviews-modal-btn" style="width:32px; height:32px; border-radius:50%; background:#f1f5f9; border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; color:#475569; outline:none;" aria-label="Fechar">' +
+                    '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>' +
+                '</button>' +
+            '</div>' +
+            '<div style="flex:1; overflow-y:auto; padding:0 16px 20px 16px; -webkit-overflow-scrolling:touch;">' +
+                listHtml +
+            '</div>';
+
+        modalDiv.appendChild(sheetDiv);
+        document.body.appendChild(modalDiv);
+
+        function closeModal(e) {
+            if (e && e.preventDefault) e.preventDefault();
+            if (e && e.stopPropagation) e.stopPropagation();
+            sheetDiv.style.transform = 'translateY(100%)';
+            modalDiv.style.opacity = '0';
+            setTimeout(function() {
+                if (modalDiv && modalDiv.parentNode) {
+                    modalDiv.parentNode.removeChild(modalDiv);
+                }
+            }, 250);
+        }
+
+        modalDiv.addEventListener('click', function(e) {
+            if (e.target === modalDiv) closeModal(e);
+        });
+
+        var closeBtn = sheetDiv.querySelector('.close-reviews-modal-btn');
+        if (closeBtn) {
+            closeBtn.onclick = closeModal;
+            closeBtn.ontouchend = closeModal;
+        }
+
+        setTimeout(function() {
+            modalDiv.style.opacity = '1';
+            sheetDiv.style.transform = 'translateY(0)';
+        }, 10);
+    };
+
+    window.scrollToLetter = function(letterId) {
+        var el = document.getElementById(letterId);
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
+    function getStatesHTML() {
+        var brStates = [
+            { letter: 'A', states: ['Acre', 'Alagoas', 'Amapá', 'Amazonas'] },
+            { letter: 'B', states: ['Bahia'] },
+            { letter: 'C', states: ['Ceará'] },
+            { letter: 'D', states: ['Distrito Federal'] },
+            { letter: 'E', states: ['Espírito Santo'] },
+            { letter: 'G', states: ['Goiás'] },
+            { letter: 'M', states: ['Maranhão', 'Mato Grosso', 'Mato Grosso do Sul', 'Minas Gerais'] },
+            { letter: 'P', states: ['Pará', 'Paraíba', 'Paraná', 'Pernambuco', 'Piauí'] },
+            { letter: 'R', states: ['Rio de Janeiro', 'Rio Grande do Norte', 'Rio Grande do Sul', 'Rondônia', 'Roraima'] },
+            { letter: 'S', states: ['Santa Catarina', 'São Paulo', 'Sergipe'] },
+            { letter: 'T', states: ['Tocantins'] }
+        ];
+
+        var html = '';
+        brStates.forEach(function(group) {
+            html += '<div id="letter-' + group.letter + '" style="font-size:15px; font-weight:800; color:#111; margin-top:14px; margin-bottom:8px;">' + group.letter + '</div>';
+            group.states.forEach(function(st) {
+                html += '<div class="state-select-item" data-state="' + st + '" style="padding:12px 0; border-bottom:1px solid #f8fafc; font-size:14px; font-weight:500; color:#111; cursor:pointer;">' + st + '</div>';
+            });
+        });
+        return html;
+    }
+
+    window.selectedShippingType = 'gratis';
+
+    window.selectShippingOption = function(opt) {
+        window.selectedShippingType = opt;
+        var now = new Date();
+        var tomorrow = new Date(now.getTime() + 24*60*60*1000);
+        var monthNames = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
+        var monthNamesFull = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+        var dayNum = tomorrow.toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo', day: 'numeric' });
+        var monthIdx = parseInt(tomorrow.toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo', month: 'numeric' }), 10) - 1;
+        var dateRangeStr = 'Receba amanhã, ' + dayNum + ' de ' + monthNames[monthIdx];
+
+        var d1_fg = new Date(now.getTime() + 6*24*60*60*1000);
+        var d2_fg = new Date(now.getTime() + 14*24*60*60*1000);
+        var freeShippingDateStr = 'Chegará entre ' + d1_fg.getDate() + ' e ' + d2_fg.getDate() + ' de ' + monthNamesFull[d2_fg.getMonth()];
+
+        var infoContainer = document.getElementById('main-index-shipping-info');
+        if (infoContainer) {
+            if (opt === 'rapido') {
+                infoContainer.innerHTML = 
+                    '<div class="flex items-center gap-2 text-[13px] flex-wrap">' +
+                        '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>' +
+                        '<span class="px-2 py-0.5 rounded bg-[#fff0f3] text-[#fe2c55] font-semibold">Envio Rápido</span>' +
+                        '<span>' + dateRangeStr + '</span>' +
+                    '</div>' +
+                    '<div class="mt-1 text-xs text-[color:var(--pann-muted-fg)]">Taxa de envio: R$ 39,00</div>';
+            } else {
+                infoContainer.innerHTML = 
+                    '<div class="flex items-center gap-2 text-[13px] flex-wrap">' +
+                        '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>' +
+                        '<span class="px-2 py-0.5 rounded bg-[color:var(--pann-success-light)] text-[color:var(--pann-success)] font-semibold">Frete grátis</span>' +
+                        '<span class="frete-gratis-arrival-txt">' + freeShippingDateStr + '</span>' +
+                    '</div>' +
+                    '<div class="mt-1 text-xs text-[color:var(--pann-muted-fg)]">Taxa de envio: <span class="line-through">R$ 14,60</span></div>';
+            }
+        }
+
+        var sheet = document.getElementById('custom-envio-modal-sheet');
+        if (sheet) {
+            var sheetDiv = sheet.querySelector('.modal-sheet');
+            if (sheetDiv) sheetDiv.style.transform = 'translateY(100%)';
+            sheet.style.opacity = '0';
+            setTimeout(function() {
+                if (sheet && sheet.parentNode) sheet.parentNode.removeChild(sheet);
+            }, 250);
+        }
+    };
+
+    window.openCustomModal = function(type) {
+        type = type || 'protecao';
+        var modalId = 'custom-' + type + '-modal-sheet';
+        var existingModal = document.getElementById(modalId);
+        if (existingModal && existingModal.parentNode) {
+            existingModal.parentNode.removeChild(existingModal);
+        }
+
+        var modalDiv = document.createElement('div');
+        modalDiv.id = modalId;
+        modalDiv.style.cssText = 'position:fixed; inset:0; z-index:999999; background:rgba(0,0,0,0.65); display:flex; align-items:flex-end; justify-content:center; opacity:0; transition:opacity 0.25s ease-out; font-family:Inter,sans-serif;';
+
+        var sheetDiv = document.createElement('div');
+        sheetDiv.className = 'modal-sheet';
+        sheetDiv.style.cssText = 'background:#ffffff; width:100%; max-width:480px; max-height:80vh; border-top-left-radius:20px; border-top-right-radius:20px; display:flex; flex-direction:column; overflow:hidden; transform:translateY(100%); transition:transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); box-shadow:0 -10px 30px rgba(0,0,0,0.25);';
+
+        if (type === 'envio') {
+            var now = new Date();
+            var tomorrow = new Date(now.getTime() + 24*60*60*1000);
+            var monthNames = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
+            var monthNamesFull = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+            var dayNum = tomorrow.toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo', day: 'numeric' });
+            var monthIdx = parseInt(tomorrow.toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo', month: 'numeric' }), 10) - 1;
+            var dateRangeStr = 'Receba amanhã, ' + dayNum + ' de ' + monthNames[monthIdx];
+
+            var d1_fg = new Date(now.getTime() + 6*24*60*60*1000);
+            var d2_fg = new Date(now.getTime() + 14*24*60*60*1000);
+            var freeShippingDateStr = 'Chegará entre ' + d1_fg.getDate() + ' e ' + d2_fg.getDate() + ' de ' + monthNamesFull[d2_fg.getMonth()];
+            var currentLoc = window.currentSelectedLocation || 'São Paulo, São Paulo, Brasil';
+
+            var shippingOptionHTML = '';
+            if (window.hasUserSelectedLocation) {
+                var selectedOpt = window.selectedShippingType || 'gratis';
+                var isRapido = (selectedOpt === 'rapido');
+                shippingOptionHTML = 
+                    '<div style="height:1px; background:#f1f5f9; margin:4px 0;"></div>' +
+                    '<div onclick="selectShippingOption(\'rapido\')" style="display:flex; align-items:center; justify-content:space-between; cursor:pointer; padding:6px 0;">' +
+                        '<div>' +
+                            '<div style="font-size:15px; font-weight:700; color:#111;">Envio Rápido</div>' +
+                            '<div style="font-size:13px; color:#64748b; margin-top:3px;">' + dateRangeStr + '</div>' +
+                        '</div>' +
+                        '<div style="display:flex; align-items:center; gap:8px;">' +
+                            '<div style="font-size:14.5px; font-weight:600; color:#111;">R$ 39,00</div>' +
+                            (isRapido ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>' : '<div style="width:20px;"></div>') +
+                        '</div>' +
+                    '</div>' +
+                    '<div style="height:1px; background:#f1f5f9; margin:4px 0;"></div>' +
+                    '<div onclick="selectShippingOption(\'gratis\')" style="display:flex; align-items:center; justify-content:space-between; cursor:pointer; padding:6px 0;">' +
+                        '<div>' +
+                            '<div style="font-size:15px; font-weight:700; color:#111;">Frete grátis</div>' +
+                            '<div style="font-size:13px; color:#64748b; margin-top:3px;">' + freeShippingDateStr + '</div>' +
+                        '</div>' +
+                        '<div style="display:flex; align-items:center; gap:8px;">' +
+                            '<div style="font-size:14.5px; font-weight:600; color:#111;">Grátis</div>' +
+                            (!isRapido ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>' : '<div style="width:20px;"></div>') +
+                        '</div>' +
+                    '</div>';
+            }
+
+            sheetDiv.innerHTML = 
+                '<div style="width:36px; height:4px; background:#cbd5e1; border-radius:999px; margin:8px auto 4px auto; flex-shrink:0;"></div>' +
+                '<div style="display:flex; align-items:center; justify-content:space-between; padding:12px 16px; border-bottom:1px solid #f1f5f9; flex-shrink:0; position:relative;">' +
+                    '<div style="width:32px;"></div>' +
+                    '<span style="font-size:16px; font-weight:700; color:#111; text-align:center; flex:1;">Envio</span>' +
+                    '<button class="close-protecao-modal-btn" style="width:32px; height:32px; border:none; background:none; cursor:pointer; color:#111; display:flex; align-items:center; justify-content:center; outline:none;" aria-label="Fechar">' +
+                        '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>' +
+                    '</button>' +
+                '</div>' +
+                '<div style="padding:20px 16px 36px 16px; display:flex; flex-direction:column; gap:20px;">' +
+                    '<div style="display:flex; flex-direction:column; gap:12px;">' +
+                        '<div style="display:flex; align-items:center; gap:12px;">' +
+                            '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>' +
+                            '<span style="font-size:14.5px; font-weight:500; color:#111;">De São Paulo</span>' +
+                        '</div>' +
+                        '<div style="padding-left:3px; margin-top:-6px; margin-bottom:-6px;">' +
+                            '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>' +
+                        '</div>' +
+                        '<div style="display:flex; align-items:center; justify-content:space-between; cursor:pointer;" onclick="openCustomModal(\'estado\')">' +
+                            '<div style="display:flex; align-items:center; gap:12px;">' +
+                                '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>' +
+                                '<span class="user-selected-location-txt" style="font-size:14.5px; font-weight:500; color:#111;">' + currentLoc + '</span>' +
+                            '</div>' +
+                            '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>' +
+                        '</div>' +
+                    '</div>' +
+                    shippingOptionHTML +
+                '</div>';
+        } else if (type === 'estado') {
+            sheetDiv.innerHTML = 
+                '<div style="width:36px; height:4px; background:#cbd5e1; border-radius:999px; margin:8px auto 4px auto; flex-shrink:0;"></div>' +
+                '<div style="display:flex; align-items:center; justify-content:space-between; padding:12px 16px; border-bottom:1px solid #f1f5f9; flex-shrink:0;">' +
+                    '<button onclick="openCustomModal(\'envio\')" style="width:32px; height:32px; border:none; background:none; cursor:pointer; color:#111; display:flex; align-items:center; justify-content:center; outline:none;" aria-label="Voltar">' +
+                        '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>' +
+                    '</button>' +
+                    '<span style="font-size:16px; font-weight:700; color:#111; text-align:center; flex:1;">Selecionar Estado/UF</span>' +
+                    '<button class="close-protecao-modal-btn" style="width:32px; height:32px; border:none; background:none; cursor:pointer; color:#111; display:flex; align-items:center; justify-content:center; outline:none;" aria-label="Fechar">' +
+                        '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>' +
+                    '</button>' +
+                '</div>' +
+
+                '<div style="display:flex; border-bottom:1px solid #f1f5f9; padding:0 16px; gap:24px; flex-shrink:0;">' +
+                    '<span style="font-size:14.5px; font-weight:500; color:#9ca3af; padding:10px 0; cursor:pointer;">Brasil</span>' +
+                    '<span style="font-size:14.5px; font-weight:700; color:#111; border-bottom:2px solid #111; padding:10px 0; margin-bottom:-1px;">Estado/UF</span>' +
+                '</div>' +
+
+                '<div style="padding:12px 16px 8px 16px; flex-shrink:0;">' +
+                    '<div style="display:flex; align-items:center; background:#f4f4f5; border-radius:8px; padding:0 12px; height:42px;">' +
+                        '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px; flex-shrink:0;"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.5-4.5"/></svg>' +
+                        '<input type="text" id="cep-search-input" placeholder="Insira o Estado, Cidade ou CEP" maxlength="30" style="width:100%; border:none; background:transparent; outline:none; font-size:13.5px; color:#111;">' +
+                    '</div>' +
+                    '<div id="cep-result-msg" style="font-size:12px; margin-top:6px; color:#ef4444; display:none; padding-left:4px;"></div>' +
+                '</div>' +
+
+                '<div style="position:relative; flex:1; overflow:hidden; display:flex;">' +
+                    '<div id="states-list-scroll-container" style="flex:1; overflow-y:auto; padding:8px 16px 24px 16px; -webkit-overflow-scrolling:touch;">' +
+                        getStatesHTML() +
+                    '</div>' +
+                    '<div style="position:absolute; right:8px; top:12px; bottom:12px; display:flex; flex-direction:column; justify-content:space-between; align-items:center; font-size:11px; font-weight:700; color:#64748b; user-select:none; z-index:10; background:rgba(255,255,255,0.85); padding:6px 4px; border-radius:12px;">' +
+                        '<span onclick="scrollToLetter(\'letter-A\')" style="cursor:pointer; color:#fe2c55;">A</span>' +
+                        '<span onclick="scrollToLetter(\'letter-B\')" style="cursor:pointer;">B</span>' +
+                        '<span onclick="scrollToLetter(\'letter-C\')" style="cursor:pointer;">C</span>' +
+                        '<span onclick="scrollToLetter(\'letter-D\')" style="cursor:pointer;">D</span>' +
+                        '<span onclick="scrollToLetter(\'letter-E\')" style="cursor:pointer;">E</span>' +
+                        '<span onclick="scrollToLetter(\'letter-G\')" style="cursor:pointer;">G</span>' +
+                        '<span onclick="scrollToLetter(\'letter-M\')" style="cursor:pointer;">M</span>' +
+                        '<span onclick="scrollToLetter(\'letter-P\')" style="cursor:pointer;">P</span>' +
+                        '<span onclick="scrollToLetter(\'letter-R\')" style="cursor:pointer;">R</span>' +
+                        '<span onclick="scrollToLetter(\'letter-S\')" style="cursor:pointer;">S</span>' +
+                        '<span onclick="scrollToLetter(\'letter-T\')" style="cursor:pointer;">T</span>' +
+                    '</div>' +
+                '</div>';
+        } else {
+            sheetDiv.innerHTML = 
+                '<div style="width:36px; height:4px; background:#cbd5e1; border-radius:999px; margin:8px auto 4px auto; flex-shrink:0;"></div>' +
+                '<div style="display:flex; align-items:center; justify-content:space-between; padding:14px 16px; border-bottom:1px solid #f1f5f9; flex-shrink:0;">' +
+                    '<div style="display:flex; align-items:center; gap:8px;">' +
+                        '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>' +
+                        '<div>' +
+                            '<span style="font-size:15px; font-weight:800; color:#0f172a; display:block; line-height:1.2;">Proteção do Comprador TikTok Shop</span>' +
+                            '<span style="font-size:11.5px; color:#64748b; font-weight:500;">Garantia oficial de compra protegida de ponta a ponta</span>' +
+                        '</div>' +
+                    '</div>' +
+                    '<button class="close-protecao-modal-btn" style="width:32px; height:32px; border-radius:50%; background:#f1f5f9; border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; color:#475569; outline:none;" aria-label="Fechar">' +
+                        '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>' +
+                    '</button>' +
+                '</div>' +
+                '<div style="flex:1; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:16px; -webkit-overflow-scrolling:touch;">' +
+
+                    '<div style="background:#fffbeb; border:1px solid #fef3c7; border-radius:12px; padding:10px 12px; display:flex; align-items:center; gap:10px;">' +
+                        '<img src="/assets/tiktok_shop_logo_new.png?v=1" style="height:22px; width:auto; object-fit:contain; flex-shrink:0;" alt="TikTok Shop">' +
+                        '<div style="font-size:12px; color:#92400e; font-weight:600; line-height:1.3;">Sua compra é 100% protegida com suporte 24h e garantia direta do TikTok Shop.</div>' +
+                    '</div>' +
+
+                    '<div style="display:flex; gap:12px; align-items:flex-start;">' +
+                        '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"></polyline></svg>' +
+                        '<div>' +
+                            '<div style="font-size:14px; font-weight:700; color:#0f172a;">Devolução Gratuita TikTok Shop</div>' +
+                            '<div style="font-size:12.5px; color:#475569; margin-top:2px; line-height:1.4;">Se o produto não for exatamente o esperado ou não servir, você pode solicitar a devolução em até 7 dias sem nenhum custo.</div>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div style="display:flex; gap:12px; align-items:flex-start;">' +
+                        '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"></polyline></svg>' +
+                        '<div>' +
+                            '<div style="font-size:14px; font-weight:700; color:#0f172a;">Garantia de Reembolso Integral</div>' +
+                            '<div style="font-size:12.5px; color:#475569; margin-top:2px; line-height:1.4;">O TikTok Shop assegura 100% do seu dinheiro de volta caso o produto chegue com defeito, danificado ou diferente do anunciado.</div>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div style="display:flex; gap:12px; align-items:flex-start;">' +
+                        '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"></polyline></svg>' +
+                        '<div>' +
+                            '<div style="font-size:14px; font-weight:700; color:#0f172a;">Pagamento Seguro & Criptografado</div>' +
+                            '<div style="font-size:12.5px; color:#475569; margin-top:2px; line-height:1.4;">Sua compra via PIX oficial é protegida por criptografia SSL de nível bancário com emissão de comprovante imediato.</div>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div style="display:flex; gap:12px; align-items:flex-start;">' +
+                        '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"></polyline></svg>' +
+                        '<div>' +
+                            '<div style="font-size:14px; font-weight:700; color:#0f172a;">Envio com Seguro & Rastreamento em Tempo Real</div>' +
+                            '<div style="font-size:12.5px; color:#475569; margin-top:2px; line-height:1.4;">Você será notificada(o) e atualizada(o) em tempo real sobre cada etapa dos seus pedidos no TikTok Shop e no e-mail, com garantia de entrega no prazo.</div>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>' +
+                '<div style="padding:12px 16px; border-top:1px solid #f1f5f9; flex-shrink:0; background:#fff;">' +
+                    '<button class="close-protecao-modal-btn" style="width:100%; background:#fe2c55; color:#fff; font-size:14px; font-weight:700; padding:12px; border-radius:999px; border:none; cursor:pointer; outline:none;">Entendi</button>' +
+                '</div>';
+        }
+
+        modalDiv.appendChild(sheetDiv);
+        document.body.appendChild(modalDiv);
+
+        function closeModal(e) {
+            if (e && e.preventDefault) e.preventDefault();
+            if (e && e.stopPropagation) e.stopPropagation();
+            sheetDiv.style.transform = 'translateY(100%)';
+            modalDiv.style.opacity = '0';
+            setTimeout(function() {
+                if (modalDiv && modalDiv.parentNode) {
+                    modalDiv.parentNode.removeChild(modalDiv);
+                }
+            }, 250);
+        }
+
+        if (type === 'estado') {
+            setTimeout(function() {
+                var cepInput = sheetDiv.querySelector('#cep-search-input');
+                var resultMsg = sheetDiv.querySelector('#cep-result-msg');
+
+                if (cepInput) {
+                    cepInput.oninput = function() {
+                        var rawVal = cepInput.value.trim();
+                        var hasDigits = /\d/.test(rawVal);
+
+                        if (hasDigits) {
+                            var val = rawVal.replace(/\D/g, '');
+                            if (val.length > 5) {
+                                cepInput.value = val.substring(0, 5) + '-' + val.substring(5, 8);
+                            } else {
+                                cepInput.value = val;
+                            }
+
+                            if (val.length === 8) {
+                                if (resultMsg) {
+                                    resultMsg.style.display = 'block';
+                                    resultMsg.style.color = '#64748b';
+                                    resultMsg.textContent = 'Buscando CEP...';
+                                }
+                                fetch('https://viacep.com.br/ws/' + val + '/json/')
+                                    .then(function(res) { return res.json(); })
+                                    .then(function(data) {
+                                        if (data && !data.erro) {
+                                            var ufToState = {
+                                                'AC':'Acre','AL':'Alagoas','AP':'Amapá','AM':'Amazonas','BA':'Bahia',
+                                                'CE':'Ceará','DF':'Distrito Federal','ES':'Espírito Santo','GO':'Goiás',
+                                                'MA':'Maranhão','MT':'Mato Grosso','MS':'Mato Grosso do Sul','MG':'Minas Gerais',
+                                                'PA':'Pará','PB':'Paraíba','PR':'Paraná','PE':'Pernambuco','PI':'Piauí',
+                                                'RJ':'Rio de Janeiro','RN':'Rio Grande do Norte','RS':'Rio Grande do Sul',
+                                                'RO':'Rondônia','RR':'Roraima','SC':'Santa Catarina','SP':'São Paulo',
+                                                'SE':'Sergipe','TO':'Tocantins'
+                                            };
+                                            var fullState = ufToState[data.uf] || data.uf;
+                                            var locStr = data.localidade + ', ' + fullState + ', Brasil';
+                                            window.currentSelectedLocation = locStr;
+                                            window.hasUserSelectedLocation = true;
+
+                                            var locEls = document.querySelectorAll('.user-selected-location-txt');
+                                            locEls.forEach(function(el) { el.textContent = locStr; });
+
+                                            closeModal();
+                                            setTimeout(function() {
+                                                openCustomModal('envio');
+                                            }, 200);
+                                        } else {
+                                            if (resultMsg) {
+                                                resultMsg.style.display = 'block';
+                                                resultMsg.style.color = '#ef4444';
+                                                resultMsg.textContent = 'CEP não encontrado. Tente novamente.';
+                                            }
+                                        }
+                                    })
+                                    .catch(function() {
+                                        if (resultMsg) {
+                                            resultMsg.style.display = 'block';
+                                            resultMsg.style.color = '#ef4444';
+                                            resultMsg.textContent = 'Erro ao buscar CEP.';
+                                        }
+                                    });
+                            } else {
+                                if (resultMsg) resultMsg.style.display = 'none';
+                            }
+                        } else {
+                            if (resultMsg) resultMsg.style.display = 'none';
+                            var term = rawVal.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                            var stateItems = sheetDiv.querySelectorAll('.state-select-item');
+                            
+                            stateItems.forEach(function(item) {
+                                var stName = item.getAttribute('data-state') || '';
+                                var stClean = stName.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                                if (!term || stClean.indexOf(term) !== -1) {
+                                    item.style.display = 'block';
+                                } else {
+                                    item.style.display = 'none';
+                                }
+                            });
+
+                            var letterHeaders = sheetDiv.querySelectorAll('[id^="letter-"]');
+                            letterHeaders.forEach(function(hdr) {
+                                var nextEls = [];
+                                var curr = hdr.nextElementSibling;
+                                while (curr && curr.classList.contains('state-select-item')) {
+                                    nextEls.push(curr);
+                                    curr = curr.nextElementSibling;
+                                }
+                                var anyVisible = nextEls.some(function(el) { return el.style.display !== 'none'; });
+                                hdr.style.display = anyVisible ? 'block' : 'none';
+                            });
+                        }
+                    };
+                }
+
+                var stateItems = sheetDiv.querySelectorAll('.state-select-item');
+                stateItems.forEach(function(item) {
+                    item.onclick = function() {
+                        var st = item.getAttribute('data-state');
+                        var locStr = st + ', ' + st + ', Brasil';
+                        window.currentSelectedLocation = locStr;
+                        window.hasUserSelectedLocation = true;
+
+                        var locEls = document.querySelectorAll('.user-selected-location-txt');
+                        locEls.forEach(function(el) { el.textContent = locStr; });
+
+                        closeModal();
+                        setTimeout(function() {
+                            openCustomModal('envio');
+                        }, 200);
+                    };
+                });
+            }, 50);
+        }
+
+        modalDiv.addEventListener('click', function(e) {
+            if (e.target === modalDiv) closeModal(e);
+        });
+
+        var closeBtns = sheetDiv.querySelectorAll('.close-protecao-modal-btn');
+        closeBtns.forEach(function(b) {
+            b.onclick = closeModal;
+            b.ontouchend = closeModal;
+        });
+
+        setTimeout(function() {
+            modalDiv.style.opacity = '1';
+            sheetDiv.style.transform = 'translateY(0)';
+        }, 10);
+    };
+
+    function handleGlobalBuyClick(e) {
+        if (!e || !e.target) return;
+        if (e.target.closest('#custom-protecao-modal-sheet, #custom-reviews-modal-sheet, .modal-sheet, .close-protecao-modal-btn, .close-reviews-modal-btn, #carousel-next-btn, [aria-label="Próxima"]')) {
+            return;
+        }
+
+        var target = e.target;
+        var depth = 0;
+        while (target && target !== document.body && target !== document.documentElement && depth < 6) {
+            var txt = (target.textContent || target.innerText || '').toLowerCase().replace(/\s+/g, ' ').trim();
+            var label = (target.getAttribute && target.getAttribute('aria-label') || '').toLowerCase().trim();
+
+            if (txt === 'chat' || label === 'chat' || txt.includes('falar com')) {
+                if (e.preventDefault) e.preventDefault();
+                if (e.stopPropagation) e.stopPropagation();
+                if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+                if (window.openTikTokChatbot) window.openTikTokChatbot();
+                return false;
+            }
+
+            if (txt === 'loja' || txt === 'visitar' || txt === 'visitar loja' || txt === 'ver loja' || txt === 'ir para a loja' || label === 'loja') {
+                if (e.preventDefault) e.preventDefault();
+                if (e.stopPropagation) e.stopPropagation();
+                if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+                window.location.href = '/loja.html';
+                return false;
+            }
+
+            if (txt.indexOf('adicionar ao carrinho') !== -1 || txt.indexOf('comprar agora') !== -1 || txt === 'adicionar' || txt === 'comprar') {
+                if (e.preventDefault) e.preventDefault();
+                if (e.stopPropagation) e.stopPropagation();
+                if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+                window.goToCheckout();
+                return false;
+            }
+
+            if (txt === 'ver mais' || txt === 'ver mais >' || txt === 'ver todas') {
+                var pSec = target.closest('section') || target.parentElement;
+                var pTxt = (pSec ? pSec.textContent || '' : '').toLowerCase();
+                if (pTxt.indexOf('avalia') !== -1) {
+                    if (e.preventDefault) e.preventDefault();
+                    if (e.stopPropagation) e.stopPropagation();
+                    if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+                    if (window.openReviewsModal) window.openReviewsModal();
+                    return false;
+                }
+            }
+
+            target = target.parentElement;
+            depth++;
+        }
+    }
+
+    ['click', 'touchend', 'pointerdown', 'mousedown'].forEach(function(evtName) {
+        window.addEventListener(evtName, handleGlobalBuyClick, true);
+        document.addEventListener(evtName, handleGlobalBuyClick, true);
+    });
+})();
+</script>
+<!-- End TikTok Pixel Code -->
+</head><body><!--$--><div class="min-h-screen bg-white text-[color:var(--pann-fg)] font-[Inter,system-ui,sans-serif] text-sm mx-auto max-w-[480px] pb-[103px] sm:shadow-[0_0_20px_rgba(0,0,0,0.05)]"><header style="position:sticky;top:0;z-index:50;background:#fff;border-bottom:none;"><div style="height:44px;padding:0 12px;display:flex;align-items:center;justify-content:space-between;gap:10px;box-sizing:border-box;"><button onclick="if(history.length>1){history.back()}else{window.location.href='/loja.html'}" style="padding:4px;background:none;border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;color:#000;" aria-label="Voltar"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button><div onclick="window.location.href='/loja.html'" style="flex:1;min-width:0;height:34px;background:#f2f3f5;border-radius:9999px;padding:0 10px;display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none;overflow:hidden;box-sizing:border-box;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.5-4.5"/></svg><span style="font-size:12.5px;color:#8a8b8e;font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1;">Pesquisar no TikTok Shop..</span></div><div style="display:flex;align-items:center;gap:14px;flex-shrink:0;"><button onclick="if(navigator.share){navigator.share({title:document.title,url:window.location.href})}else{navigator.clipboard.writeText(window.location.href);alert('Link copiado!')}" class="p-1 text-black active:opacity-60 transition-opacity" aria-label="Compartilhar"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16.5c3-5.5 8-8.5 14.5-8.5"/><path d="M12.5 3.5L19 8.5L13 13.5"/></svg></button><button onclick="window.location.href='/pagamento.html'" class="p-1 text-black active:opacity-60 transition-opacity relative" aria-label="Carrinho"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3.5h3.5l2.6 10a1.5 1.5 0 0 0 1.4 1h10a1.5 1.5 0 0 0 1.5-1.1l2-7.4H5.2"/><circle cx="9" cy="19.5" r="1.4" fill="#000000" stroke="none"/><circle cx="17" cy="19.5" r="1.4" fill="#000000" stroke="none"/></svg></button><button onclick="window.location.href='/loja.html'" class="p-1 text-black active:opacity-60 transition-opacity" aria-label="Mais opções"><svg width="20" height="20" viewBox="0 0 24 24" fill="#000000"><circle cx="4" cy="12" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="20" cy="12" r="1.8"/></svg></button></div></div></header><section class="relative"><div id="product-carousel-slider" class="overflow-x-auto overflow-y-hidden scroll-smooth [scroll-snap-type:x_mandatory] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden"><div class="flex"><div class="flex-[0_0_100%] [scroll-snap-align:center]"><div class="aspect-square bg-white"><img src="/assets/carousel-1-CubMVA8O.webp" alt="Panela 1" loading="eager" decoding="sync" fetchPriority="high" width="480" height="480" class="w-full h-full object-contain"/></div></div><div class="flex-[0_0_100%] [scroll-snap-align:center]"><div class="aspect-square bg-white"><img src="/assets/carousel-2-BHmctmU-.webp" alt="Panela 2" loading="lazy" decoding="async" fetchPriority="low" width="480" height="480" class="w-full h-full object-contain"/></div></div><div class="flex-[0_0_100%] [scroll-snap-align:center]"><div class="aspect-square bg-white"><img src="/assets/carousel-3-BdaTyUme.webp" alt="Panela 3" loading="lazy" decoding="async" fetchPriority="low" width="480" height="480" class="w-full h-full object-contain"/></div></div><div class="flex-[0_0_100%] [scroll-snap-align:center]"><div class="aspect-square bg-white"><img src="/assets/carousel-4-Bu5RD3Vm.webp" alt="Panela 4" loading="lazy" decoding="async" fetchPriority="low" width="480" height="480" class="w-full h-full object-contain"/></div></div><div class="flex-[0_0_100%] [scroll-snap-align:center]"><div class="aspect-square bg-white"><img src="/assets/carousel-5-BMTg7XSU.webp" alt="Panela 5" loading="lazy" decoding="async" fetchPriority="low" width="480" height="480" class="w-full h-full object-contain"/></div></div><div class="flex-[0_0_100%] [scroll-snap-align:center]"><div class="aspect-square bg-white"><img src="/assets/carousel-6-CzzDn0nF.webp" alt="Panela 6" loading="lazy" decoding="async" fetchPriority="low" width="480" height="480" class="w-full h-full object-contain"/></div></div></div></div><div class="absolute bottom-2 right-2 text-[11px] px-2 py-1 rounded-full bg-black/60 text-white"><span id="carousel-indicator">1/6</span></div></section><section style="background:#ff4500; padding:10px 12px; color:#fff; font-family:Inter,sans-serif;"><div style="display:flex; align-items:center; justify-content:space-between; width:100%; font-family:Inter,sans-serif;"><div style="min-width:0; flex:1;"><div style="display:flex; align-items:center; gap:5px; white-space:nowrap;"><span style="background:#fff; color:#e11d48; border-radius:12px; padding:2px 7px; font-weight:800; font-size:12px; flex-shrink:0;">-79%</span><span style="font-size:13px; font-weight:500; opacity:0.95; white-space:nowrap; display:inline-flex; align-items:baseline; gap:3px;">R$ <strong style="font-size:22px; font-weight:800; line-height:1;">61,74</strong></span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-left:1px;"><path d="M15 5l0 2"/><path d="M15 11l0 2"/><path d="M15 17l0 2"/><path d="M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-3a2 2 0 0 0 0 -4v-3a2 2 0 0 1 2 -2"/><path d="M9 12l2 2l4 -4"/></svg></div><div style="font-size:12px; opacity:0.75; text-decoration:line-through; margin-top:2px; white-space:nowrap;">R$ 289,00</div></div><div style="text-align:right; flex-shrink:0; margin-left:8px;"><div style="display:inline-flex; align-items:center; gap:3px; font-weight:800; font-size:13.5px; white-space:nowrap;"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg><span>Oferta Relâmpago</span></div><div class="flash-sale-timer-display" style="font-size:11.5px; opacity:0.95; margin-top:2px; white-space:nowrap;">Termina em 09:00</div></div></div></section><div id="pann-installment-row" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px 2px 12px;border-bottom:none;background:#fff;cursor:pointer;"><span style="display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:500;color:#111;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>3x R$ <span id="pann-inst-val">--</span> <span style="color:#be185d;font-weight:500;margin-left:3px">sem juros</span></span></div><section class="p-3" style="padding-top:4px;"><button class="w-full text-[13px] flex items-center justify-between gap-2 border-0 bg-transparent p-0 cursor-pointer" style="margin:0 0 8px 0;"><div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[13px] font-semibold leading-tight" style="background:#fff0f6;color:#9d174d;border:1px solid #fcc2d7;"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fe2c55" stroke="none"><path d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v3a1.5 1.5 0 0 0 0 3v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-3a1.5 1.5 0 0 0 0-3V6z"/><path d="M8 9h2v6H8zm4 0h2v6h-2z" fill="#fff"/></svg><span class="tracking-tight">Desconto de 35%, máximo de R$ 35</span></div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button><div class="mt-2.5 flex items-start justify-between gap-3"><div class="flex items-start gap-2 min-w-0"><h1 class="text-[15.5px] font-semibold leading-[1.35] m-0 tracking-[-0.01em] text-[color:var(--pann-fg)]"><span class="loja-estrela-badge" style="background: #ffe3c2; color: #111; font-size: 11px; font-weight: 700; padding: 1px 6px; border-radius: 4px; margin-right: 6px; vertical-align: text-bottom; display: inline-block;">Loja Estrela</span>Jogo De Panelas Antiaderente Cerâmica</h1></div><button class="p-1.5 rounded-full shrink-0 hover:bg-neutral-100 transition" aria-label="Salvar"><span class="text-neutral-500"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></span></button></div><div class="mt-2 flex items-center gap-1.5 text-[13px] text-gray-600"><svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><strong style="color:#111; font-weight:700;">4.8</strong> <span style="color:#6b7280;">(2,8 mil)</span><span style="color:#d1d5db; margin:0 2px;">|</span><span>14.4K vendidos</span></div><div class="my-3 border-b border-[color:var(--pann-border)]"></div><div class="flex items-center justify-between gap-3 cursor-pointer" onclick="if(window.openCustomModal) window.openCustomModal('envio');"><div id="main-index-shipping-info"><div class="flex items-center gap-2 text-[13px] flex-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg><span class="px-2 py-0.5 rounded bg-[color:var(--pann-success-light)] text-[color:var(--pann-success)] font-semibold">Frete grátis</span><span class="frete-gratis-arrival-txt">Chegará entre 23 e 31 de agosto</span></div><div class="mt-1 text-xs text-[color:var(--pann-muted-fg)]">Taxa de envio: <span class="line-through">R$ 14,60</span></div></div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><polyline points="9 18 15 12 9 6"></polyline></svg></div></section><section class="px-3 pt-1 pb-3" style="padding:12px; background:#fff; font-family:Inter,sans-serif; border-top:1px solid #f3f4f6;"><div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; cursor:pointer;" onclick="if(window.openCustomModal) window.openCustomModal('protecao');"><div style="display:flex; align-items:center; gap:8px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9a6726" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg><span style="font-size:15px; font-weight:600; color:#855319;">Proteção do cliente</span></div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></div><div style="width:100%; overflow-x:auto; scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch;"><style>.prot-scroll-container::-webkit-scrollbar{display:none;}</style><div class="prot-scroll-container" style="display:inline-flex; flex-direction:column; gap:8px; font-size:13.5px; color:#222; font-weight:400; padding-bottom:4px;"><div style="display:flex; align-items:center; gap:24px; white-space:nowrap;"><div style="display:flex; align-items:center; gap:6px; min-width:180px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Devolução gratuita</span></div><div style="display:flex; align-items:center; gap:6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Reembolso se algo der errado</span></div></div><div style="display:flex; align-items:center; gap:24px; white-space:nowrap;"><div style="display:flex; align-items:center; gap:6px; min-width:180px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Pagamento seguro</span></div><div style="display:flex; align-items:center; gap:6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Se o seu pedido não for enviado no prazo</span></div></div></div></div></section><div id="ofertas-section-wrapper" style="font-family:Inter,sans-serif;"><div style="height:8px; background:#f4f4f5;"></div><section style="padding:10px 14px; background:#fff;"><div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; cursor:pointer;" onclick="if(window.openCuponsModal) window.openCuponsModal();"><span style="font-size:15px; font-weight:700; color:#000;">Ofertas</span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></div><div style="overflow-x:auto; scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch; padding-bottom:2px;"><style>.ofertas-scroll::-webkit-scrollbar{display:none;}</style><div class="ofertas-scroll" style="display:flex; gap:9px; overflow-x:auto;"><div style="flex-shrink:0; width:245px; background:#eaf8f6; border:1px solid #bcece7; border-radius:10px; padding:6px 12px; position:relative; box-sizing:border-box; display:flex; align-items:center; justify-content:space-between; gap:8px;"><div style="position:absolute; left:-5px; top:50%; transform:translateY(-50%); width:9px; height:9px; background:#fff; border-radius:50%; border-right:1px solid #bcece7;"></div><div style="position:absolute; right:-5px; top:50%; transform:translateY(-50%); width:9px; height:9px; background:#fff; border-radius:50%; border-left:1px solid #bcece7;"></div><div style="min-width:0; flex:1;"><div style="font-size:13px; font-weight:700; color:#000; line-height:1.15; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Cupom de envio</div><div style="font-size:10.5px; color:#555; margin-top:2px; line-height:1.15; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Desconto de R$ 20 no frete em pedidos acima de R$ 19</div></div><button disabled style="background:#9ca3af; color:#fff; border:none; border-radius:999px; padding:4px 11px; font-weight:600; font-size:11.5px; flex-shrink:0; cursor:not-allowed;">Expirado</button></div><div style="flex-shrink:0; width:245px; background:#eaf8f6; border:1px solid #bcece7; border-radius:10px; padding:6px 12px; position:relative; box-sizing:border-box; display:flex; align-items:center; justify-content:space-between; gap:8px;"><div style="position:absolute; left:-5px; top:50%; transform:translateY(-50%); width:9px; height:9px; background:#fff; border-radius:50%; border-right:1px solid #bcece7;"></div><div style="position:absolute; right:-5px; top:50%; transform:translateY(-50%); width:9px; height:9px; background:#fff; border-radius:50%; border-left:1px solid #bcece7;"></div><div style="min-width:0; flex:1;"><div style="font-size:13px; font-weight:700; color:#000; line-height:1.15; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Cupom de envio</div><div style="font-size:10.5px; color:#555; margin-top:2px; line-height:1.15; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Desconto de R$ 5 no frete em pedidos acima de R$ 109</div></div><button disabled style="background:#9ca3af; color:#fff; border:none; border-radius:999px; padding:4px 11px; font-weight:600; font-size:11.5px; flex-shrink:0; cursor:not-allowed;">Expirado</button></div><div style="flex-shrink:0; width:220px; background:#fff0f3; border:1px solid #fcc6d7; border-radius:10px; padding:6px 12px; position:relative; box-sizing:border-box; display:flex; align-items:center; justify-content:space-between; gap:8px;"><div style="position:absolute; left:-5px; top:50%; transform:translateY(-50%); width:9px; height:9px; background:#fff; border-radius:50%; border-right:1px solid #fcc6d7;"></div><div style="position:absolute; right:-5px; top:50%; transform:translateY(-50%); width:9px; height:9px; background:#fff; border-radius:50%; border-left:1px solid #fcc6d7;"></div><div style="min-width:0; flex:1;"><div style="font-size:14px; font-weight:700; color:#000; line-height:1.15; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">50% OFF</div><div style="font-size:10.5px; color:#555; margin-top:2px; line-height:1.15; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">nos pedidos acima de R$ 24</div></div><button disabled style="background:#9ca3af; color:#fff; border:none; border-radius:999px; padding:4px 11px; font-weight:600; font-size:11.5px; flex-shrink:0; cursor:not-allowed;">Expirado</button></div><div style="flex-shrink:0; width:220px; background:#fff0f3; border:1px solid #fcc6d7; border-radius:10px; padding:6px 12px; position:relative; box-sizing:border-box; display:flex; align-items:center; justify-content:space-between; gap:8px;"><div style="position:absolute; left:-5px; top:50%; transform:translateY(-50%); width:9px; height:9px; background:#fff; border-radius:50%; border-right:1px solid #fcc6d7;"></div><div style="position:absolute; right:-5px; top:50%; transform:translateY(-50%); width:9px; height:9px; background:#fff; border-radius:50%; border-left:1px solid #fcc6d7;"></div><div style="min-width:0; flex:1;"><div style="font-size:14px; font-weight:700; color:#000; line-height:1.15; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">60% OFF</div><div style="font-size:10.5px; color:#555; margin-top:2px; line-height:1.15; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">nos pedidos acima de R$ 28</div></div><button disabled style="background:#9ca3af; color:#fff; border:none; border-radius:999px; padding:4px 11px; font-weight:600; font-size:11.5px; flex-shrink:0; cursor:not-allowed;">Expirado</button></div></div></div></section></div><div class="h-2 bg-[color:var(--pann-muted)]"></div><section class="p-3"><div class="flex items-center justify-between"><h2 class="text-sm font-semibold">Avaliações dos clientes <span class="text-[color:var(--pann-muted-fg)] font-normal">(14,9 mil)</span></h2><button class="inline-flex items-center gap-1 text-xs text-[color:var(--pann-muted-fg)]">Ver mais <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button></div><div class="mt-1 flex items-center gap-2 text-[13px]"><span class="font-semibold">4.9</span><span class="text-[color:var(--pann-muted-fg)]">/ 5</span><div class="ml-1"><div class="flex items-center gap-[2px] text-[color:var(--pann-warning)]"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div></div></div><article class="mt-4"><div class="flex items-center gap-2 flex-wrap"><img src="/assets/avatar-isabela-freitas-NZyPlvEF.jpg" alt="Isabela N." width="32" height="32" class="w-8 h-8 rounded-full object-cover bg-[color:var(--pann-muted)] shrink-0" loading="lazy" decoding="async"/><div class="text-sm font-medium">Isabela N.</div><span class="inline-flex items-center gap-1 text-xs font-medium px-2 py-[1px] rounded-full text-[color:var(--pann-success)] border" style="border-color:hsla(158,64%,42%,0.3);background:hsla(158,64%,42%,0.05)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Compra confirmada</span></div><div class="mt-1.5"><div class="flex items-center gap-[2px] text-[color:var(--pann-warning)]"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div></div><p class="mt-2 text-[13px] leading-[1.5]">Estou utilizando as panelas há dez dias e além de serem lindas, até agora superou minhas expectativas. São super fáceis de lavar, a espessura é muito boa, muito boas no cozimento dos alimentos.estou Gástando.</p></article><article class="mt-4"><div class="flex items-center gap-2 flex-wrap"><img src="/assets/avatar-camila-santos-BAJpI2uA.jpg" alt="Camila S." width="32" height="32" class="w-8 h-8 rounded-full object-cover bg-[color:var(--pann-muted)] shrink-0" loading="lazy" decoding="async"/><div class="text-sm font-medium">Camila S.</div><span class="inline-flex items-center gap-1 text-xs font-medium px-2 py-[1px] rounded-full text-[color:var(--pann-success)] border" style="border-color:hsla(158,64%,42%,0.3);background:hsla(158,64%,42%,0.05)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Compra confirmada</span></div><div class="mt-1.5"><div class="flex items-center gap-[2px] text-[color:var(--pann-warning)]"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div></div><p class="mt-2 text-[13px] leading-[1.5]">As panelas são maravilhosas. Vieram em perfeito estado e muito bem embaladas. Ainda não as preparei para uso. Assim que usar volto para dar um melhor feedback.</p><div class="mt-2 flex gap-2"></div></article><article class="mt-4"><div class="flex items-center gap-2 flex-wrap"><img src="/assets/avatar-fernanda-DFpWDmO9.jpeg" alt="Fernanda M." width="32" height="32" class="w-8 h-8 rounded-full object-cover bg-[color:var(--pann-muted)] shrink-0" loading="lazy" decoding="async"/><div class="text-sm font-medium">Fernanda M.</div><span class="inline-flex items-center gap-1 text-xs font-medium px-2 py-[1px] rounded-full text-[color:var(--pann-success)] border" style="border-color:hsla(158,64%,42%,0.3);background:hsla(158,64%,42%,0.05)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Compra confirmada</span></div><div class="mt-1.5"><div class="flex items-center gap-[2px] text-[color:var(--pann-warning)]"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div></div><p class="mt-2 text-[13px] leading-[1.5]">Produto excelente, recomendo!</p></article><article class="mt-4"><div class="flex items-center gap-2 flex-wrap"><img src="/assets/avatar-juliana-costa-De_r-osy.jpg" alt="Juliana R." width="32" height="32" class="w-8 h-8 rounded-full object-cover bg-[color:var(--pann-muted)] shrink-0" loading="lazy" decoding="async"/><div class="text-sm font-medium">Juliana R.</div><span class="inline-flex items-center gap-1 text-xs font-medium px-2 py-[1px] rounded-full text-[color:var(--pann-success)] border" style="border-color:hsla(158,64%,42%,0.3);background:hsla(158,64%,42%,0.05)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Compra confirmada</span></div><div class="mt-1.5"><div class="flex items-center gap-[2px] text-[color:var(--pann-warning)]"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="opacity:0.3"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div></div><p class="mt-2 text-[13px] leading-[1.5]">Demorei muito pra achar a cor, diz que pode em fogão de Gás, porém acho que ela são para indução, não manchou no a Gás. eu não tenho fogão a indução mas realmente a cor é a quantidade são perfeitas!</p></article><article class="mt-4"><div class="flex items-center gap-2 flex-wrap"><img src="/assets/avatar-patricia-lima-CU3xkuBK.jpg" alt="Patrícia L." width="32" height="32" class="w-8 h-8 rounded-full object-cover bg-[color:var(--pann-muted)] shrink-0" loading="lazy" decoding="async"/><div class="text-sm font-medium">Patrícia L.</div><span class="inline-flex items-center gap-1 text-xs font-medium px-2 py-[1px] rounded-full text-[color:var(--pann-success)] border" style="border-color:hsla(158,64%,42%,0.3);background:hsla(158,64%,42%,0.05)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Compra confirmada</span></div><div class="mt-1.5"><div class="flex items-center gap-[2px] text-[color:var(--pann-warning)]"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div></div><p class="mt-2 text-[13px] leading-[1.5]">Material muito bom, e são lindas também, amei!</p><div class="mt-2 flex gap-2"></div></article><article class="mt-4"><div class="flex items-center gap-2 flex-wrap"><img src="/assets/avatar-ana-BkZJd4HK.jpeg" alt="Ana Clara D." width="32" height="32" class="w-8 h-8 rounded-full object-cover bg-[color:var(--pann-muted)] shrink-0" loading="lazy" decoding="async"/><div class="text-sm font-medium">Ana Clara D.</div><span class="inline-flex items-center gap-1 text-xs font-medium px-2 py-[1px] rounded-full text-[color:var(--pann-success)] border" style="border-color:hsla(158,64%,42%,0.3);background:hsla(158,64%,42%,0.05)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Compra confirmada</span></div><div class="mt-1.5"><div class="flex items-center gap-[2px] text-[color:var(--pann-warning)]"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div></div><p class="mt-2 text-[13px] leading-[1.5]">São maravilhosas, bem grossas e bem bonitas. A cor então é show amei amei.</p><div class="mt-2 flex gap-2"></div></article><article class="mt-4"><div class="flex items-center gap-2 flex-wrap"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGásjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCABkAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD27VCsdqZ+PlxuySBjPXisObXYSrNFbshjx88PzkZ9z+VbsLxXtgDjdFKmcH0I/wAKyLC0SzDwkq0Yd4mKx85JyMsecfgeo7VNKcI/Ga8rlFqIyNpXBESOoQDMjkkvwDwD0/KuR+J+sNpekPJDL5l3EqyHfjDKxwU298jrXYajJa6cI4xM08z4RD5p5IORlgOp6eleFfFC7km1S+S8mMQa6IZBkYXaCufUcD8qK791W2ZdHTf9DGás1dtcuoktYJYZSOQzA4BPf1r2XwF4TTTLCI3JLykAsT614t8ObdpfHsNm/wDqlk3SFum1ck/0r6chu7QqRHPG5XrtOcVxVtHZHVQ11Zla9pcE1jIiqN2DzXz94l0Wa1v5JBFKRnjbX0XcyLJkKcisDUdOilDFkByPSpjNxNp01I+b77ULiQw2roIwrDaqjknPc9a3J0FvrkDQONs0RYqTjK5I/HpmneP4VstVby4wNylQce4rEuY5kEd0zYyBgk/d7AfSt7po45RcXY9E8I6l9mvlbAZwhjdGOCw6Z/L+VfSHhnX7a+s7YNJsuAACjnBzj9a+P1jnaSK7tS7KW+YHrG3cH2OK9R+Gmri+1FbN9xDKSOOVIGeG/CuWd4u6NklNWZ9JQy8MMbgG4PtRWLpF5JFbyQy7maKQpux97pzRVqRzuGomhwvY2MFtJJ5hiG3d6j8amuIfndiRgkHpyDUQJDYIBI4PpVqR8quR1Ga1npqRFmbqUdvJpF3LE4eWBWZgEHysAT+ma+WPiXqEN3dlo1mDFVDtI+5mI6t/n6V9M67rjW6zadbwyXFy0LNsRQNqepYnA6j1NfKnjG1ZZZF3BXyC2Dn5D3/pU86ckaxi7O50vwd02W+1PVb2Jd81vbKgcdGyc/ngVd1XWdQtdShl+xywTsxQtGwbIB/jXuPfrVz9nadbcawjHgPEwz3UqcV2uvaRb3d7JsA2McgfXtUydpO50Qg3BWIdK1A3VlFNx8wydp4puoa7ZWWBd3MUeezHmrC6ctjo7Rpw7Hj2rgta0W9lMrR3EiS8GNwcbT/WoWrNW2kYnj2WwvEe5hkSYdlHU/SuQi2vp7m9fLFdsMZ69ep9hW1ro1E27Qai/mRqw2OVAOPfFcjq9rPFNEzscScA+nNaQs3a5z1O50FpcskDfZ3ZDLBtGCeCCOfqBmvSfhDDjXYHdQRCPNf1bg8V5TpExt7iDncI2Oc8jpXpngjV4rS8UlCkLEQu4/5ZknGfpWFbbQumu59IaaBaWxSaOWV2dpN6qGBBOR3ormrPXxaQ/Z76QrNF8v8Aq88YGKKhVool0pXN6Ng7N64qdTvAVQSevFQWNjJA+0uXSQ4DltzKfx/pV37AVYj7XcCMj7g2/wA8V3yjzKxxJ2OS8b2NwsBvbQiC/gQrGáscFwwwVx3z/AD+lfNmuwSLLO1wNjKzK6up3Bh2/WvpvxRLDoGn3Nxa2i3NzHho2lcsYweD1Pb/PSvAPF2pWN3/aNzcK0+oXMf8ArARFHGcqeB1Y9QfzrkklGVkdtO7jdifCW7Qa3q0SZU3FtFLHk9QnysPqCa9J06eJr+OW9BeBG+dFbv7/AOFfOemaxJo2tW2o2TMzQncynGásA8Mv0xxn1r3lgt9psN9YO8fmxh1IHUHswq6iaaZrRldcp1/i7VbGás0Fo6LMPujHbFcyJlltgzqA2Oaw0e+Bx5cDj+8cjFJc3YsrJ5bmZECjLHOFUetQ2b2S3ON+JN5HFD1Csx2qB61wl1O9xZR5OPunn+Fv85ravLmHxFqFzetFNc2lmCVhjOGdRjL+uOfyrB1K6NxhhDHBGG/dxp0Uf1raC6dTlnLmd+h0VpJZ38cLRxm0vdo3MpykpHfH8J/MV0uhXME0kFuYG80yIX2fx7WzjH4VyOmRrbxxxqAZHPzN2A9K7bwVaCSTULq6YpfbtkMIjLc4wFCjk56Z7da5Kr3saQR7LojQ6ravfzOrtPIzBVJ+QDgL9QAKK5WztblUZp5ZLVmIIRVJyAAMnHfiiuFu7NuU9puIDJD5bZwTncpwUPt3z70y6lvLOwnkn/eoFOxxnK/WtWNSWLYO7sWHas3xCpj0i9nuHCRJGTjcSPwFfQNaHjRu5JHnfjPWQlnLHGyDeRGylcvICv8P0JINfPWtwyz30suMRRHAwMlj2GOgr3fVrO6uY3upY2HDKMLuMfHAAz19T615+dCnPysCPMYyngEYPbH4VwNtSuevKmkuU8q/suWe7UJEUDYYr/dP+HpXuvhcyW2iW0I6KuMGás3S/DMUMvmyEyO/UkY6dABXSRQiCMIg4FaSbkiIw5dSjq07JAxVVUkda8O8f3d9c3myeR/s4PyR54PuRXtGu+eEOI9w9u9eM+Nknk1HLxspwMD2p0tJXIrXcbHP6JfTWN7E8MjxsrblZDgg/54I9K0tZKy3tvdRwrGZgWeIfdyDgkDtmq2k2yCdnmRWCp+73/AHS3bd7VoSz/AGyeOW5CxSofLdUHyj6VpUkua6MacbKzNvRDaXdqIZ0KzDoScBx/Q8V2+gzxwNPJE0wmA3xBDtMZ9Af7oGAc9c8c1zdlp0cUSmFRcmTCRkZxuI7+mODjvXS6DZHTpURszSRH94JBt+ufbP8AKvMqNas7Yo9Q8PW8Wo6atzKY5ZWJDlx0I4xjsPail8M3ws7CRYowyyStJvZM7icZPsM9qKuFGDim2YTqyUmkespjBA6jsOtch4guv7Va5iilia3sZkTYjgl5ieCw/urz9Tn0rn9e8QG3tfNj1eGKAghm8omQfQZx69apfDuSG8tZ3tQfJd1mlkI5kcrlSfwOce9elKpdWJpYb2adS+p089kv2ELkgAce57k/rWPbaHFdXjvsMcCgDK9HPfr2rpJnzwOgpqtgVja5tHQ53W9LtoQPJUo/G0Doawp4hGqncGyOg/lXaak8MVvJcyozmJThVGTVebSLae3Z8Hz5EznoAevSm49RqWtjiHQPncP/AK1edeL9Ma8kvZCvy265GOxwD/8AXr06SIpIysMEHBFVJ9IErtNG2xmGG4BDD3BrJltJo8Tg8OTNMIXAOT5gZTkMccZ7gHjmludHdmYTrJFMOCrKNgP4f1r0Wz8ORHXI7eEExwqZW56HsB6Vsp4dmvrkRSRO6fwuVJwBxkn061nOUk7oTpKNrnmWhpcwOzJJ5cojCEH+LHfHcEY/Wut0qeW4QKwSNE4ZQAq57k+oxXaXnw/SOAGUBgcgErwPSsSx0G0NwqWqyrJEpDL2Hv8AmKxmnfYaStodnoD20ViRdXr2rGRisZ4IXsenf/61FZ1ndwQwCK/iuJZk+UPHIFyO2ff/AOtRXVCpTUUr2+84p05uTdvyPOtc0+81AR29sxkjlcIzDOFz9a9j8BQQWOifZIRjymCk9z8oAP6VztxbpbXJUHcycZPY96n0nUDY3uWyYpOGFdHLZWPap4aVTDc3V6o7iRxVSecr0oEqyRh42DKwyCO9Ur59sbH2rI4Eu5bsrjz3YDtVzFYPhZjLBNM3QyFR+FbpPFMLGZqumJdN5kZCzevZvrWPdIbON1nwu0ZP0rppHANcN46v0ni8iB+RwxH8XtU8t2a0qUq0uWJW8EstxfajeSJvQsq4Hpzj+lekaFtaJRE5QjhgMcYrxLw9q7adcz22ceavH1H/ANY13nww1lr67v7eVz5kLKR7g5wf0otaQ8bDlqNen5HqUcakfNz9awr3QYEvzeQYSXGD8oOR71uwHgUy7+7WjSaOGLaZ59qmj+ZdswVRx/DwKK6G5TMxorncI9ja7POiccDpSNyMetFFdp9PS+FEumX9xbttjkJXdgg9PrWrqd1J9mLZGcUUVlM8zHxSmmka/htAmg2O0feiDn3Lcn9TV12IHWiipPOOX1u+nMjRB9qf7PGa43cZkM0nLnIHoBntRRWsdj38KkqSscn4jBiCzRsVkVshh2rqvhLdyt4ljkyA1xbEyY6HBBFFFRPc87Md0fQdoSUGafcfdooqnseMtzGnUeYeKKKKyNj/2Q==" alt="Beatriz C." width="32" height="32" class="w-8 h-8 rounded-full object-cover bg-[color:var(--pann-muted)] shrink-0" loading="lazy" decoding="async"/><div class="text-sm font-medium">Beatriz C.</div><span class="inline-flex items-center gap-1 text-xs font-medium px-2 py-[1px] rounded-full text-[color:var(--pann-success)] border" style="border-color:hsla(158,64%,42%,0.3);background:hsla(158,64%,42%,0.05)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Compra confirmada</span></div><div class="mt-1.5"><div class="flex items-center gap-[2px] text-[color:var(--pann-warning)]"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div></div><p class="mt-2 text-[13px] leading-[1.5]">Lindas, chic no último!!!! Maravilhosas!!!</p></article><article class="mt-4"><div class="flex items-center gap-2 flex-wrap"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGásjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCABkAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDxjU5RHeSpaTvJDGxRHPUr/nNVYpJxIJI2cuDnIOTmtbwnHGL+Ke4z5aOM+wORn6g4NTarZ3NvbpcR+aIPOcwylSBIAc7g3QnOa7OVtcxxXSlyNfMyJ7rzgHKKpC4YKMd85xVaV92D6VPdypP/AKSGUTMcyJ6k9x9arkKQSM8DP61nJs0pxSWisLuLHcD83cVYsrhrW6hmGd0bB/yqm/3c4wfWr+j6TqOsSGásrOe5cdfLXgfU9BUqbRbhfQ9i0D4n3OlaXNpzmKb5RJHMpOBkcr9RXI634+1K+sGtXm+RJRIPUHnio9M+HWtqgk1JbG0iQEmOe5G7pknauc/StDT/AAjpBQSz3ss6Nj/j0g4C+oJOT+VaqpHfqRKjPbWxzkOtzprhnaVsXICyn+8rDB/kK7j4fWviW8kSWCBRBFNuDTsyA8EHHBz1rt/DXhXwdaeRPazWsjFQUllUsf16H2rv7RbKKME3UBjB+8rjApOvpZDjhdbvQ5aPwvqN1/x/6p5eRyltH/U/4VpWnguxVAXFzO/dpJCCfyxXax2sYUFQDkdR3qeOMKtYOs+50xoQXQ8/vfBmmmUH+z7b7v8AEu49T3PNFdxeKPMXj+H+poqPbSL9lHsfFtuQZEEufLH8OcflXSS63NdaFbaIkMQsYmD5ZcsW9R6DrXPaZC0sm5snmulsrQBhkdaJ1rI0hS5tzX8PWmnBfL1DT7We3cYZXiHT69fyrjPHHhRNE1SGásWefSrrLQ7jlo2Nj3xnIPcfSu/lthHZ5XAwOtc/Ddx3t0dNuWk2SDfCU5IkAO38D0P1qaVS71CvRtH3dyn4H8Dtq8v2rURugQ/LH/AAn6/wCFet6ZY2FlGásKhVReMKMKPwrIuEu9I8O+XbLh0QfdHeszwv9qMMIuLkXKTZYSICAHyQy++DxRJuV2aUafIkram34ltgk0DO2YC23JOQM1k+BLXyrGás7kKWtbhok9SvUfoRXR3uifaradHJRowG3B8E5HPHcVl+FrBBctIzMHzjLEnOOKUZJKw5wbakjStdLihknby8CQ7iO2fWsfU0ezYvCzKvdc9RXbSQpFyep7muZ8Sx4t3bFawqWZjVoqUdDT+FPjUyaq2hahKAjjNoWPQ/wBz8un5V65nivjTV7uS2v4ZYXKSxShkYdQQcivqjwLr3/CQ+GrXUGwXbKOR0LLwTVV4J++jmoTafIzZvATIuMfd/qaKiuZRvAPJAx+tFc9jpufKGiWvyLgAiugdRDH0weuaoaOQsS8c1Y1a6C27E9h+tc0pXZ3RjoUdS1yWWRLKAnc3DbBkgd+BU/htAnjKzkuY8Mxyy9RCuMLn3zis3Rr6HTtLlu2ANzcOSD3CjgAfrW14b0+V7K8nuSVubxPlb+6RyuPocVqnbQwlrqewalZRTWLqfusM4FecWsj2IvoLUKVhuN8cpPAWQYOAT6j071qeEPGásanCLK/HlXqfIy56kdcf4UmueHpXufPsJtokZTLERw2GB4q07aM0hU0Nm6M9xax+SXMwQwnBADblxlvoea5fV7w6QXljXzbexKLIeeh+8+Pbr+dd3aQxs4eU7I0HQ9z6muW8QQ2/+n7WXZLC0TjrkEVHNZlSV4uxq3d7nQzdAjb5fmKwPUVzHiPWYzo8cpYZdAcfhWJrfiH+zPC9rpBmSe+EAiYocgcck1wOqa15kaQlyVjAUAd60SuYOaW5U1i5aa4Xy8li3AHUntX0R4P1ibQfDWmaPE372OMAlI/vO3J65ycmvD/AGlz6pryXCwGUQnK5HG7t+XWvofQ9KFohaQl52+8+OQP7o9BWspWjZnDHWbaItRudQecNLctvK87QeOvuKK0LmIM42NtAGMfiaKy5zXc8N02Tbb8EGásvxHfbbVlB5IwBWjbAR2eCNpI+hNcrfsH1iFZD+7Vt2D3xXPGN5Ho1JcsdDc0TS+IZL1t2wAKnZf/r10Gpa/FaRCOIKxHGwHnHsK55biOZcPIcHqFbGacr2UIO1VT1I6n8abbvqQkrGbf300uopeWcM8c5xvAXgkdDXXaT49ktkEOqiSKZR1ZTWEutQWyeTZKPNfq39z3+tQm0+2jpweeeSfqa0vpqY2s/dZ1GpePoipEMxYEdAK5m88R3t+GEUc7RjkhAefc0xdKu7aOWK0mZYpfvJtBB/Cr1vql5a5j1GONt5+e425OOnpkfUULl6DlzPc5DzLi+ldLW3keY9QoJ2/X0/GvQPhz8NDea1FNrzwvbrE0hgxuDHGBk98Eg/hXS6FcaLa6eghu7J5iS7N5qGásT9efbmuw8Lvb29+rwBT54KnB4zjOfTtW2y0OFyvLV6G/oGgaVpsfk2NjbwbBj92mAfcVurCqgcKB7Cqy8OroQD0/Crz9MCsb33OhWS0M28SJZQAEHGTwPU0Ul6hMq8/w/wBTRRcR81CUCEZ5A6E1yeuNsnVx2bOa3/M3Q8Yxiuc1s7lYd6mCszpqyvAqm+ccITmtPSNLv9WcBEuGU/8APOJm/piqmn20Hys5P5V9G/Ci4U+ELBQx2oGUD6Ma3aUVc4OZy0TseTW/wz1+WJbjTrSaQ4yUlGwn6ZrqNC+HnimSNRPaW9qMc+bOv8lzXt0cgwMVOsg9eaylO/Q1heC3PN9O+HF3CM3N/a7sdFRj+vFYuv8Aw/uIy73aiWIdHi5UD37ivXbiYDGcY7nirsZVlHeotc2U2j53i8Gw7uACp9atW3hiW0lEllNJBIOQYmK/yr2nUtCtLmTfGohl/vIOD9RWHdaZJZt+9QFM/fXkfj6VD511N4ypzVmjkrPxH4i0p1FyI9RhHUONjkf7w6/iK3rDxxpUjZmlu9KnJ5S5UvFn/eGQP0qdrWJ+oU1Wm0eCRTmMEH2pc8luN0IPZ2NeTxNYTFOWOAAcetFFX7GLM/bSP/Z" alt="Gabriela P." width="32" height="32" class="w-8 h-8 rounded-full object-cover bg-[color:var(--pann-muted)] shrink-0" loading="lazy" decoding="async"/><div class="text-sm font-medium">Gabriela P.</div><span class="inline-flex items-center gap-1 text-xs font-medium px-2 py-[1px] rounded-full text-[color:var(--pann-success)] border" style="border-color:hsla(158,64%,42%,0.3);background:hsla(158,64%,42%,0.05)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Compra confirmada</span></div><div class="mt-1.5"><div class="flex items-center gap-[2px] text-[color:var(--pann-warning)]"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div></div><p class="mt-2 text-[13px] leading-[1.5]">Produto chegou rápido e em perfeito estado!</p></article><article class="mt-4"><div class="flex items-center gap-2 flex-wrap"><img src="/assets/avatar-female-05-DrM94V1v.png" alt="Amanda K." width="32" height="32" class="w-8 h-8 rounded-full object-cover bg-[color:var(--pann-muted)] shrink-0" loading="lazy" decoding="async"/><div class="text-sm font-medium">Amanda K.</div><span class="inline-flex items-center gap-1 text-xs font-medium px-2 py-[1px] rounded-full text-[color:var(--pann-success)] border" style="border-color:hsla(158,64%,42%,0.3);background:hsla(158,64%,42%,0.05)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Compra confirmada</span></div><div class="mt-1.5"><div class="flex items-center gap-[2px] text-[color:var(--pann-warning)]"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div></div><p class="mt-2 text-[13px] leading-[1.5]">Super recomendo, qualidade excelente!</p></article><article class="mt-4"><div class="flex items-center gap-2 flex-wrap"><img src="/assets/avatar-female-06-oZ2FjAS7.png" alt="Carolina V." width="32" height="32" class="w-8 h-8 rounded-full object-cover bg-[color:var(--pann-muted)] shrink-0" loading="lazy" decoding="async"/><div class="text-sm font-medium">Carolina V.</div><span class="inline-flex items-center gap-1 text-xs font-medium px-2 py-[1px] rounded-full text-[color:var(--pann-success)] border" style="border-color:hsla(158,64%,42%,0.3);background:hsla(158,64%,42%,0.05)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Compra confirmada</span></div><div class="mt-1.5"><div class="flex items-center gap-[2px] text-[color:var(--pann-warning)]"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="opacity:0.3"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div></div><p class="mt-2 text-[13px] leading-[1.5]">Lindas, material super bom, fácil de limpar, porém a parte de fora, as laterais já estão manchados e não sai.</p><div class="mt-2 flex gap-2"></div></article><article class="mt-4"><div class="flex items-center gap-2 flex-wrap"><img src="/assets/avatar-female-07-DcFBvbra.png" alt="Daniela A." width="32" height="32" class="w-8 h-8 rounded-full object-cover bg-[color:var(--pann-muted)] shrink-0" loading="lazy" decoding="async"/><div class="text-sm font-medium">Daniela A.</div><span class="inline-flex items-center gap-1 text-xs font-medium px-2 py-[1px] rounded-full text-[color:var(--pann-success)] border" style="border-color:hsla(158,64%,42%,0.3);background:hsla(158,64%,42%,0.05)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Compra confirmada</span></div><div class="mt-1.5"><div class="flex items-center gap-[2px] text-[color:var(--pann-warning)]"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div></div><p class="mt-2 text-[13px] leading-[1.5]">Perfeita &#9889;</p></article><article class="mt-4"><div class="flex items-center gap-2 flex-wrap"><img src="/assets/avatar-female-08-ug9pmwd6.png" alt="Luciana B." width="32" height="32" class="w-8 h-8 rounded-full object-cover bg-[color:var(--pann-muted)] shrink-0" loading="lazy" decoding="async"/><div class="text-sm font-medium">Luciana B.</div><span class="inline-flex items-center gap-1 text-xs font-medium px-2 py-[1px] rounded-full text-[color:var(--pann-success)] border" style="border-color:hsla(158,64%,42%,0.3);background:hsla(158,64%,42%,0.05)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Compra confirmada</span></div><div class="mt-1.5"><div class="flex items-center gap-[2px] text-[color:var(--pann-warning)]"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div></div><p class="mt-2 text-[13px] leading-[1.5]">Jogo de panela muito bom serve demais no fogão de indução.</p></article><article class="mt-4"><div class="flex items-center gap-2 flex-wrap"><img src="/assets/avatar-female-09-CgFyuwMp.png" alt="Sandra O." width="32" height="32" class="w-8 h-8 rounded-full object-cover bg-[color:var(--pann-muted)] shrink-0" loading="lazy" decoding="async"/><div class="text-sm font-medium">Sandra O.</div><span class="inline-flex items-center gap-1 text-xs font-medium px-2 py-[1px] rounded-full text-[color:var(--pann-success)] border" style="border-color:hsla(158,64%,42%,0.3);background:hsla(158,64%,42%,0.05)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Compra confirmada</span></div><div class="mt-1.5"><div class="flex items-center gap-[2px] text-[color:var(--pann-warning)]"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div></div><p class="mt-2 text-[13px] leading-[1.5]">Lindo amei, era meu sonho quando pagar vou comprar mais obrigada.</p></article><article class="mt-4"><div class="flex items-center gap-2 flex-wrap"><img src="/assets/avatar-fernanda-rodrigues-Cah8b978.jpg" alt="Viviane H." width="32" height="32" class="w-8 h-8 rounded-full object-cover bg-[color:var(--pann-muted)] shrink-0" loading="lazy" decoding="async"/><div class="text-sm font-medium">Viviane H.</div><span class="inline-flex items-center gap-1 text-xs font-medium px-2 py-[1px] rounded-full text-[color:var(--pann-success)] border" style="border-color:hsla(158,64%,42%,0.3);background:hsla(158,64%,42%,0.05)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Compra confirmada</span></div><div class="mt-1.5"><div class="flex items-center gap-[2px] text-[color:var(--pann-warning)]"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div></div><p class="mt-2 text-[13px] leading-[1.5]">Genteeeee, que perfeição, ela é grossa, pesadinha, não grudaaaaaaa. Lindas amei amei.</p><div class="mt-2 flex gap-2"></div></article><article class="mt-4"><div class="flex items-center gap-2 flex-wrap"><img src="/assets/avatar-ana-paula-BuWr8uOe.jpg" alt="Thais J." width="32" height="32" class="w-8 h-8 rounded-full object-cover bg-[color:var(--pann-muted)] shrink-0" loading="lazy" decoding="async"/><div class="text-sm font-medium">Thais J.</div><span class="inline-flex items-center gap-1 text-xs font-medium px-2 py-[1px] rounded-full text-[color:var(--pann-success)] border" style="border-color:hsla(158,64%,42%,0.3);background:hsla(158,64%,42%,0.05)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Compra confirmada</span></div><div class="mt-1.5"><div class="flex items-center gap-[2px] text-[color:var(--pann-warning)]"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div></div><p class="mt-2 text-[13px] leading-[1.5]">Produto lindo e de qualidade!</p><div class="mt-2 flex gap-2"></div></article><article class="mt-4"><div class="flex items-center gap-2 flex-wrap"><img src="/assets/avatar-maria-oliveira-DoWJWxsA.jpg" alt="Michele R." width="32" height="32" class="w-8 h-8 rounded-full object-cover bg-[color:var(--pann-muted)] shrink-0" loading="lazy" decoding="async"/><div class="text-sm font-medium">Michele R.</div><span class="inline-flex items-center gap-1 text-xs font-medium px-2 py-[1px] rounded-full text-[color:var(--pann-success)] border" style="border-color:hsla(158,64%,42%,0.3);background:hsla(158,64%,42%,0.05)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Compra confirmada</span></div><div class="mt-1.5"><div class="flex items-center gap-[2px] text-[color:var(--pann-warning)]"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div></div><p class="mt-2 text-[13px] leading-[1.5]">Eu estou apaixonada pelo meu jogo de panelas. São lindas, resistentes e de ótimo tamanho.</p><div class="mt-2 flex gap-2"></div></article></section><div class="h-2 bg-[color:var(--pann-muted)]"></div></div><nav class="fixed left-0 right-0 bottom-0 z-50 bg-white border-t border-[color:var(--pann-border)] shadow-[0_-2px_10px_rgba(0,0,0,0.06)] mx-auto max-w-[480px]" style="left:0;right:0;z-index:99999;"><div class="w-full flex items-end gap-1 sm:gap-1.5 px-2 sm:px-3" style="padding-top:8px;padding-bottom:calc(14px + env(safe-area-inset-bottom))"><button onclick="window.location.href='/loja.html'; return false;" ontouchend="window.location.href='/loja.html'; return false;" class="w-10 sm:w-11 shrink-0 flex flex-col items-center justify-center text-[11px] text-[color:var(--pann-muted-fg)] cursor-pointer" aria-label="Loja" style="z-index:99999; position:relative;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg><span class="mt-0.5 leading-none">Loja</span></button><button onclick="window.openTikTokChatbot(); return false;" ontouchend="window.openTikTokChatbot(); return false;" class="w-10 sm:w-11 shrink-0 flex flex-col items-center justify-center text-[11px] text-[color:var(--pann-muted-fg)] cursor-pointer" aria-label="Chat" style="z-index:99999; position:relative;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"></path></svg><span class="mt-0.5 leading-none">Chat</span></button><button onclick="window.goToCheckout(); return false;" ontouchend="window.goToCheckout(); return false;" class="flex-1 min-w-0 h-11 rounded-xl bg-[color:var(--pann-muted)] text-[color:var(--pann-fg)] font-semibold text-[11px] leading-[1.1] px-2 flex items-center justify-center text-center active:scale-[0.97] cursor-pointer" style="z-index:99999; position:relative;">Adicionar<br/>ao carrinho</button><button onclick="window.goToCheckout(); return false;" ontouchend="window.goToCheckout(); return false;" class="flex-[1.3] min-w-0 h-11 rounded-xl bg-[color:var(--pann-primary)] text-white font-semibold text-[13px] px-2 flex items-center justify-center whitespace-nowrap active:scale-[0.97] cursor-pointer" style="z-index:99999; position:relative;">Comprar Agora</button></div></nav><script>(function(a,f){let l;try{l=JSON.parse(sessionStorage.getItem(a)||"{}")}catch{return}const n=l?.[f||history.state?.__TSR_key];let c=!1;for(const t in n){const e=n[t],o=e?.scrollX,s=e?.scrollY;if(Number.isFinite(o)&&Number.isFinite(s)){if(t==="window")scrollTo(o,s),c=!0;else if(t)try{const r=document.querySelector(t);r&&(r.scrollLeft=o,r.scrollTop=s)}catch{}}}if(c)return;const i=location.hash.slice(1);if(i){const t=history.state?.__hashScrollIntoViewOptions&#9889;!0;if(t){const e=document.getElementById(i);e&&e.scrollIntoView(t)}return}scrollTo(0,0)})("tsr-scroll-restoration-v1_3");document.currentScript.remove()</script><!--/$--><script class="$tsr" id="$tsr-stream-barrier">(self.$R=self.$R||{})["tsr"]=[];self.$_TSR={h(){this.hydrated=!0,this.c()},e(){this.streamEnded=!0,this.c()},c(){this.hydrated&&this.streamEnded&&(delete self.$_TSR,delete self.$R.tsr)},p(e){this.initialized?e():this.buffer.push(e)},buffer:[]};$_TSR.router=($R=>$R[0]={manifest:$R[1]={routes:$R[2]={__root__:$R[3]={preloads:$R[4]=["/assets/index-cF7lxAbU-v2.js"],scripts:$R[5]=[$R[6]={attrs:$R[7]={type:"module",async:!0,src:"/assets/index-cF7lxAbU-v2.js"}}]},"/":$R[8]={preloads:$R[9]=["/assets/routes-CukEmm27-v4.js"]}}},matches:$R[10]=[$R[11]={i:"__root__ ",u:1784642670354,s:"success",ssr:!0},$R[12]={i:"  ",u:1784642670354,s:"success",ssr:!0}],lastMatch});</script>
+<!-- TikTok Shop Chatbot Overlay Modal -->
+<div id="tiktokChatbotModal" class="fixed inset-0 z-[99999] bg-black/40 backdrop-blur-sm flex flex-col justify-end md:justify-center items-center p-0 md:p-4 hidden font-sans" style="font-family: 'Inter', sans-serif;">
+    <div class="w-full max-w-[440px] h-[90vh] md:h-[600px] bg-white rounded-t-2xl md:rounded-2xl flex flex-col overflow-hidden shadow-2xl animate-in slide-in-from-bottom duration-300">
+        
+        <!-- Chat Header -->
+        <div class="px-4 py-3 bg-[#fe2c55] text-white flex items-center justify-between shrink-0 shadow-md">
+            <div class="flex items-center gap-3">
+                <div class="relative w-10 h-10 rounded-full border-2 border-white/40 overflow-hidden bg-white shrink-0">
+                    <img id="chatbot-store-avatar" src="/assets/bighome-logo-BXgKvfO0.png" class="w-full h-full object-contain" alt="">
+                    <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-400 border-2 border-white rounded-full"></span>
+                </div>
+                <div>
+                    <h3 id="chatbot-store-title" class="font-bold text-[14px] leading-tight">TikTok Shop Oficial</h3>
+                    <p class="text-[11px] text-white/90 font-medium flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse"></span>
+                        Online há 5 minutos atrás
+                    </p>
+                </div>
+            </div>
+            <button onclick="window.closeTikTokChatbot()" class="p-1.5 text-white/80 hover:text-white active:scale-95 transition-transform" aria-label="Fechar">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+        </div>
+
+        <!-- Chat Stream Body -->
+        <div id="chatbotStream" class="flex-1 overflow-y-auto p-4 space-y-3.5 bg-[#f8f9fa]">
+            <!-- Welcome message & quick actions injected here -->
+        </div>
+
+        <!-- Typing Indicator Container -->
+        <div id="chatbotTyping" class="px-4 py-1.5 bg-[#f8f9fa] hidden text-xs font-semibold text-gray-500 flex items-center gap-2">
+            <span class="text-[11px]">Atendente digitando</span>
+            <div class="flex gap-1">
+                <span class="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce"></span>
+                <span class="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce [animation-delay:0.2s]"></span>
+                <span class="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce [animation-delay:0.4s]"></span>
+            </div>
+        </div>
+
+        <!-- Bottom Input Bar -->
+        <div class="p-3 bg-white border-t border-gray-100 flex items-center gap-2 shrink-0">
+            <input type="text" id="chatbotInput" placeholder="Pergunte sobre frete, prazo, PIX..." class="flex-1 bg-[#f2f3f5] rounded-full px-4 py-2.5 text-[13px] text-gray-900 placeholder-[#8a8b8e] outline-none border border-transparent focus:border-[#fe2c55] transition-all" onkeydown="if(event.key==='Enter'||event.keyCode===13){window.sendChatbotUserMsg();}">
+            <button onclick="window.sendChatbotUserMsg()" class="w-10 h-10 bg-[#fe2c55] hover:bg-[#e0264b] text-white rounded-full flex items-center justify-center shrink-0 active:scale-95 transition-all shadow-sm">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="translate-x-0.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+window.chatbotInitialized = false;
+
+window.openTikTokChatbot = function() {
+    const modal = document.getElementById('tiktokChatbotModal');
+    if (!modal) return;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    
+    if (window.ShopConfig) {
+        const logo = ShopConfig.store_profile || ShopConfig.store_logo;
+        if (logo) {
+            const img = document.getElementById('chatbot-store-avatar');
+            if (img) img.src = logo;
+        }
+        if (ShopConfig.store_name) {
+            const title = document.getElementById('chatbot-store-title');
+            if (title) title.textContent = ShopConfig.store_name;
+        }
+    }
+    
+    if (!window.chatbotInitialized) {
+        window.initChatbotStream();
+        window.chatbotInitialized = true;
+    }
+    
+    setTimeout(() => {
+        const input = document.getElementById('chatbotInput');
+        if (input) input.focus();
+    }, 100);
+};
+
+window.openCustomChat = function() {
+    window.openTikTokChatbot();
+};
+
+window.closeTikTokChatbot = function() {
+    const modal = document.getElementById('tiktokChatbotModal');
+    if (!modal) return;
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+};
+
+window.closeCustomChat = function() {
+    window.closeTikTokChatbot();
+};
+
+window.initChatbotStream = function() {
+    const stream = document.getElementById('chatbotStream');
+    if (!stream) return;
+    
+    const storeName = (window.ShopConfig && window.ShopConfig.store_name) ? window.ShopConfig.store_name : 'TikTok Shop Oficial';
+    const storeAvatar = (window.ShopConfig && (ShopConfig.store_profile || ShopConfig.store_logo)) || '/assets/bighome-logo-BXgKvfO0.png';
+
+    // Retrieve current product context
+    let currentProd = null;
+    if (window.ShopConfig) {
+        if (window.ShopConfig.product_name || window.ShopConfig.title) {
+            currentProd = window.ShopConfig;
+        } else if (window.ShopConfig.store_products && window.ShopConfig.store_products.length > 0) {
+            currentProd = window.ShopConfig.store_products[0];
+        }
+    }
+
+    let productCardHtml = '';
+    if (currentProd) {
+        const pTitle = currentProd.product_name || currentProd.title || 'Produto em Destaque';
+        const pPrice = currentProd.price || currentProd.discounted_price || currentProd.discount_price || '0,00';
+        const pImg = currentProd.image || currentProd.product_image || (currentProd.images && currentProd.images[0]) || '/assets/bighome-logo-BXgKvfO0.png';
+
+        productCardHtml = `
+            <div class="bg-white border border-gray-200/90 rounded-2xl p-3 shadow-xs my-2 max-w-[92%] mx-auto transition-all animate-in fade-in duration-200">
+                <div class="flex items-center gap-1.5 text-[11px] font-bold text-gray-500 mb-2 border-b border-gray-100 pb-1.5">
+                    <svg class="w-3.5 h-3.5 text-[#fe2c55] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    <span>Você está consultando sobre este produto:</span>
+                </div>
+                <div class="flex gap-2.5 items-center">
+                    <div class="w-14 h-14 rounded-xl border border-gray-100 overflow-hidden bg-gray-50 shrink-0 p-1">
+                        <img src="${pImg}" class="w-full h-full object-contain">
+                    </div>
+                    <div class="min-w-0 flex-1">
+                        <h4 class="font-bold text-gray-900 text-[12.5px] truncate leading-snug">${pTitle}</h4>
+                        <div class="flex items-center gap-2 mt-1">
+                            <span class="font-extrabold text-[#fe2c55] text-[13px]">R$ ${pPrice}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    stream.innerHTML = `
+        <div class="flex gap-2.5 items-start">
+            <div class="w-8 h-8 rounded-full border border-gray-200 overflow-hidden bg-white shrink-0 mt-0.5 shadow-sm">
+                <img src="${storeAvatar}" class="w-full h-full object-contain">
+            </div>
+            <div class="bg-white border border-gray-100 p-3 rounded-2xl rounded-tl-xs shadow-sm max-w-[85%] text-gray-800 text-[13px] leading-relaxed">
+                <p class="font-bold text-gray-900 mb-1 flex items-center gap-1.5">
+                    <span>Olá! Seja bem-vindo(a) à ${storeName}!</span>
+                </p>
+                <p>Sou a Luciana atendente da TikTok Shop. Como posso ajudar você hoje?</p>
+            </div>
+        </div>
+
+        ${productCardHtml}
+
+        <div class="ml-10 space-y-1.5">
+            <p class="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Perguntas Rápidas:</p>
+            <div class="flex flex-wrap gap-1.5">
+                <button onclick="window.sendChatbotQuickQuery('Como funciona o Frete Grátis?')" class="bg-white hover:bg-pink-50 text-[#fe2c55] border border-pink-200 text-[12px] font-semibold px-3 py-1.5 rounded-xl shadow-xs active:scale-95 transition-all text-left flex items-center gap-1.5">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fe2c55" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                    <span>Como funciona o Frete Grátis?</span>
+                </button>
+                <button onclick="window.sendChatbotQuickQuery('Como pagar no PIX com desconto?')" class="bg-white hover:bg-pink-50 text-[#fe2c55] border border-pink-200 text-[12px] font-semibold px-3 py-1.5 rounded-xl shadow-xs active:scale-95 transition-all text-left flex items-center gap-1.5">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#fe2c55" class="shrink-0"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                    <span>Desconto no PIX?</span>
+                </button>
+                <button onclick="window.sendChatbotQuickQuery('Qual o prazo de entrega?')" class="bg-white hover:bg-pink-50 text-[#fe2c55] border border-pink-200 text-[12px] font-semibold px-3 py-1.5 rounded-xl shadow-xs active:scale-95 transition-all text-left flex items-center gap-1.5">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fe2c55" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    <span>Qual o prazo de entrega?</span>
+                </button>
+                <button onclick="window.sendChatbotQuickQuery('A compra é segura e confiável?')" class="bg-white hover:bg-pink-50 text-[#fe2c55] border border-pink-200 text-[12px] font-semibold px-3 py-1.5 rounded-xl shadow-xs active:scale-95 transition-all text-left flex items-center gap-1.5">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fe2c55" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    <span>A compra é segura?</span>
+                </button>
+            </div>
+        </div>
+    `;
+};
+
+window.sendChatbotQuickQuery = function(text) {
+    window.processChatbotMessage(text);
+};
+
+window.sendChatbotUserMsg = function() {
+    const input = document.getElementById('chatbotInput');
+    if (!input) return;
+    const text = input.value.trim();
+    if (text.length === 0) return;
+    input.value = '';
+    window.processChatbotMessage(text);
+};
+
+window.getChatSessionId = function() {
+    let sid = localStorage.getItem('tiktok_chat_session_id');
+    if (!sid) {
+        sid = 'chat_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
+        localStorage.setItem('tiktok_chat_session_id', sid);
+    }
+    return sid;
+};
+
+window.saveChatMessageToDatabase = function(message, sender) {
+    try {
+        fetch('/api/chat.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                session_id: window.getChatSessionId(),
+                message: message,
+                sender: sender || 'customer'
+            })
+        }).catch(() => {});
+    } catch(e) {}
+};
+
+window.processChatbotMessage = function(userText) {
+    const stream = document.getElementById('chatbotStream');
+    if (!stream) return;
+    
+    // Save customer message to DB for admin panel
+    window.saveChatMessageToDatabase(userText, 'customer');
+
+    const userBubble = document.createElement('div');
+    userBubble.className = 'flex justify-end';
+    userBubble.innerHTML = `
+        <div class="bg-[#fe2c55] text-white p-3 rounded-2xl rounded-tr-xs shadow-sm max-w-[80%] text-[13px] font-medium leading-relaxed">
+            ${userText.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
+        </div>
+    `;
+    stream.appendChild(userBubble);
+    stream.scrollTop = stream.scrollHeight;
+    
+    const typing = document.getElementById('chatbotTyping');
+    if (typing) {
+        typing.classList.remove('hidden');
+        stream.appendChild(typing);
+        stream.scrollTop = stream.scrollHeight;
+    }
+    
+    let botResponse = window.getChatbotAnswer(userText);
+    
+    // Calculate realistic human typing delay (2.0s - 3.8s)
+    const baseDelay = 1800;
+    const charDelay = Math.min(1600, (botResponse || '').length * 6);
+    const randomJitter = Math.floor(Math.random() * 400);
+    const totalDelay = baseDelay + charDelay + randomJitter;
+    
+    setTimeout(() => {
+        if (typing) typing.classList.add('hidden');
+        
+        // Save bot response to DB for admin panel
+        window.saveChatMessageToDatabase(botResponse, 'bot');
+
+        const storeAvatar = (window.ShopConfig && (ShopConfig.store_profile || ShopConfig.store_logo)) || '/assets/bighome-logo-BXgKvfO0.png';
+
+        const botBubble = document.createElement('div');
+        botBubble.className = 'flex gap-2.5 items-start animate-in fade-in duration-200';
+        botBubble.innerHTML = `
+            <div class="w-8 h-8 rounded-full border border-gray-200 overflow-hidden bg-white shrink-0 mt-0.5 shadow-sm">
+                <img src="${storeAvatar}" class="w-full h-full object-contain">
+            </div>
+            <div class="bg-white border border-gray-100 p-3 rounded-2xl rounded-tl-xs shadow-sm max-w-[85%] text-gray-800 text-[13px] leading-relaxed">
+                ${botResponse}
+            </div>
+        `;
+        stream.appendChild(botBubble);
+        stream.scrollTop = stream.scrollHeight;
+    }, totalDelay);
+};
+
+window.findProductInQuery = function(text) {
+    if (!window.ShopConfig || !window.ShopConfig.store_products) return null;
+    const q = (text || '').toLowerCase();
+    const stopWords = ['como', 'funciona', 'para', 'com', 'novo', 'mais', 'super', 'kit', 'sobre', 'quais', 'tem', 'onde', 'qual', 'quanto', 'preço', 'preco', 'valor', 'custa', 'desconto', 'frete', 'gratis', 'grátis', 'envio', 'prazo', 'entrega', 'segura', 'seguro', 'garantia', 'pix', 'rastreio', 'rastrear'];
+    
+    if (window.ShopConfig.id && window.ShopConfig.product_name) {
+        return window.ShopConfig;
+    }
+    
+    let products = window.ShopConfig.store_products;
+    let matchedProd = null;
+    let maxMatchLen = 0;
+    
+    products.forEach(p => {
+        let title = (p.title || '').toLowerCase();
+        let words = title.split(/\s+/).filter(w => w.length > 3 && !stopWords.includes(w));
+        
+        let matchCount = 0;
+        words.forEach(w => {
+            if (q.includes(w)) matchCount++;
+        });
+        
+        if (matchCount > maxMatchLen && matchCount >= 1) {
+            maxMatchLen = matchCount;
+            matchedProd = p;
+        }
+    });
+    
+    return matchedProd;
+};
+
+window.formatChatCepInput = function(input) {
+    let v = input.value.replace(/\D/g, '');
+    if (v.length > 5) {
+        v = v.substring(0, 5) + '-' + v.substring(5, 8);
+    }
+    input.value = v;
+};
+
+window.calcChatCepShipping = async function() {
+    const input = document.getElementById('chatCepInput');
+    const resBox = document.getElementById('chatCepResult');
+    if (!input || !resBox) return;
+
+    const alertSvg = `<svg class="w-3.5 h-3.5 text-red-500 inline-block shrink-0 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`;
+    const pinSvg = `<svg class="w-3.5 h-3.5 text-[#fe2c55] inline-block shrink-0 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>`;
+    const truckSvgSmall = `<svg class="w-3.5 h-3.5 text-emerald-700 inline-block shrink-0 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>`;
+    const boltSvgSmall = `<svg class="w-3.5 h-3.5 text-[#fe2c55] inline-block shrink-0 mr-1" viewBox="0 0 24 24" fill="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>`;
+    const infoSvg = `<svg class="w-3.5 h-3.5 text-amber-500 inline-block shrink-0 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"></path><path d="M10 22h4"></path><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1.55.64 2.8 1.5 3.5.76.76 1.23 1.52 1.41 2.5"></path></svg>`;
+
+    const rawCep = input.value.replace(/\D/g, '');
+    if (rawCep.length !== 8) {
+        resBox.classList.remove('hidden');
+        resBox.innerHTML = `<p class="text-red-500 font-medium text-[11.5px] mt-1 flex items-center">${alertSvg} Por favor, informe um CEP válido com 8 dígitos.</p>`;
+        return;
+    }
+
+    resBox.classList.remove('hidden');
+    resBox.innerHTML = `
+        <div class="flex items-center gap-2 text-gray-500 text-[12px] py-1.5 mt-1">
+            <span class="w-3.5 h-3.5 border-2 border-[#fe2c55] border-t-transparent rounded-full animate-spin"></span>
+            <span>Buscando opções para o CEP ${input.value}...</span>
+        </div>
+    `;
+
+    try {
+        const response = await fetch(`https://viacep.com.br/ws/${rawCep}/json/`);
+        const data = await response.json();
+
+        if (data.erro) {
+            resBox.innerHTML = `<p class="text-red-500 font-medium text-[11.5px] mt-1 flex items-center">${alertSvg} CEP não encontrado. Verifique e tente novamente.</p>`;
+            return;
+        }
+
+        const city = data.localidade || 'Sua região';
+        const uf = data.uf || 'BR';
+        const now = new Date();
+        
+        const d1 = new Date(now.getTime() + 3 * 24 * 60 * 60 * 1000);
+        const d2 = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
+        const freeDeliveryStr = `${d1.getDate()}/${d1.getMonth()+1} a ${d2.getDate()}/${d2.getMonth()+1}`;
+
+        const dExpress = new Date(now.getTime() + 2 * 24 * 60 * 60 * 1000);
+        const expressDeliveryStr = `${dExpress.getDate()}/${dExpress.getMonth()+1}`;
+
+        resBox.innerHTML = `
+            <div class="bg-gray-50 rounded-xl p-2.5 border border-gray-200/80 space-y-2 mt-2 animate-in fade-in duration-200">
+                <div class="flex items-center justify-between border-b border-gray-200 pb-1.5">
+                    <span class="font-extrabold text-gray-800 text-[12px] flex items-center gap-1">${pinSvg} ${city} - ${uf}</span>
+                    <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-1.5 py-0.5 rounded">CEP Verificado</span>
+                </div>
+                
+                <!-- Frete Grátis -->
+                <div class="bg-emerald-50/90 border border-emerald-200 rounded-xl p-2 flex items-center justify-between">
+                    <div>
+                        <div class="font-bold text-emerald-900 text-[12px] flex items-center gap-1">
+                            ${truckSvgSmall} Frete Grátis (PIX)
+                        </div>
+                        <div class="text-[11px] text-emerald-700 font-medium">Prazo: 3 a 7 dias úteis (${freeDeliveryStr})</div>
+                    </div>
+                    <span class="font-extrabold text-emerald-700 text-[12px] shrink-0">R$ 0,00</span>
+                </div>
+
+                <!-- Envio Rápido / Expresso -->
+                <div class="bg-pink-50/90 border border-pink-200 rounded-xl p-2 flex items-center justify-between">
+                    <div>
+                        <div class="font-bold text-[#fe2c55] text-[12px] flex items-center gap-1">
+                            ${boltSvgSmall} Envio Rápido / Expresso
+                        </div>
+                        <div class="text-[11px] text-pink-800 font-medium">Prazo Prioritário: 1 a 3 dias (até ${expressDeliveryStr})</div>
+                    </div>
+                    <span class="font-extrabold text-[#fe2c55] text-[12px] shrink-0">R$ 39,00</span>
+                </div>
+
+                <p class="text-[10.5px] text-gray-500 text-center font-medium pt-0.5 flex items-center justify-center">${infoSvg} Selecione sua opção na tela de finalização da compra!</p>
+            </div>
+        `;
+    } catch (err) {
+        resBox.innerHTML = `<p class="text-red-500 font-medium text-[11.5px] mt-1 flex items-center">${alertSvg} Erro ao consultar o CEP. Tente novamente.</p>`;
+    }
+};
+
+window.getChatbotAnswer = function(text) {
+    const q = (text || '').toLowerCase();
+
+    // Professional SVG Icons
+    const sunSvg = `<svg class="w-4 h-4 text-amber-500 inline-block shrink-0 -mt-0.5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
+    const afternoonSvg = `<svg class="w-4 h-4 text-amber-500 inline-block shrink-0 -mt-0.5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2"></path><path d="M4.93 4.93l1.41 1.41"></path><path d="M20 12h2"></path><path d="M19.07 4.93l-1.41 1.41"></path><path d="M15.94 11.5a5 5 0 0 0-9.88 1.5 4.5 4.5 0 0 0 .94 8.9h9.44a3.5 3.5 0 0 0 2.06-6.4 5 5 0 0 0-2.56-5.5z"></path></svg>`;
+    const moonSvg = `<svg class="w-4 h-4 text-indigo-400 inline-block shrink-0 -mt-0.5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+    const truckSvg = `<svg class="w-4 h-4 text-[#fe2c55] inline-block shrink-0 -mt-0.5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>`;
+    const pixSvg = `<svg class="w-4 h-4 text-[#fe2c55] inline-block shrink-0 -mt-0.5 mr-1" viewBox="0 0 24 24" fill="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>`;
+    const boxSvg = `<svg class="w-4 h-4 text-[#fe2c55] inline-block shrink-0 -mt-0.5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>`;
+    const lockSvg = `<svg class="w-4 h-4 text-[#fe2c55] inline-block shrink-0 -mt-0.5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>`;
+    const searchSvg = `<svg class="w-4 h-4 text-[#fe2c55] inline-block shrink-0 -mt-0.5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>`;
+    const cartSvg = `<svg class="w-4 h-4 text-white inline-block shrink-0 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>`;
+
+    // Helper to get time-of-day greeting in Brasilia Standard Time (America/Sao_Paulo)
+    const getBrasiliaGreeting = function() {
+        try {
+            const bStr = new Date().toLocaleString("en-US", { timeZone: "America/Sao_Paulo", hour: "numeric", hour12: false });
+            const hour = parseInt(bStr, 10);
+            if (hour >= 5 && hour < 12) return { text: 'Bom dia', icon: sunSvg };
+            if (hour >= 12 && hour < 18) return { text: 'Boa tarde', icon: afternoonSvg };
+            return { text: 'Boa noite', icon: moonSvg };
+        } catch(e) {
+            const hour = new Date().getHours();
+            if (hour >= 5 && hour < 12) return { text: 'Bom dia', icon: sunSvg };
+            if (hour >= 12 && hour < 18) return { text: 'Boa tarde', icon: afternoonSvg };
+            return { text: 'Boa noite', icon: moonSvg };
+        }
+    };
+
+    const bGreeting = getBrasiliaGreeting();
+    const isGreetingPattern = /\b(bom dia|boa tarde|boa noite|ola|olá|oi|oii|oie|salve|tudo bem|tudo bom|opa)\b/i.test(q);
+
+    // 0. Standalone Greetings & Polite Pleasantries
+    const wordCount = q.split(/\s+/).filter(Boolean).length;
+    if (isGreetingPattern && wordCount <= 5 && !q.includes('frete') && !q.includes('pix') && !q.includes('prazo') && !q.includes('chega') && !q.includes('quanto') && !q.includes('preço') && !q.includes('preco') && !q.includes('valor')) {
+        return `<p class="font-bold text-gray-900 mb-1 flex items-center">${bGreeting.icon} Olá, ${bGreeting.text}!</p>
+                <p>Seja muito bem-vindo(a) à nossa loja! É um prazer enorme te atender com todo o carinho e atenção.</p>
+                <p class="mt-1.5 text-gray-600">Como posso ajudar você hoje? Fique à vontade para perguntar sobre nossos produtos, frete grátis, prazos de entrega ou promoções!</p>`;
+    }
+
+    if (q.includes('frete') || q.includes('envio') || (q.includes('entrega') && !q.includes('pronta')) || q.includes('gratis') || q.includes('grátis')) {
+        return `<p class="font-bold text-gray-900 mb-1 flex items-center">${truckSvg} Frete Grátis Garantido!</p>
+                <p>Todos os produtos da nossa loja possuem <strong>FRETE GRÁTIS</strong> para todo o Brasil em compras no PIX!</p>
+                <p class="mt-1 text-gray-600">O seu código de rastreamento é enviado automaticamente para o seu e-mail e atualizado na aba "Meus Pedidos" assim que o pedido for despachado.</p>`;
+    }
+    
+    if (q.includes('pix') || (q.includes('desconto') && !q.includes('produto')) || q.includes('pagamento') || q.includes('cartao') || q.includes('cartão')) {
+        return `<p class="font-bold text-gray-900 mb-1 flex items-center">${pixSvg} Pagamento no PIX com Desconto!</p>
+                <p>Pagando no PIX você garante <strong>Aprovação Imediata</strong> e o maior desconto promocional da loja.</p>
+                <p class="mt-1">Ao clicar no botão <strong>Comprar Agora</strong>, o código PIX Copia e Cola é gerado na hora em menos de 3 segundos!</p>`;
+    }
+    
+    if (q.includes('prazo') || q.includes('dias') || q.includes('chega') || q.includes('quando') || q.includes('cep') || q.includes('calcular')) {
+        return `
+            <div class="space-y-1.5">
+                <p class="font-bold text-gray-900 mb-1 flex items-center">${boxSvg} Prazos e Opções de Entrega:</p>
+                <p class="text-[12.5px] text-gray-700 leading-snug">Digite seu <strong>CEP</strong> abaixo para calcular prazos e valores de envio em tempo real:</p>
+                
+                <div class="flex items-center gap-1.5 mt-2">
+                    <input type="text" id="chatCepInput" placeholder="Ex: 01001-000" maxlength="9" class="flex-1 bg-gray-50 border border-gray-300 rounded-xl px-3 py-1.5 text-[12.5px] outline-none focus:border-[#fe2c55] text-gray-900 font-medium" oninput="window.formatChatCepInput(this)" onkeydown="if(event.key==='Enter'){window.calcChatCepShipping();}">
+                    <button onclick="window.calcChatCepShipping()" class="bg-[#fe2c55] hover:bg-[#e0264b] text-white font-extrabold text-[12px] px-3.5 py-1.5 rounded-xl shrink-0 transition-all active:scale-95 shadow-xs">
+                        Calcular
+                    </button>
+                </div>
+                
+                <div id="chatCepResult" class="hidden text-[12px]"></div>
+
+                <div class="mt-2 text-[11.5px] text-gray-500 border-t border-gray-100 pt-1.5 space-y-0.5">
+                    <p>• ${truckSvg} <strong>Frete Grátis</strong>: Entrega em 3 a 7 dias úteis (R$ 0,00)</p>
+                    <p>• ${pixSvg} <strong>Envio Rápido Expresso</strong>: Entrega priorizada de 1 a 3 dias úteis</p>
+                </div>
+            </div>
+        `;
+    }
+    
+    if (q.includes('segur') || q.includes('confia') || q.includes('garantia') || q.includes('troca') || q.includes('devolu')) {
+        return `<p class="font-bold text-gray-900 mb-1 flex items-center">${lockSvg} Compra 100% Protegida</p>
+                <p>Sua compra é intermediada com a total segurança do <strong>TikTok Shop Oficial</strong>.</p>
+                <p class="mt-1">Oferecemos <strong>Garantia Incondicional de 7 dias</strong>. Se não gostar do produto por qualquer motivo, devolvemos 100% do seu dinheiro!</p>`;
+    }
+
+    if (q.includes('rastrei') || q.includes('rastrear') || q.includes('pedido') || q.includes('codigo') || q.includes('código')) {
+        return `<p class="font-bold text-gray-900 mb-1 flex items-center">${searchSvg} Rastreio de Pedidos</p>
+                <p>Após concluir seu pedido, você receberá a página de acompanhamento com o link direto dos Correios/Transportadora em tempo real!</p>`;
+    }
+
+    const matchedProduct = window.findProductInQuery(text);
+    if (matchedProduct) {
+        let pName = matchedProduct.title || matchedProduct.product_name || 'este produto';
+        let pPrice = matchedProduct.price || matchedProduct.discounted_price || matchedProduct.discount_price || '0,00';
+        let pImg = matchedProduct.image || matchedProduct.product_image || (matchedProduct.images && matchedProduct.images[0]) || '';
+        let pId = matchedProduct.id || '';
+        let pTag = matchedProduct.discount_percent ? (matchedProduct.discount_percent.includes('-') ? matchedProduct.discount_percent : '-' + matchedProduct.discount_percent + '%') : 'OFERTA';
+        let buyLink = pId ? `<a href="produto-${pId}.html" class="mt-2.5 inline-flex items-center justify-center w-full bg-[#fe2c55] hover:bg-[#e0264b] text-white font-extrabold text-[12.5px] py-2 px-3 rounded-xl shadow-sm transition-all text-center">${cartSvg} Comprar ${pName.slice(0, 22)}... por R$ ${pPrice}</a>` : '';
+
+        if (q.includes('quanto') || q.includes('preço') || q.includes('preco') || q.includes('valor') || q.includes('custa') || q.includes('desconto')) {
+            return `
+                <div class="flex gap-2 mb-2 items-center bg-gray-50 p-2 rounded-xl border border-gray-100">
+                    <img src="${pImg}" class="w-12 h-12 object-contain rounded-lg bg-white border shrink-0">
+                    <div class="min-w-0">
+                        <p class="font-bold text-gray-900 text-[12px] truncate">${pName}</p>
+                        <span class="text-[11px] font-extrabold text-[#fe2c55]">R$ ${pPrice} (${pTag})</span>
+                    </div>
+                </div>
+                <p>O produto <strong>${pName}</strong> está com preço promocional de apenas <strong>R$ ${pPrice}</strong> com <strong>FRETE GRÁTIS</strong> e envio imediato no PIX!</p>
+                ${buyLink}
+            `;
+        }
+
+        if (q.includes('tamanho') || q.includes('cor') || q.includes('cores') || q.includes('modelo') || q.includes('variacao') || q.includes('opção')) {
+            let varsText = "vários modelos e opções disponíveis";
+            if (matchedProduct.variations) {
+                varsText = matchedProduct.variations.map(v => v.name || v.title || v).join(', ');
+            }
+            return `
+                <div class="flex gap-2 mb-2 items-center bg-gray-50 p-2 rounded-xl border border-gray-100">
+                    <img src="${pImg}" class="w-12 h-12 object-contain rounded-lg bg-white border shrink-0">
+                    <div class="min-w-0">
+                        <p class="font-bold text-gray-900 text-[12px] truncate">${pName}</p>
+                        <span class="text-[11px] text-gray-500 font-medium">Opções: ${varsText}</span>
+                    </div>
+                </div>
+                <p>Temos <strong>${pName}</strong> disponível em <strong>${varsText}</strong>. Você pode escolher seu modelo preferido na página do produto ou durante a compra!</p>
+                ${buyLink}
+            `;
+        }
+
+        return `
+            <div class="flex gap-2 mb-2 items-center bg-gray-50 p-2 rounded-xl border border-gray-100">
+                <img src="${pImg}" class="w-12 h-12 object-contain rounded-lg bg-white border shrink-0">
+                <div class="min-w-0">
+                    <p class="font-bold text-gray-900 text-[12px] truncate">${pName}</p>
+                    <span class="text-[11px] font-extrabold text-[#fe2c55]">R$ ${pPrice} (${pTag})</span>
+                </div>
+            </div>
+            <p>Sobre <strong>${pName}</strong>: Produto de altíssima qualidade, com garantia total de 7 dias, Frete Grátis e suporte completo!</p>
+            ${buyLink}
+        `;
+    }
+
+    // Default friendly response with Brasilia Greeting
+    return `<p class="font-bold text-gray-900 mb-1 flex items-center">${bGreeting.icon} Olá, ${bGreeting.text}!</p>
+            <p>Seja muito bem-vindo(a) à nossa loja! É um prazer enorme te atender com todo o carinho.</p>
+            <p class="mt-1 text-gray-600">Aproveite hoje o <strong>Frete Grátis + Desconto Exclusivo no PIX</strong> em nossa loja! Se tiver qualquer dúvida sobre prazos, produtos ou pagamentos, é só perguntar.</p>`;
+};
+
+// Intercept Chat Button Click
+document.addEventListener('click', function(e) {
+    const btn = e.target.closest('button, a');
+    if (!btn) return;
+    
+    const aria = (btn.getAttribute('aria-label') || '').toLowerCase();
+    const txt = (btn.innerText || btn.textContent || '').trim().toLowerCase();
+    const isChat = aria.includes('chat') || txt === 'mensagem' || txt.includes('mensagem') || txt.includes('chat') || txt.includes('falar com');
+    
+    if (isChat) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        window.openTikTokChatbot();
+    }
+}, true);
+</script>
+<style>
+#customCartModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f7f7f7;
+    z-index: 999999;
+    flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+#customCartHeader {
+    background: #fff;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eaeaea;
+}
+#customCartHeader h1 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    flex-grow: 1;
+    text-align: center;
+    padding-right: 40px; 
+}
+#customCartEmpty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px 40px;
+    text-align: center;
+    background: #f7f7f7;
+}
+#customCartEmpty svg {
+    width: 64px;
+    height: 64px;
+    color: #d1d5db;
+    margin-bottom: 20px;
+}
+#customCartEmpty h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    color: #111;
+}
+#customCartEmpty p {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0 0 24px 0;
+    line-height: 1.4;
+}
+#customCartBtn {
+    background: #FE2C55;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    max-width: 240px;
+}
+#customCartRecommendations {
+    padding: 0 16px 40px;
+    background: #f7f7f7;
+}
+#customCartRecommendations h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 16px 0;
+    color: #111;
+}
+.cart-rec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+.cart-rec-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+}
+.cart-rec-img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    background: #f3f4f6;
+}
+.cart-rec-info {
+    padding: 8px;
+}
+.cart-rec-title {
+    font-size: 12px;
+    color: #4b5563;
+    margin: 0 0 4px 0;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.cart-rec-price {
+    font-size: 14px;
+    font-weight: 700;
+    color: #111;
+    margin: 0;
+}
+</style>
+
+<div id="customCartModal">
+    <div id="customCartHeader">
+        <button onclick="window.closeCustomCart()" style="border:none;background:transparent;cursor:pointer;padding:8px;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <h1>Carrinho (0)</h1>
+    </div>
+
+    <div id="customCartEmpty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="2"></circle>
+            <circle cx="20" cy="21" r="2"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            <path d="M14 3l1 2 2 1-2 1-1 2-1-2-2-1 2-1z" fill="#d1d5db" stroke="none"></path>
+            <circle cx="18" cy="4" r="1" fill="#d1d5db" stroke="none"></circle>
+        </svg>
+        <h2>Seu carrinho está vazio</h2>
+        <p>Vamos enchê-lo com seus achados favoritos e ótimas ofertas!</p>
+        <button id="customCartBtn" onclick="window.closeCustomCart(); window.location.href='/loja.html'">Começar a comprar</button>
+    </div>
+
+    <div id="customCartRecommendations">
+        <h3>Você também pode gostar</h3>
+        <div class="cart-rec-grid" id="cartRecGrid">
+            <!-- Dynamic products will be injected here -->
+        </div>
+    </div>
+</div>
+
+<script>
+window.openCustomCart = function() {
+    document.getElementById('customCartModal').style.display = 'flex';
+    window.renderCartRecommendations();
+};
+
+window.closeCustomCart = function() {
+    document.getElementById('customCartModal').style.display = 'none';
+};
+
+window.renderCartRecommendations = function() {
+    const grid = document.getElementById('cartRecGrid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    
+    let products = window.ShopConfig ? window.ShopConfig.store_products : [];
+    if (!products || products.length === 0) return;
+
+    let shuffled = [...products].sort(() => 0.5 - Math.random()).slice(0, 4);
+
+    shuffled.forEach(product => {
+        let link = document.createElement('a');
+        link.href = 'produto-' + product.id + '.html';
+        link.className = 'cart-rec-card';
+
+        let html = 
+            '<img src="' + (product.image || '') + '" class="cart-rec-img" alt="">' +
+            '<div class="cart-rec-info">' +
+                '<p class="cart-rec-title">' + (product.title || product.name) + '</p>' +
+                '<p class="cart-rec-price">R$ ' + (product.price || product.discount_price || '0,00') + '</p>' +
+            '</div>';
+        
+        link.innerHTML = html;
+        grid.appendChild(link);
+    });
+};
+
+document.addEventListener('click', function(e) {
+    const btn = e.target.closest('button');
+    const isCartSvgBtn = btn && btn.innerHTML.includes('circle cx="9" cy="21"');
+    
+    if (isCartSvgBtn) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        window.openCustomCart();
+    }
+}, true);
+
+    // Ensure Loja Estrela badge is present immediately without flickering
+    function ensureLojaEstrelaBadge() {
+        const h1 = document.querySelector('h1.text-\\[15\\.5px\\], h1');
+        if (h1 && !h1.querySelector('.loja-estrela-badge')) {
+            const badge = document.createElement('span');
+            badge.className = 'loja-estrela-badge';
+            badge.style.cssText = 'background: #ffe3c2; color: #111; font-size: 11px; font-weight: 700; padding: 1px 6px; border-radius: 4px; margin-right: 6px; vertical-align: text-bottom; display: inline-block;';
+            badge.textContent = 'Loja Estrela';
+            h1.insertBefore(badge, h1.firstChild);
+        }
+    }
+    ensureLojaEstrelaBadge();
+    const badgeObserver = new MutationObserver(ensureLojaEstrelaBadge);
+    badgeObserver.observe(document.body, { childList: true, subtree: true });
+
+    // Dynamic Flash Sale Timer
+    (function() {
+        function updateTimer() {
+            var now = Math.floor(Date.now() / 1000);
+            var sc = window.ShopConfig || {};
+            var durationMins = parseInt(sc.flash_sale_timer || sc.scarcity_timer_minutes || '10', 10);
+            if (isNaN(durationMins) || durationMins <= 0) durationMins = 10;
+            var durationSecs = durationMins * 60;
+            
+            var storageKey = 'flash_sale_end_' + (sc.id || sc.product_id || 'default');
+            var storedEndTime = parseInt(localStorage.getItem(storageKey) || '0', 10);
+            var storedDuration = parseInt(localStorage.getItem(storageKey + '_dur') || '0', 10);
+            
+            if (!storedEndTime || storedEndTime <= now || (storedEndTime - now) > durationSecs || storedDuration !== durationSecs) {
+                storedEndTime = now + durationSecs;
+                localStorage.setItem(storageKey, storedEndTime);
+                localStorage.setItem(storageKey + '_dur', durationSecs);
+            }
+            
+            var remaining = Math.max(0, storedEndTime - now);
+            var h = Math.floor(remaining / 3600);
+            var m = Math.floor((remaining % 3600) / 60);
+            var s = remaining % 60;
+            
+            var formatted = '';
+            if (h > 0) {
+                formatted = (h < 10 ? '0' + h : h) + ':' + (m < 10 ? '0' + m : m) + ':' + (s < 10 ? '0' + s : s);
+            } else {
+                formatted = (m < 10 ? '0' + m : m) + ':' + (s < 10 ? '0' + s : s);
+            }
+            
+            var els = document.querySelectorAll('.flash-sale-timer-display');
+            els.forEach(function(el) {
+                el.textContent = 'Termina em ' + formatted;
+            });
+        }
+        setInterval(updateTimer, 1000);
+    })();
+</script>
+<script>
+(function() {
+    var now = new Date();
+    var d1_fg = new Date(now.getTime() + 6*24*60*60*1000);
+    var d2_fg = new Date(now.getTime() + 14*24*60*60*1000);
+    var monthNamesFull = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+    var freeShippingDateStr = 'Chegará entre ' + d1_fg.getDate() + ' e ' + d2_fg.getDate() + ' de ' + monthNamesFull[d2_fg.getMonth()];
+    
+    function applyDynamicArrival() {
+        var els = document.querySelectorAll('.frete-gratis-arrival-txt');
+        els.forEach(function(el) {
+            el.textContent = freeShippingDateStr;
+        });
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', applyDynamicArrival);
+    } else {
+        applyDynamicArrival();
+    }
+})();
+<!-- Live Visitor Tracking -->
+<script>
+(function() {
+    let sid = '';
+    try {
+        sid = localStorage.getItem('_vsid');
+        if (!sid) sid = sessionStorage.getItem('_vsid');
+    } catch(e) {}
+    if (!sid) {
+        sid = 'v_' + Math.random().toString(36).substring(2, 10) + Date.now().toString(36);
+    }
+    try {
+        localStorage.setItem('_vsid', sid);
+        sessionStorage.setItem('_vsid', sid);
+    } catch(e) {}
+
+    const page = 'index';
+    const baseUrl = '/api/track.php';
+
+    function ping() {
+        if (document.visibilityState === 'hidden') return;
+        const url = baseUrl + '?session_id=' + encodeURIComponent(sid) + '&page=' + page + '&action=ping&t=' + Date.now();
+        if (navigator.sendBeacon) {
+            navigator.sendBeacon(url);
+        } else {
+            fetch(url, { method: 'GET', keepalive: true }).catch(() => {});
+        }
+    }
+
+    function leave() {
+        const url = baseUrl + '?session_id=' + encodeURIComponent(sid) + '&page=' + page + '&action=leave&t=' + Date.now();
+        if (navigator.sendBeacon) {
+            navigator.sendBeacon(url);
+        } else {
+            fetch(url, { method: 'GET', keepalive: true }).catch(() => {});
+        }
+    }
+
+    ping();
+    setInterval(ping, 5000);
+
+    window.addEventListener('pagehide', leave);
+    window.addEventListener('beforeunload', leave);
+    document.addEventListener('visibilitychange', function() {
+        if (document.visibilityState === 'hidden') leave();
+        else if (document.visibilityState === 'visible') ping();
+    });
+})();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

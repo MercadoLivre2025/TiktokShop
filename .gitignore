@@ -1,0 +1,8 @@
+﻿# Antigo backup do Hostinger (contem credenciais antigas) - NAO suba para o GitHub
+_legacy_hostinger/
+.env
+.env.*
+!.env.example
+.vercel/
+node_modules/
+*.log

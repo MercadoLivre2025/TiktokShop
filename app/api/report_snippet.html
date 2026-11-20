@@ -1,0 +1,87 @@
+﻿<div id="reportSheetOverlay" class="fixed inset-0 bg-transparent z-[9999] hidden transition-opacity opacity-0" onclick="closeReportSheet()"></div>
+<div id="reportSheet" class="fixed bottom-0 left-0 right-0 bg-white rounded-t-xl z-[10000] transform translate-y-full transition-transform duration-300" style="padding-bottom: env(safe-area-inset-bottom);">
+    <div class="p-4">
+        <button onclick="openReportModal()" class="w-full flex items-center gap-3 py-3 px-2 active:bg-gray-100 rounded-lg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
+            <span class="text-[15px] font-semibold text-gray-800">Denunciar</span>
+        </button>
+    </div>
+</div>
+
+<div id="reportModalOverlay" class="fixed inset-0 bg-transparent z-[10001] hidden flex items-end justify-center transition-opacity opacity-0" onclick="if(event.target===this) closeReportModal()">
+    <div id="reportModal" class="bg-white w-full h-[85vh] rounded-t-2xl transform translate-y-full transition-transform duration-300 flex flex-col relative">
+        <div class="flex items-center justify-between p-4 border-b border-gray-100">
+            <div class="w-8"></div>
+            <h2 class="text-[17px] font-bold text-gray-900">Denunciar</h2>
+            <button onclick="closeReportModal()" class="w-8 h-8 flex items-center justify-center rounded-full active:bg-gray-100 text-gray-500">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+        </div>
+        <div class="flex-1 overflow-y-auto p-6 flex flex-col items-center pt-16">
+            <div class="w-[72px] h-[72px] rounded-full bg-[#F5F5F5] flex items-center justify-center mb-6">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#20D58C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h3 class="text-[17px] font-bold text-gray-900 mb-3">Agradecemos por denunciar</h3>
+            <p class="text-center text-[#555] text-[14px] leading-relaxed px-2">
+                Analisaremos sua denúncia e faremos o necessário se houver violação das Diretrizes de Registro de Produtos da Loja do TikTok.
+            </p>
+        </div>
+        <div class="p-4 pb-8">
+            <button onclick="closeReportModal()" class="w-full bg-[#FE2C55] text-white font-bold text-[15px] py-3.5 rounded-sm active:scale-[0.98] transition-transform">
+                Concluído
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+function openReportSheet() {
+    const sheet = document.getElementById('reportSheet');
+    const overlay = document.getElementById('reportSheetOverlay');
+    overlay.classList.remove('hidden');
+    // trigger reflow
+    void overlay.offsetWidth;
+    overlay.classList.remove('opacity-0');
+    sheet.classList.remove('translate-y-full');
+}
+
+function closeReportSheet() {
+    const sheet = document.getElementById('reportSheet');
+    const overlay = document.getElementById('reportSheetOverlay');
+    overlay.classList.add('opacity-0');
+    sheet.classList.add('translate-y-full');
+    setTimeout(() => {
+        overlay.classList.add('hidden');
+    }, 300);
+}
+
+function openReportModal() {
+    closeReportSheet();
+    setTimeout(() => {
+        const modal = document.getElementById('reportModal');
+        const overlay = document.getElementById('reportModalOverlay');
+        overlay.classList.remove('hidden');
+        // trigger reflow
+        void overlay.offsetWidth;
+        overlay.classList.remove('opacity-0');
+        modal.classList.remove('translate-y-full');
+    }, 50); // slight delay to allow sheet to close
+}
+
+function closeReportModal() {
+    const modal = document.getElementById('reportModal');
+    const overlay = document.getElementById('reportModalOverlay');
+    overlay.classList.add('opacity-0');
+    modal.classList.add('translate-y-full');
+    setTimeout(() => {
+        overlay.classList.add('hidden');
+    }, 300);
+}
+// Attach to window so react can call it
+window.openReportSheet = window.openReportSheet || openReportSheet;
+</script>
+
+
+
+
+

