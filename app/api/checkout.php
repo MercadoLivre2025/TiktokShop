@@ -269,9 +269,7 @@ if (!empty($payberry_sk) || !empty($payberry_pk)) {
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_POST => true,
             CURLOPT_POSTFIELDS => json_encode($payberry_payload),
-            CURLOPT_SSL_VERIFYPEER => false,
-            CURLOPT_SSL_VERIFYHOST => false,
-            CURLOPT_TIMEOUT => 15,
+            CURLOPT_TIMEOUT => 20,
             CURLOPT_HTTPHEADER => [
                 'Content-Type: application/json',
                 'Accept: application/json',
@@ -363,9 +361,12 @@ if (empty($qr_code)) {
     }
 }
 
-// Fallback to 100% BACEN Compliant EMVCo Standard PIX Payload with exact CRC16-CCITT checksum
+// Sem fallback: um PIX gerado para uma chave que nao e sua faria o cliente pagar a outra pessoa.
 if (empty($qr_code)) {
-    $qr_code = build_bacen_pix_emv_payload($amount, 'ORD' . $order_id);
+    error_log('checkout: Payberry nao retornou QR Code. Confira as chaves em /admin/gateway.php');
+    http_response_code(502);
+    echo json_encode(['error' => 'Nao foi possivel gerar o PIX agora. Tente novamente em instantes.']);
+    exit;
 }
 
 if (empty($qr_image)) {

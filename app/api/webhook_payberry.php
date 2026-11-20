@@ -23,12 +23,12 @@ if (empty($transaction_id)) {
 if ($status === 'PAID' || $status === 'CONFIRMED' || $status === 'APPROVED') {
     try {
         // Update Order
-        $stmt = $pdo->prepare("UPDATE orders SET status = 'PAID' WHERE transaction_id = ? OR id = ?");
-        $stmt->execute([$transaction_id, (int)$transaction_id]);
+        $stmt = $pdo->prepare("UPDATE orders SET status = 'PAID' WHERE transaction_id = ?");
+        $stmt->execute([(string)$transaction_id]);
 
         // Update Customer Status
-        $stmtCust = $pdo->prepare("UPDATE customers SET status = 'pago' WHERE id IN (SELECT id FROM orders WHERE transaction_id = ? OR id = ?)");
-        $stmtCust->execute([$transaction_id, (int)$transaction_id]);
+        $stmtCust = $pdo->prepare("UPDATE customers SET status = 'pago' WHERE id = (SELECT c.id FROM customers c JOIN orders o ON (c.cpf = o.customer_document OR c.phone = o.customer_phone) WHERE o.transaction_id = ? ORDER BY c.id DESC LIMIT 1)");
+        $stmtCust->execute([(string)$transaction_id]);
 
         echo json_encode(['status' => 'success', 'paid' => true]);
         exit;
