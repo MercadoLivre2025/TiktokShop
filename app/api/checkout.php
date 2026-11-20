@@ -320,7 +320,38 @@ if (!empty($payberry_sk) || !empty($payberry_pk)) {
                 }
             }
         }
-    } catch (Throwable $e) { $pb_debug = 'exception: ' . $e->getMessage(); }
+        // O QR Code pode vir vazio na criacao; consulta a transacao ate ficar pronto
+        if (empty($qr_code) && !empty($pb_data['data'][0]['id'])) {
+            $pb_id = $pb_data['data'][0]['id'];
+            for ($try = 0; $try < 8 && empty($qr_code); $try++) {
+                usleep(1000000);
+                $ch_info = curl_init('https://api.payberry.com.br/v1/payment-transaction/info/' . rawurlencode($pb_id));
+                curl_setopt_array($ch_info, [
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_TIMEOUT => 10,
+                    CURLOPT_HTTPHEADER => ['Accept: application/json', 'Authorization: Basic ' . $auth_basic]
+                ]);
+                $info_raw = curl_exec($ch_info);
+                curl_close($ch_info);
+                $info = json_decode((string)$info_raw, true);
+                $pb_debug = 'info: ' . mb_substr((string)$info_raw, 0, 1500);
+                if (is_array($info)) {
+                    $find = function($arr, $key) use (&$find) {
+                        if (!is_array($arr)) return null;
+                        if (!empty($arr[$key]) && is_string($arr[$key])) return $arr[$key];
+                        foreach ($arr as $v) { if (is_array($v) && ($r = $find($v, $key))) return $r; }
+                        return null;
+                    };
+                    $code = $find($info, 'qr_code');
+                    if ($code && strlen($code) > 20) {
+                        $qr_code = $code;
+                        $img = $find($info, 'url');
+                        if ($img) $qr_image = $img;
+                        $transaction_id = $pb_id;
+                    }
+                }
+            }
+        }    } catch (Throwable $e) { $pb_debug = 'exception: ' . $e->getMessage(); }
 }
 
 // Check if generic custom Gateway API is configured in settings
