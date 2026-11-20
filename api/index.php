@@ -4,7 +4,13 @@
 // Substitui o .htaccess do Apache.
 
 $app = dirname(__DIR__) . '/app';
-$p = trim((string)($_GET['__p'] ?? ''), '/');
+$raw = (string)($_GET['__p'] ?? '');
+$p = trim($raw, '/');
+// /admin -> /admin/ (redirects relativos como login.php precisam da barra final)
+if ($p === 'admin' && substr($raw, -1) !== '/') {
+    header('Location: /admin/', true, 301);
+    exit;
+}
 unset($_GET['__p']);
 $_REQUEST = $_GET + $_POST;
 $_SERVER['QUERY_STRING'] = http_build_query($_GET);
