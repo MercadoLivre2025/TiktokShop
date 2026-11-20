@@ -211,7 +211,7 @@ if ($is_ajax) {
 }
 
 // Redirect direct browser navigation to products page
-header('Location: /admin/products.php');
+header('Location: products.php');
 exit;
 if ($do_save && !empty($_POST['title']) && !empty($_POST['price'])) {
     check_auth();
@@ -249,7 +249,7 @@ if ($do_save && !empty($_POST['title']) && !empty($_POST['price'])) {
     ]);
 
     compile_static_site($pdo);
-    header('Location: /admin/products.php?imported=1');
+    header('Location: products.php?imported=1');
     exit;
 }
 

@@ -126,7 +126,7 @@ if ($is_ajax) {
 }
 
 // Redirect direct browser navigation to products importer
-header('Location: /admin/import_ml.php');
+header('Location: import_ml.php');
 exit;
 if ($do_save_reviews && $target_prod_id > 0 && !empty($_POST['reviews_json_payload'])) {
     check_auth();
@@ -134,7 +134,7 @@ if ($do_save_reviews && $target_prod_id > 0 && !empty($_POST['reviews_json_paylo
     $stmt = $pdo->prepare("UPDATE products SET reviews_json = ? WHERE id = ?");
     $stmt->execute([$revs_payload, $target_prod_id]);
     compile_static_site($pdo);
-    header("Location: /admin/products.php?reviews_saved=1");
+    header("Location: products.php?reviews_saved=1");
     exit;
 }
 
