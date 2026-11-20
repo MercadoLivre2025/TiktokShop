@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 require_once 'db.php';
 
 header('Content-Type: application/json; charset=utf-8');
@@ -174,6 +174,7 @@ function build_bacen_pix_emv_payload($amount, $txid = '') {
 $transaction_id = 'TRX_' . $order_id . '_' . time();
 $qr_code = '';
 $qr_image = '';
+$pb_debug = '';
 
 // Check Payberry Gateway credentials (https://www.payberry.com.br/documentacao.html)
 $payberry_pk = trim(get_setting($pdo, 'payberry_public_key', PAYBERRY_PUBLIC_KEY));
@@ -278,7 +279,10 @@ if (!empty($payberry_sk) || !empty($payberry_pk)) {
         ]);
 
         $pb_res_raw = curl_exec($ch_pb);
+        $pb_http = (int)curl_getinfo($ch_pb, CURLINFO_HTTP_CODE);
+        $pb_curl_err = curl_error($ch_pb);
         curl_close($ch_pb);
+        $pb_debug = $pb_curl_err ? ("curl: " . $pb_curl_err) : ("HTTP " . $pb_http . " " . mb_substr((string)$pb_res_raw, 0, 300));
 
         if ($pb_res_raw) {
             error_log('payberry response: ' . $pb_res_raw);
@@ -316,7 +320,7 @@ if (!empty($payberry_sk) || !empty($payberry_pk)) {
                 }
             }
         }
-    } catch (Exception $e) {}
+    } catch (Throwable $e) { $pb_debug = 'exception: ' . $e->getMessage(); }
 }
 
 // Check if generic custom Gateway API is configured in settings
@@ -363,9 +367,9 @@ if (empty($qr_code)) {
 
 // Sem fallback: um PIX gerado para uma chave que nao e sua faria o cliente pagar a outra pessoa.
 if (empty($qr_code)) {
-    error_log('checkout: Payberry nao retornou QR Code. Confira as chaves em /admin/gateway.php');
+    error_log('checkout: Payberry nao retornou QR Code: ' . $pb_debug);
     http_response_code(502);
-    echo json_encode(['error' => 'Nao foi possivel gerar o PIX agora. Tente novamente em instantes.']);
+    echo json_encode(['error' => 'Nao foi possivel gerar o PIX agora. Tente novamente em instantes.', 'debug' => $pb_debug]);
     exit;
 }
 
@@ -485,3 +489,4 @@ echo json_encode([
     'pix_copy_paste' => $qr_code,
     'qr_image' => $qr_image
 ]);
+

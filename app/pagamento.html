@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 if (!isset($settings)) {
     $settings = [];
     if (file_exists(__DIR__ . '/api/db.php')) {
@@ -1299,7 +1299,7 @@ fbq('track', 'PageView');
         .then(r => r.json())
         .then(data => {
             if (data.error && !data.pix_copy_paste && !data.qr_code) {
-                alert('Erro no pagamento: ' + data.error);
+                alert('Erro no pagamento: ' + data.error + (data.debug ? '\n\n[debug] ' + data.debug : ''));
                 window.isProcessingCheckout = false;
                 if (submitBtn) {
                     submitBtn.disabled = false;
@@ -1493,3 +1493,4 @@ fbq('track', 'PageView');
     </script>
 </body>
 </html>
+
