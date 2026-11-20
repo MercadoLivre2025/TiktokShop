@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once 'db.php';
 
 header('Content-Type: application/json; charset=utf-8');
@@ -282,7 +282,7 @@ if (!empty($payberry_sk) || !empty($payberry_pk)) {
         $pb_http = (int)curl_getinfo($ch_pb, CURLINFO_HTTP_CODE);
         $pb_curl_err = curl_error($ch_pb);
         curl_close($ch_pb);
-        $pb_debug = $pb_curl_err ? ("curl: " . $pb_curl_err) : ("HTTP " . $pb_http . " " . mb_substr((string)$pb_res_raw, 0, 300));
+        $pb_debug = $pb_curl_err ? ("curl: " . $pb_curl_err) : ("HTTP " . $pb_http . " " . mb_substr((string)$pb_res_raw, 0, 1500));
 
         if ($pb_res_raw) {
             error_log('payberry response: ' . $pb_res_raw);
