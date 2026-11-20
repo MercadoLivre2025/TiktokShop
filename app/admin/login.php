@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../api/db.php';
 session_start();
 if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true) {
-    header('Location: index.php');
+    header('Location: /admin/index.php');
     exit;
 }
 
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['admin_logged_in'] = true;
         $_SESSION['admin_id'] = $user['id'];
-        header('Location: index.php');
+        header('Location: /admin/index.php');
         exit;
     } else {
         $error = "Usuário ou senha inválidos.";
