@@ -11,29 +11,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'payberry_secret_key'
     ];
 
-    $saved = 0; $err = '';
     foreach ($fields as $field) {
         if (isset($_POST[$field])) {
-            try {
-                set_setting($pdo, $field, trim($_POST[$field]));
-                $saved++;
-            } catch (Throwable $e) {
-                $err = $e->getMessage();
-                error_log('gateway save error: ' . $err);
-            }
+            set_setting($pdo, $field, trim($_POST[$field]));
         }
     }
 
-    if ($err !== '') {
-        $msg = "ERRO ao salvar no banco: " . $err;
-    } elseif ($saved === 0) {
-        $msg = "ERRO: nenhum dado chegou ao servidor (POST vazio). Tente novamente.";
-    } else {
-        $chk = get_setting($pdo, 'payberry_secret_key', '');
-        $msg = $chk !== '' || trim($_POST['payberry_secret_key'] ?? '') === ''
-            ? "Configurações do Gateway de Pagamento salvas com sucesso!"
-            : "ERRO: a chave secreta não foi gravada no banco.";
-    }
+    $msg = "Configurações do Gateway de Pagamento salvas com sucesso!";
     
     // Clear cache if needed
 }

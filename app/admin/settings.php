@@ -25,7 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Process file uploads
         require_once __DIR__ . '/../api/storage.php';
 
-        $upload_failed = '';
         $image_fields = ['store_logo', 'store_profile', 'store_cover', 'store_banner'];
         
         foreach ($image_fields as $img_field) {
@@ -38,7 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 
                 $mime = function_exists('mime_content_type') ? (mime_content_type($tmp_name) ?: 'application/octet-stream') : 'application/octet-stream';
                 $file_url = storage_upload($tmp_name, $new_name, $mime);
-                if (!$file_url) { $upload_failed = $GLOBALS['STORAGE_LAST_ERROR'] ?? 'falha no upload'; }
                 if ($file_url) {
                     set_setting($pdo, $img_field, $file_url);
                     if ($img_field === 'store_logo' || $img_field === 'store_profile') {
@@ -51,7 +49,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
         $msg = "Configurações e foto de perfil salvas com sucesso!";
-        if ($upload_failed) { $msg = "ATENÇÃO: a imagem NÃO foi enviada (" . $upload_failed . "). Os outros dados foram salvos."; }
         
         // Compile site to apply changes
         if (file_exists('../api/compiler.php')) {

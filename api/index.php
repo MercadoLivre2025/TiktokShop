@@ -15,11 +15,12 @@ unset($_GET['__p']);
 $_REQUEST = $_GET + $_POST;
 $_SERVER['QUERY_STRING'] = http_build_query($_GET);
 
-function route_prepare(string $app, string $rel, string $uri) {
+function route_run(string $app, string $rel, string $uri) {
     $target = $app . '/' . $rel;
     $_SERVER['SCRIPT_NAME'] = $_SERVER['PHP_SELF'] = $uri;
     chdir(dirname($target));
-    return $target;
+    require $target;
+    exit;
 }
 
 function not_found() {
@@ -34,10 +35,10 @@ if (strpos($p, '..') !== false || strpos($p, "\0") !== false) not_found();
 
 // 1) Rotas "bonitas" (equivalentes ao .htaccess)
 if ($p === '' || $p === 'index' || $p === 'index.html' || $p === 'index.php') {
-    require route_prepare($app, 'index.php', '/index.php'); exit;
+    route_run($app, 'index.php', '/index.php');
 }
 if ($p === 'data/config.js') {
-    require route_prepare($app, 'api/config_js.php', '/api/config_js.php'); exit;
+    route_run($app, 'api/config_js.php', '/api/config_js.php');
 }
 if ($p === 'data/products.json') {
     require $app . '/api/db.php';
@@ -50,16 +51,16 @@ if ($p === 'data/products.json') {
 }
 if (preg_match('#^(?:produto-|produto_|p_)(\d+)(?:\.html)?$#', $p, $m)) {
     $_GET['id'] = $_REQUEST['id'] = $m[1];
-    require route_prepare($app, 'produto.php', '/produto.php'); exit;
+    route_run($app, 'produto.php', '/produto.php');
 }
 if (preg_match('#^produto_[A-Za-z0-9_-]+(?:\.html)?$#', $p)) {
-    require route_prepare($app, 'produto.php', '/produto.php'); exit;
+    route_run($app, 'produto.php', '/produto.php');
 }
 if (preg_match('#^loja(?:\.html|\.php)?$#', $p)) {
-    require route_prepare($app, 'loja.php', '/loja.php'); exit;
+    route_run($app, 'loja.php', '/loja.php');
 }
 if (preg_match('#^pagamento(?:\.html|\.php)?/?$#', $p)) {
-    require route_prepare($app, 'pagamento.php', '/pagamento.php'); exit;
+    route_run($app, 'pagamento.php', '/pagamento.php');
 }
 
 // 2) Painel admin e API: apenas arquivos .php existentes (sem bibliotecas internas)
@@ -74,7 +75,7 @@ if (substr($rel, -4) !== '.php') $rel .= '.php';
 if (preg_match('#^(admin|api)/[A-Za-z0-9_\-]+\.php$#', $rel)
     && !in_array($rel, $blocked, true)
     && is_file($app . '/' . $rel)) {
-    require route_prepare($app, $rel, '/' . $rel); exit;
+    route_run($app, $rel, '/' . $rel);
 }
 
 not_found();

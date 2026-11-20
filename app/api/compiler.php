@@ -21,9 +21,6 @@ function get_db_settings($pdo) {
             $settings[$row['setting_key']] = $row['setting_value'];
         }
     } catch(Exception $e) {}
-    // Logo fixo da loja (ignora o que estiver salvo no banco)
-    $settings['store_logo'] = '/assets/logo-loja-bf.webp';
-    $settings['store_profile'] = '/assets/logo-loja-bf.webp';
     return $settings;
 }
 
