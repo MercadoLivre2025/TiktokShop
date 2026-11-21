@@ -8,7 +8,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fields = [
         'gateway_mode',
         'payberry_public_key',
-        'payberry_secret_key'
+        'payberry_secret_key',
+        'blackpay_api_key',
+        'blackpay_webhook_secret'
     ];
 
     foreach ($fields as $field) {
@@ -40,6 +42,7 @@ function val($key, $default = '') {
 $host = $_SERVER['HTTP_HOST'] ?? 'ultimateshop.online';
 $webhookUrl = 'https://' . $host . '/api/webhook_payberry.php';
 $gatewayMode = val('gateway_mode', 'payberry');
+$bpWebhookUrl = 'https://' . $host . '/api/webhook_blackpay.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -102,8 +105,35 @@ $gatewayMode = val('gateway_mode', 'payberry');
                                     <p class="text-xs text-gray-500 mt-1">Gera o payload PIX nativo instantâneo sem depender de API externa.</p>
                                 </div>
                             </label>
+                            <label class="border-2 rounded-xl p-4 cursor-pointer transition-all flex items-start gap-3 <?= $gatewayMode === 'blackpay' ? 'border-black bg-gray-100' : 'border-gray-200 hover:border-gray-300' ?>">
+                                <input type="radio" name="gateway_mode" value="blackpay" <?= $gatewayMode === 'blackpay' ? 'checked' : '' ?> class="mt-1">
+                                <div>
+                                    <h3 class="font-bold text-gray-900 text-sm">BlackPay Gateway</h3>
+                                    <p class="text-xs text-gray-500 mt-1">Gera PIX pela API BlackPay e confirma pagamentos por webhook assinado (HMAC).</p>
+                                </div>
+                            </label>
                         </div>
                     </div>
+
+                    <div class="bg-white p-6 rounded-2xl shadow-xs border border-gray-200 space-y-4">
+                        <h2 class="text-base font-bold text-gray-900 border-b pb-3">⚫ Credenciais BlackPay (https://blackpays.site/docs)</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Chave da API</label>
+                                <input type="password" name="blackpay_api_key" placeholder="bp_live_..." value="<?= val('blackpay_api_key') ?>" class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm font-mono outline-none">
+                                <p class="text-[11px] text-gray-500 mt-1">Painel BlackPay → API &amp; Webhooks → Chaves.</p>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Segredo do Webhook</label>
+                                <input type="password" name="blackpay_webhook_secret" placeholder="whsec_..." value="<?= val('blackpay_webhook_secret') ?>" class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm font-mono outline-none">
+                                <p class="text-[11px] text-gray-500 mt-1">Usado para validar a assinatura X-BlackPay-Signature.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">URL do Webhook</label>
+                            <input type="text" readonly value="<?= htmlspecialchars($bpWebhookUrl) ?>" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm font-mono text-gray-700 outline-none">
+                            <p class="text-[11px] text-gray-500 mt-1">Cadastre em Painel BlackPay → API &amp; Webhooks → Webhook.</p>
+                        </div>                    </div>
 
                     <!-- Payberry API Credentials Card -->
                     <div class="bg-white p-6 rounded-2xl shadow-xs border border-gray-200 space-y-4">

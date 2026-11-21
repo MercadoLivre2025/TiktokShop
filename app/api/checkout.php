@@ -184,8 +184,59 @@ if (empty($payberry_sk)) $payberry_sk = PAYBERRY_SECRET_KEY;
 
 $gateway_mode = trim(get_setting($pdo, 'gateway_mode', 'payberry'));
 
+// ── BLACKPAY GATEWAY (https://blackpays.site/docs) ──
+if ($gateway_mode === 'blackpay') {
+    $bp_key = trim(get_setting($pdo, 'blackpay_api_key', ''));
+    if ($bp_key !== '') {
+        try {
+            $bp_cents = max(200, (int)round((float)$amount * 100));
+            $bp_doc = preg_replace('/\D/', '', $customer_document);
+            $bp_payload = [
+                'amountCents' => $bp_cents,
+                'description' => mb_substr($product_title, 0, 180),
+                'customerName' => $customer_name,
+                'customerEmail' => $customer_email,
+                'customerPhone' => $customer_phone,
+                'customerDocument' => $bp_doc,
+                'externalRef' => (string)$order_id,
+            ];
+            $bp_tracking = [];
+            foreach (['src', 'sck', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'] as $k) {
+                if (!empty($input[$k])) $bp_tracking[$k] = (string)$input[$k];
+            }
+            if ($bp_tracking) $bp_payload['tracking'] = $bp_tracking;
+
+            $ch_bp = curl_init('https://blackpays.site/api/public/v1/pix');
+            curl_setopt_array($ch_bp, [
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_POST => true,
+                CURLOPT_POSTFIELDS => json_encode($bp_payload),
+                CURLOPT_TIMEOUT => 15,
+                CURLOPT_HTTPHEADER => [
+                    'Content-Type: application/json',
+                    'Accept: application/json',
+                    'Authorization: Bearer ' . $bp_key
+                ]
+            ]);
+            $bp_raw = curl_exec($ch_bp);
+            curl_close($ch_bp);
+            if ($bp_raw) {
+                error_log('blackpay response: ' . $bp_raw);
+                $bp_data = json_decode($bp_raw, true);
+                if (is_array($bp_data) && !empty($bp_data['pixCopyPaste'])) {
+                    $qr_code = $bp_data['pixCopyPaste'];
+                    if (!empty($bp_data['qrCodeBase64'])) {
+                        $qr_image = 'data:image/png;base64,' . $bp_data['qrCodeBase64'];
+                    }
+                    if (!empty($bp_data['id'])) $transaction_id = $bp_data['id'];
+                }
+            }
+        } catch (Exception $e) {}
+    }
+}
+
 // Execute Payberry API Call (https://www.payberry.com.br/documentacao.html)
-if (!empty($payberry_sk) || !empty($payberry_pk)) {
+if ($gateway_mode !== 'blackpay' && (!empty($payberry_sk) || !empty($payberry_pk))) {
     try {
         $amount_cents = (int)round((float)$amount * 100);
         if ($amount_cents <= 0) $amount_cents = 19900;
