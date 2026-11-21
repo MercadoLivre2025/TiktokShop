@@ -65,6 +65,21 @@ if ($p === $adminPrefix || strpos($p, $adminPrefix . '/') === 0) {
     not_found();
 }
 
+// Chave geral ON/OFF (admin > Protecao). OFF = loja em manutencao para TODOS os visitantes.
+// Admin e webhooks de pagamento continuam funcionando.
+if (empty($isAdminAccess) && !preg_match('#^api/webhook_[A-Za-z0-9_]+(\.php)?$#', $p)) {
+    require_once $app . '/api/db.php';
+    if (get_setting($pdo, 'site_enabled', '1') === '0') {
+        http_response_code(503);
+        header('Retry-After: 3600');
+        header('Cache-Control: no-store');
+        header('X-Robots-Tag: noindex');
+        header('Content-Type: text/html; charset=utf-8');
+        echo '<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Em manutencao</title><style>body{font-family:system-ui,sans-serif;display:flex;min-height:100vh;align-items:center;justify-content:center;margin:0;background:#f8fafc;color:#334155;text-align:center}h1{font-size:22px;margin:0 0 8px}p{margin:0;color:#64748b}</style></head><body><div><h1>Estamos em manutencao</h1><p>Voltamos em breve.</p></div></body></html>';
+        exit;
+    }
+}
+
 // 1) Rotas "bonitas" (equivalentes ao .htaccess)
 if ($p === '' || $p === 'index' || $p === 'index.html' || $p === 'index.php') {
     // Dominio seco: redireciona para a pagina definida no admin (Protecao)

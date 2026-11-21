@@ -4,7 +4,11 @@ check_auth();
 
 $msg = '';
 $err = '';
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['toggle_site'])) {
+    $on = ($_POST['site_enabled'] ?? '0') === '1';
+    set_setting($pdo, 'site_enabled', $on ? '1' : '0');
+    $msg = $on ? 'Sistema ATIVADO (loja online).' : 'Sistema DESATIVADO (loja em manutencao).';
+} elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $url = trim($_POST['home_redirect_url'] ?? '');
     if ($url !== '' && !preg_match('#^https?://[^\s]+$#i', $url)) {
         $err = 'URL inválida. Use o formato https://exemplo.com/pagina (ou deixe vazio para desativar).';
@@ -15,6 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $current = get_setting($pdo, 'home_redirect_url', '');
+$siteOn = get_setting($pdo, 'site_enabled', '1') !== '0';
 $host = $_SERVER['HTTP_HOST'] ?? '';
 ?>
 <!DOCTYPE html>
@@ -39,6 +44,16 @@ $host = $_SERVER['HTTP_HOST'] ?? '';
 
                 <?php if ($msg): ?><div class="bg-emerald-50 text-emerald-800 p-4 rounded-xl font-medium border border-emerald-200">✅ <?= htmlspecialchars($msg) ?></div><?php endif; ?>
                 <?php if ($err): ?><div class="bg-red-50 text-red-800 p-4 rounded-xl font-medium border border-red-200">⚠️ <?= htmlspecialchars($err) ?></div><?php endif; ?>
+
+                <form method="POST" class="bg-white p-6 rounded-2xl border <?= $siteOn ? 'border-emerald-300' : 'border-red-300' ?> flex items-center justify-between gap-4">
+                    <div>
+                        <h2 class="text-sm font-bold text-gray-900">Chave geral do sistema: <span class="<?= $siteOn ? 'text-emerald-600' : 'text-red-600' ?>"><?= $siteOn ? 'ON (online)' : 'OFF (manutencao)' ?></span></h2>
+                        <p class="text-[11px] text-gray-500 mt-1">OFF: todos os visitantes veem a pagina de manutencao (503). O admin e os webhooks de pagamento continuam funcionando.</p>
+                    </div>
+                    <input type="hidden" name="toggle_site" value="1">
+                    <input type="hidden" name="site_enabled" value="<?= $siteOn ? '0' : '1' ?>">
+                    <button type="submit" class="<?= $siteOn ? 'bg-red-600 hover:bg-red-700' : 'bg-emerald-600 hover:bg-emerald-700' ?> text-white px-6 py-2.5 rounded-xl font-bold text-sm whitespace-nowrap"><?= $siteOn ? 'Desativar' : 'Ativar' ?></button>
+                </form>
 
                 <form method="POST" class="bg-white p-6 rounded-2xl border border-gray-200 space-y-4">
                     <div>
