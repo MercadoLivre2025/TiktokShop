@@ -3,6 +3,7 @@
 // vercel.json reescreve  /qualquer/caminho  ->  /api/index.php?__p=qualquer/caminho
 // Substitui o .htaccess do Apache.
 
+header_remove('X-Powered-By');
 $app = dirname(__DIR__) . '/app';
 $p = trim((string)($_GET['__p'] ?? ''), '/');
 unset($_GET['__p']);
@@ -28,6 +29,26 @@ if (strpos($p, '..') !== false || strpos($p, "\0") !== false) not_found();
 
 require_once $app . '/api/config.php';
 
+// Protecao: scanners, rate limit e bloqueio de bots (webhooks de gateways ficam isentos)
+require_once $app . '/guard/guard.php';
+if (!preg_match('#^api/webhook_[A-Za-z0-9_]+(\.php)?$#', $p)) {
+    // Caminhos de scanners/arquivos sensiveis: banem o IP e respondem 404
+    if (preg_match('#(^|/)(\.env|\.git|\.htaccess|wp-login\.php|wp-admin|xmlrpc\.php|phpmyadmin|vendor|composer\.(json|lock)|supabase|_legacy_hostinger)(/|$)#i', $p)) {
+        Guard::ban();
+        not_found();
+    }
+    Guard::protect();
+}
+
+// URLs amigaveis de produto: /produto/12  ou  /produto/12-nome-do-produto
+if (preg_match('#^produto/(\d+)(?:-[A-Za-z0-9\-]*)?/?$#', $p, $m)) {
+    $_GET['id'] = $_REQUEST['id'] = $m[1];
+    ob_start(function ($html) { // links relativos da pagina continuam apontando para a raiz
+        return preg_replace('#<head([^>]*)>#i', '<head$1><base href="/">', $html, 1);
+    });
+    require route_prepare($app, 'produto.php', '/produto.php'); exit;
+}
+
 // 0) Painel admin protegido: so abre em /{ADMIN_PATH}/ ; /admin e /admin/* ficam 404
 $adminPrefix = ADMIN_PATH;
 if ($p === $adminPrefix || strpos($p, $adminPrefix . '/') === 0) {
@@ -38,6 +59,8 @@ if ($p === $adminPrefix || strpos($p, $adminPrefix . '/') === 0) {
     $rest = trim(substr($p, strlen($adminPrefix)), '/');
     $p = 'admin' . ($rest !== '' ? '/' . $rest : '');
     $isAdminAccess = true;
+    header('X-Robots-Tag: noindex, nofollow, noarchive');
+    header('Cache-Control: no-store');
 } elseif ($p === 'admin' || strpos($p, 'admin/') === 0) {
     not_found();
 }
