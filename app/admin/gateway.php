@@ -10,7 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'payberry_public_key',
         'payberry_secret_key',
         'blackpay_api_key',
-        'blackpay_webhook_secret'
+        'blackpay_webhook_secret',
+        'lulapay_token'
     ];
 
     foreach ($fields as $field) {
@@ -42,6 +43,7 @@ function val($key, $default = '') {
 $host = $_SERVER['HTTP_HOST'] ?? 'ultimateshop.online';
 $webhookUrl = 'https://' . $host . '/api/webhook_payberry.php';
 $gatewayMode = val('gateway_mode', 'payberry');
+$lpWebhookUrl = 'https://' . $host . '/api/webhook_lulapay.php';
 $bpWebhookUrl = 'https://' . $host . '/api/webhook_blackpay.php';
 ?>
 <!DOCTYPE html>
@@ -105,6 +107,13 @@ $bpWebhookUrl = 'https://' . $host . '/api/webhook_blackpay.php';
                                     <p class="text-xs text-gray-500 mt-1">Gera o payload PIX nativo instantâneo sem depender de API externa.</p>
                                 </div>
                             </label>
+                            <label class="border-2 rounded-xl p-4 cursor-pointer transition-all flex items-start gap-3 <?= $gatewayMode === 'lulapay' ? 'border-purple-600 bg-purple-50' : 'border-gray-200 hover:border-gray-300' ?>">
+                                <input type="radio" name="gateway_mode" value="lulapay" <?= $gatewayMode === 'lulapay' ? 'checked' : '' ?> class="mt-1">
+                                <div>
+                                    <h3 class="font-bold text-gray-900 text-sm">LulaPay Gateway</h3>
+                                    <p class="text-xs text-gray-500 mt-1">Gera PIX pela API LulaPay e confirma pagamentos por webhook assinado.</p>
+                                </div>
+                            </label>
                             <label class="border-2 rounded-xl p-4 cursor-pointer transition-all flex items-start gap-3 <?= $gatewayMode === 'blackpay' ? 'border-black bg-gray-100' : 'border-gray-200 hover:border-gray-300' ?>">
                                 <input type="radio" name="gateway_mode" value="blackpay" <?= $gatewayMode === 'blackpay' ? 'checked' : '' ?> class="mt-1">
                                 <div>
@@ -135,6 +144,19 @@ $bpWebhookUrl = 'https://' . $host . '/api/webhook_blackpay.php';
                             <p class="text-[11px] text-gray-500 mt-1">Cadastre em Painel BlackPay → API &amp; Webhooks → Webhook.</p>
                         </div>                    </div>
 
+                    <div class="bg-white p-6 rounded-2xl shadow-xs border border-gray-200 space-y-4">
+                        <h2 class="text-base font-bold text-gray-900 border-b pb-3">🌙 Credenciais LulaPay (https://www.lulapay.app/docs.php)</h2>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Token da API</label>
+                            <input type="password" name="lulapay_token" placeholder="gwk_..." value="<?= val('lulapay_token') ?>" class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm font-mono outline-none">
+                            <p class="text-[11px] text-gray-500 mt-1">Painel LulaPay → API. Também é o segredo usado para validar o webhook.</p>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">URL do Webhook</label>
+                            <input type="text" readonly value="<?= htmlspecialchars($lpWebhookUrl) ?>" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm font-mono text-gray-700 outline-none">
+                            <p class="text-[11px] text-gray-500 mt-1">Enviada automaticamente em cada cobrança; não precisa cadastrar.</p>
+                        </div>
+                    </div>
                     <!-- Payberry API Credentials Card -->
                     <div class="bg-white p-6 rounded-2xl shadow-xs border border-gray-200 space-y-4">
                         <div class="flex items-center justify-between border-b pb-3">

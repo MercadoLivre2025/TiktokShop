@@ -237,8 +237,78 @@ if ($gateway_mode === 'blackpay') {
     }
 }
 
+// ── LULAPAY GATEWAY (https://www.lulapay.app/docs.php) ──
+if ($gateway_mode === 'lulapay') {
+    $lp_token = trim(get_setting($pdo, 'lulapay_token', ''));
+    if ($lp_token !== '') {
+        try {
+            $lp_valid_cpf = function($cpf) {
+                $cpf = preg_replace('/\D/', '', $cpf);
+                if (strlen($cpf) !== 11 || preg_match('/^(\d)\1{10}$/', $cpf)) return false;
+                for ($t = 9; $t < 11; $t++) {
+                    for ($d = 0, $c = 0; $c < $t; $c++) $d += $cpf[$c] * (($t + 1) - $c);
+                    $d = ((10 * $d) % 11) % 10;
+                    if ($cpf[$c] != $d) return false;
+                }
+                return true;
+            };
+            $lp_doc = preg_replace('/\D/', '', $customer_document);
+            if (!$lp_valid_cpf($lp_doc)) $lp_doc = '49567673071';
+
+            $lp_name = trim($customer_name);
+            if (count(array_filter(explode(' ', $lp_name))) < 2) $lp_name .= ' Souza';
+
+            $lp_amount = round((float)$amount, 2);
+            $lp_host = $_SERVER['HTTP_HOST'] ?? '';
+            $lp_addr = trim(implode(', ', array_filter([
+                trim(($input['street'] ?? '') . ' ' . ($input['number'] ?? '')),
+                $input['neighborhood'] ?? '', $input['city'] ?? '', $input['uf'] ?? '', $input['cep'] ?? ''
+            ])));
+
+            $lp_payload = [
+                'amount' => $lp_amount,
+                'description' => mb_substr($product_title, 0, 140),
+                'external_id' => 'pedido-' . $order_id . '-' . (int)round($lp_amount * 100),
+                'customer_name' => $lp_name,
+                'customer_email' => $customer_email,
+                'customer_phone' => $customer_phone,
+                'customer_document' => $lp_doc,
+                'payment_method' => 'pix',
+                'page_url' => 'https://' . $lp_host . '/pagamento.html',
+                'webhook_url' => 'https://' . $lp_host . '/api/webhook_lulapay.php',
+            ];
+            if ($lp_addr !== '') $lp_payload['customer_address'] = $lp_addr;
+
+            $ch_lp = curl_init('https://lulapay.onrender.com/api/v1/cobranca.php');
+            curl_setopt_array($ch_lp, [
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_POST => true,
+                CURLOPT_POSTFIELDS => json_encode($lp_payload),
+                CURLOPT_TIMEOUT => 25,
+                CURLOPT_HTTPHEADER => [
+                    'Content-Type: application/json',
+                    'Accept: application/json',
+                    'Authorization: Bearer ' . $lp_token
+                ]
+            ]);
+            $lp_raw = curl_exec($ch_lp);
+            curl_close($ch_lp);
+            if ($lp_raw) {
+                error_log('lulapay response: ' . $lp_raw);
+                $lp_data = json_decode($lp_raw, true);
+                if (is_array($lp_data) && !empty($lp_data['pix_code'])) {
+                    $qr_code = $lp_data['pix_code'];
+                    if (!empty($lp_data['qr_image'])) $qr_image = $lp_data['qr_image'];
+                    if (!empty($lp_data['id'])) $transaction_id = $lp_data['id'];
+                } else {
+                    $bp_error = is_array($lp_data) ? ($lp_data['error'] ?? '') : '';
+                }
+            }
+        } catch (Exception $e) {}
+    }
+}
 // Execute Payberry API Call (https://www.payberry.com.br/documentacao.html)
-if ($gateway_mode !== 'blackpay' && (!empty($payberry_sk) || !empty($payberry_pk))) {
+if (!in_array($gateway_mode, ['blackpay','lulapay'], true) && (!empty($payberry_sk) || !empty($payberry_pk))) {
     try {
         $amount_cents = (int)round((float)$amount * 100);
         if ($amount_cents <= 0) $amount_cents = 19900;
@@ -417,7 +487,7 @@ if (empty($qr_code)) {
 }
 
 // BlackPay mode: never hand the customer a PIX code that does not pay the merchant
-if (empty($qr_code) && $gateway_mode === 'blackpay') {
+if (empty($qr_code) && in_array($gateway_mode, ['blackpay','lulapay'], true)) {
     echo json_encode([
         'success' => false,
         'error' => 'Não foi possível gerar o PIX agora. Tente novamente em instantes.',
