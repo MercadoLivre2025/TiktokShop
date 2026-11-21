@@ -229,6 +229,8 @@ if ($gateway_mode === 'blackpay') {
                         $qr_image = 'data:image/png;base64,' . $bp_data['qrCodeBase64'];
                     }
                     if (!empty($bp_data['id'])) $transaction_id = $bp_data['id'];
+                } else {
+                    $bp_error = is_array($bp_data) ? ($bp_data['message'] ?? $bp_data['error'] ?? '') : '';
                 }
             }
         } catch (Exception $e) {}
@@ -412,6 +414,16 @@ if (empty($qr_code)) {
             }
         } catch (Exception $e) {}
     }
+}
+
+// BlackPay mode: never hand the customer a PIX code that does not pay the merchant
+if (empty($qr_code) && $gateway_mode === 'blackpay') {
+    echo json_encode([
+        'success' => false,
+        'error' => 'Não foi possível gerar o PIX agora. Tente novamente em instantes.',
+        'gateway_error' => $bp_error ?? ''
+    ]);
+    exit;
 }
 
 // Fallback to 100% BACEN Compliant EMVCo Standard PIX Payload with exact CRC16-CCITT checksum
