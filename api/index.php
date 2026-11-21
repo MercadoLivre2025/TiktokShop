@@ -26,8 +26,32 @@ function not_found() {
 // Seguranca: caminhos invalidos
 if (strpos($p, '..') !== false || strpos($p, "\0") !== false) not_found();
 
+require_once $app . '/api/config.php';
+
+// 0) Painel admin protegido: so abre em /{ADMIN_PATH}/ ; /admin e /admin/* ficam 404
+$adminPrefix = ADMIN_PATH;
+if ($p === $adminPrefix || strpos($p, $adminPrefix . '/') === 0) {
+    $uriPath = parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) ?: '';
+    if ($p === $adminPrefix && substr($uriPath, -1) !== '/') {
+        header('Location: /' . $adminPrefix . '/', true, 302); exit; // links relativos do painel exigem a barra final
+    }
+    $rest = trim(substr($p, strlen($adminPrefix)), '/');
+    $p = 'admin' . ($rest !== '' ? '/' . $rest : '');
+    $isAdminAccess = true;
+} elseif ($p === 'admin' || strpos($p, 'admin/') === 0) {
+    not_found();
+}
+
 // 1) Rotas "bonitas" (equivalentes ao .htaccess)
 if ($p === '' || $p === 'index' || $p === 'index.html' || $p === 'index.php') {
+    // Dominio seco: redireciona para a pagina definida no admin (Protecao)
+    require_once $app . '/api/db.php';
+    $homeRedirect = trim(get_setting($pdo, 'home_redirect_url', ''));
+    if ($homeRedirect !== '' && preg_match('#^https?://#i', $homeRedirect)) {
+        header('Location: ' . $homeRedirect, true, 302);
+        header('Cache-Control: no-store');
+        exit;
+    }
     require route_prepare($app, 'index.php', '/index.php'); exit;
 }
 if ($p === 'data/config.js') {
@@ -62,8 +86,9 @@ $blocked = [
     'api/clear_products.php', 'admin/sidebar.php',
 ];
 $rel = $p;
-if ($rel === 'admin' || substr($rel, -6) === '/admin') $rel = 'admin/index.php';
-if (substr($rel, -4) !== '.php') $rel .= '.php';
+if ($rel === 'admin') $rel = 'admin/index.php';
+if (substr($rel, -4) !== '.php' && substr($rel, -1) !== '/') $rel .= '.php';
+if (substr($rel, -1) === '/') $rel .= 'index.php';
 
 if (preg_match('#^(admin|api)/[A-Za-z0-9_\-]+\.php$#', $rel)
     && !in_array($rel, $blocked, true)

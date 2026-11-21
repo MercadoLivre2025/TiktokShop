@@ -1,6 +1,6 @@
 <?php
 $current_page = basename($_SERVER['PHP_SELF']);
-$is_config_active = in_array($current_page, ['settings.php', 'pixels.php', 'gateway.php', 'import_ml.php', 'import_reviews_ml.php']);
+$is_config_active = in_array($current_page, ['settings.php', 'pixels.php', 'gateway.php', 'protecao.php', 'import_ml.php', 'import_reviews_ml.php']);
 ?>
 <style>
     .admin-sidebar-bg {
@@ -93,6 +93,7 @@ $is_config_active = in_array($current_page, ['settings.php', 'pixels.php', 'gate
                     <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
                     <span>Gateway / Pagamentos</span>
                 </a>
+                <a href="protecao.php" class="admin-nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium <?= ($current_page === 'protecao.php') ? 'admin-nav-link-active' : 'text-gray-300 hover:bg-white/10 hover:text-white' ?>"><span>🛡️ Proteção / Redirecionamento</span></a>
             </div>
         </div>
 
@@ -190,6 +191,7 @@ $is_config_active = in_array($current_page, ['settings.php', 'pixels.php', 'gate
                         <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
                         <span>Gateway / Pagamentos</span>
                     </a>
+                <a href="protecao.php" class="admin-nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium <?= ($current_page === 'protecao.php') ? 'admin-nav-link-active' : 'text-gray-300 hover:bg-white/10 hover:text-white' ?>"><span>🛡️ Proteção / Redirecionamento</span></a>
                 </div>
             </div>
 

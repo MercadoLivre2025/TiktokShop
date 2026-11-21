@@ -16,4 +16,6 @@ define('SUPABASE_SERVICE_ROLE_KEY', env_value('SUPABASE_SERVICE_ROLE_KEY'));
 define('SUPABASE_BUCKET', env_value('SUPABASE_BUCKET', 'uploads'));
 define('PAYBERRY_PUBLIC_KEY', env_value('PAYBERRY_PUBLIC_KEY'));
 define('PAYBERRY_SECRET_KEY', env_value('PAYBERRY_SECRET_KEY'));
+// Caminho secreto do painel: https://seudominio/CODIGO/  (/admin puro retorna 404). Defina ADMIN_PATH na Vercel para trocar.
+define('ADMIN_PATH', trim(env_value('ADMIN_PATH', 'painel-600b7c1ad843'), '/'));
 define('ADMIN_INITIAL_PASSWORD', env_value('ADMIN_PASSWORD', 'admin'));
